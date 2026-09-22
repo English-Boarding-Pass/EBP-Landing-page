@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import { Barcode } from "./barcode";
 import { Perforation } from "./perforation";
-import { Button } from "@/components/ui/button";
+import { WaitlistButton } from "@/components/waitlist/waitlist-dialog";
+import type { WaitlistRoute } from "@/lib/waitlist";
 
 export type RouteFact = {
   icon: ReactNode;
@@ -20,7 +21,7 @@ export function RouteCard({
   departsLabel,
   departs,
   ctaLabel,
-  ctaHref,
+  ctaRoute,
 }: {
   code: string;
   flagLabel: string;
@@ -33,7 +34,7 @@ export function RouteCard({
   departsLabel: string;
   departs: string;
   ctaLabel: string;
-  ctaHref: string;
+  ctaRoute: WaitlistRoute;
 }) {
   return (
     <article className="flex w-full flex-col overflow-hidden rounded-card border border-navy/10 bg-white shadow-[0_1px_2px_rgba(11,25,86,0.04),0_12px_32px_-16px_rgba(11,25,86,0.18)] sm:flex-row">
@@ -73,9 +74,9 @@ export function RouteCard({
         </dl>
 
         <div className="mt-2">
-          <Button href={ctaHref} variant="primary" size="md">
+          <WaitlistButton route={ctaRoute} variant="primary" size="md">
             {ctaLabel}
-          </Button>
+          </WaitlistButton>
         </div>
       </div>
 

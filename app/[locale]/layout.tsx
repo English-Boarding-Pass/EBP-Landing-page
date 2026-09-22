@@ -40,7 +40,14 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} dir="ltr" className={fontVariables}>
+    // Browser extensions often add attributes to <html> before React loads;
+    // this silences that one-level mismatch without hiding real ones below.
+    <html
+      lang={locale}
+      dir="ltr"
+      className={fontVariables}
+      suppressHydrationWarning
+    >
       <body className="min-h-screen bg-ivory font-body text-navy antialiased">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

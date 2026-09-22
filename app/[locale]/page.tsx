@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/sections/testimonials";
 import { Teachers } from "@/components/sections/teachers";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
+import { WaitlistProvider } from "@/components/waitlist/waitlist-dialog";
 
 export default async function HomePage({
   params,
@@ -19,7 +20,7 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <>
+    <WaitlistProvider>
       <SiteHeader />
       <main id="main-content">
         <Hero />
@@ -32,6 +33,6 @@ export default async function HomePage({
         <FinalCta />
       </main>
       <SiteFooter />
-    </>
+    </WaitlistProvider>
   );
 }

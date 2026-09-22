@@ -9,7 +9,7 @@
     "pricing": "Fees",
     "teachers": "Teachers",
     "faq": "FAQ",
-    "bookSeat": "Book my seat",
+    "bookSeat": "Join the waitlist",
     "skipToContent": "Skip to content"
   },
   "hero": {
@@ -17,7 +17,7 @@
     "title": "English that takes you places.",
     "titleAccent": "places.",
     "subtitle": "Want to speak English with confidence? Learn live, online, with experienced Sri Lankan teachers — taught in the language you already think in.",
-    "cta": "Book my seat",
+    "cta": "Join the waitlist",
     "ctaSecondary": "See how it works",
     "trustPoints": [
       "Live Sri Lankan teachers",
@@ -33,8 +33,7 @@
       "columns": {
         "route": "ROUTE",
         "duration": "DURATION",
-        "classes": "CLASSES",
-        "seats": "SEATS"
+        "classes": "CLASSES"
       }
     }
   },
@@ -50,7 +49,7 @@
     },
     "seatsRemaining": "seats left",
     "departsLabel": "Next cohort departs",
-    "cta": "Reserve this route",
+    "cta": "Join the waitlist",
     "sinhala": {
       "code": "SIN → ENG",
       "flagLabel": "සි",
@@ -94,7 +93,7 @@
     "regularPrice": "Rs 40,000",
     "earlyBirdLabel": "Early-bird — first cohort only",
     "earlyBirdPrice": "Rs 20,000",
-    "cta": "Reserve seat — Rs 20,000",
+    "cta": "Join the waitlist",
     "fine": "Covers all 40 live classes, class materials, and your certificate. Seats confirmed on payment."
   },
   "testimonials": {
@@ -173,7 +172,7 @@
   "finalCta": {
     "title": "Ready for takeoff?",
     "subtitle": "Seats are limited to keep every class small enough that you actually get heard.",
-    "cta": "Book my seat"
+    "cta": "Join the waitlist"
   },
   "footer": {
     "tagline": "English That Takes You Places.",
@@ -200,31 +199,34 @@
       "rights": "All rights reserved."
     }
   },
-  "checkIn": {
-    "eyebrow": "Check-in",
-    "title": "You're almost at the gate.",
-    "subtitle": "Create your account to lock in your seat. Full booking and payment open shortly — you'll be first to know.",
-    "routeLabel": "Route",
-    "changeRoute": "Change route",
-    "whatsappCta": "Or message us on WhatsApp instead",
-    "backHome": "Back to home",
-    "routes": {
-      "sinhala": "Sinhala to English",
-      "tamil": "Tamil to English"
+  "waitlist": {
+    "title": "Join the waitlist",
+    "subtitle": "Our class platform is still being built. Leave your details and we'll contact you the moment seats open — early-bird price included.",
+    "close": "Close",
+    "nameLabel": "Full name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone number",
+    "phoneHint": "We'll call or WhatsApp you when seats open.",
+    "routeLegend": "Which course do you want?",
+    "submit": "Join the waitlist",
+    "submitting": "Adding you…",
+    "privacy": "We'll only use your details to tell you about English Boarding Pass. Unsubscribe any time.",
+    "successTitle": "You're on the list.",
+    "successBody": "We've sent a confirmation to {email}. The moment seats open, you'll be the first to know.",
+    "done": "Done",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter a valid phone number, e.g. 077 123 4567.",
+      "route": "Please choose a course.",
+      "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp."
     },
-    "auth": {
-      "loginTab": "Log in",
-      "signupTab": "Sign up",
-      "nameLabel": "Full name",
-      "emailLabel": "Email",
-      "whatsappLabel": "WhatsApp number",
-      "passwordLabel": "Password",
-      "loginSubmit": "Log in",
-      "signupSubmit": "Create account",
-      "haveAccount": "Already have an account? Log in",
-      "needAccount": "New here? Sign up",
-      "successTitle": "You're on the list.",
-      "successBody": "Accounts aren't live just yet — the moment check-in opens, we'll text and WhatsApp you to finish booking your seat."
+    "email": {
+      "subject": "You're on the English Boarding Pass waitlist",
+      "greeting": "Hi {name},",
+      "body": "Thanks for joining the English Boarding Pass waitlist. Our class platform is still being built — the moment seats open, we'll email you first so you can grab the early-bird price.",
+      "routeLine": "Route you picked: {route}",
+      "signoff": "See you on board,"
     }
   }
 }

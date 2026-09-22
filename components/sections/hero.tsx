@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { CheckCircle } from "iconoir-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { WaitlistButton } from "@/components/waitlist/waitlist-dialog";
 import { DepartureBoard } from "@/components/boarding-pass/departure-board";
 
 export function Hero() {
@@ -41,9 +42,9 @@ export function Hero() {
             longer translations, but it doesn't rearrange itself.
           */}
           <div className="mt-9 flex flex-col items-start gap-3">
-            <Button href="/check-in" variant="accent" size="lg">
+            <WaitlistButton variant="accent" size="lg">
               {t("cta")}
-            </Button>
+            </WaitlistButton>
             <Button href="#how-it-works" variant="outline-inverted" size="lg">
               {t("ctaSecondary")}
             </Button>
@@ -62,7 +63,8 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="flex justify-center lg:justify-end">
+        {/* Nudged past the container edge on wide screens; kept small at lg so it never clips. */}
+        <div className="flex justify-center lg:translate-x-4 lg:justify-end xl:translate-x-12">
           <DepartureBoard
             label={t("board.label")}
             gate={t("board.gate")}
@@ -73,7 +75,6 @@ export function Hero() {
               route: t("board.columns.route"),
               duration: t("board.columns.duration"),
               classes: t("board.columns.classes"),
-              seats: t("board.columns.seats"),
             }}
             rows={[
               {
@@ -81,14 +82,12 @@ export function Hero() {
                 route: tRoutes("sinhala.name"),
                 duration: tRoutes("facts.duration"),
                 classes: "40",
-                seats: tRoutes.raw("sinhala.seats") as number,
               },
               {
                 code: tRoutes("tamil.code"),
                 route: tRoutes("tamil.name"),
                 duration: tRoutes("facts.duration"),
                 classes: "40",
-                seats: tRoutes.raw("tamil.seats") as number,
               },
             ]}
           />
