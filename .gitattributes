@@ -1,0 +1,12 @@
+# Use LF everywhere (matches Prettier). Without this, Windows checkouts with
+# core.autocrlf=true get CRLF files, and the git hooks fail to run in sh.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
