@@ -1,0 +1,105 @@
+name: PR title & summary
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-title-summary-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  summary:
+    name: AI summary
+    # Only when the PR is first opened. Forks and Dependabot don't get repo secrets
+    # or a writable token, so skip them.
+    if: >-
+      (github.event.action == 'opened' || github.event.action == 'reopened') &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      BASE_REF: ${{ github.event.pull_request.base.ref }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Write diff
+        run: |
+          git fetch origin "$BASE_REF"
+          git diff "origin/$BASE_REF...HEAD" -- . \
+            ':!package-lock.json' ':!*.lock' \
+            ':!*.svg' ':!*.png' ':!*.jpg' ':!*.jpeg' ':!*.gif' ':!*.webp' ':!*.ico' \
+            ':!dist' ':!build' ':!.next' ':!out' ':!public' \
+            > diff.txt
+          echo "diff size: $(wc -c < diff.txt) bytes"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate summary
+        run: python .github/scripts/generate_pr_summary.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Update PR
+        run: |
+          title="$(cat pr_title.txt)"
+          current_title="$(gh pr view "$PR_NUMBER" --json title -q .title)"
+          if [ -n "$title" ] && ! printf '%s' "$current_title" | grep -Eq "$TITLE_PATTERN"; then
+            gh pr edit "$PR_NUMBER" --title "$title"
+            echo "PR title set to: $title"
+          else
+            echo "Keeping current PR title: $current_title"
+          fi
+
+          body="$(gh pr view "$PR_NUMBER" --json body -q .body)"
+          if [ -z "$(printf '%s' "$body" | tr -d '[:space:]')" ]; then
+            gh pr edit "$PR_NUMBER" --body-file pr_summary.md
+            echo "PR description set to the summary."
+          else
+            gh pr comment "$PR_NUMBER" --body-file pr_summary.md
+            echo "Summary posted as a comment."
+          fi
+        env:
+          TITLE_PATTERN: '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-zA-Z0-9_.-]+\))?!?: .{1,100}$'
+
+  title:
+    name: PR title format
+    needs: summary
+    # Run even when the summary job was skipped or failed.
+    if: always()
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Check PR title
+        run: |
+          # Read the live title: the summary job may have just changed it.
+          title="$(gh pr view "$PR_NUMBER" --json title -q .title)"
+          echo "PR title: $title"
+          if printf '%s' "$title" | grep -Eq '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-zA-Z0-9_.-]+\))?!?: .{1,100}$|^(Merge|Revert) '; then
+            echo "Title follows Conventional Commits."
+            exit 0
+          fi
+          echo "::error::PR title must look like 'type(scope): subject'."
+          echo ""
+          echo "The PR title becomes the commit message on develop/main (squash merge)."
+          echo "Allowed types: feat fix docs style refactor perf test build ci chore revert"
+          echo "Examples:"
+          echo "  feat(hero): add sinhala signup button"
+          echo "  fix(nav): correct tamil menu link"
+          echo "  docs: update readme"
+          echo ""
+          echo "Edit the PR title on GitHub; this check re-runs automatically."
+          exit 1
