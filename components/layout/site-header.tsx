@@ -24,7 +24,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-navy/10 bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/90">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-navy"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-navy"
       >
         {t("skipToContent")}
       </a>
@@ -33,15 +33,12 @@ export function SiteHeader() {
           <Logo variant="inverted" size="sm" showTagline={false} />
         </a>
 
-        <nav
-          aria-label="Primary"
-          className="hidden items-center gap-5 xl:flex"
-        >
+        <nav aria-label="Primary" className="hidden items-center gap-5 xl:flex">
           {navItems.map((item) => (
             <a
               key={item.key}
               href={item.href}
-              className="shrink-0 whitespace-nowrap font-body text-sm font-medium text-white/80 transition-colors hover:text-white"
+              className="shrink-0 font-body text-sm font-medium whitespace-nowrap text-white/80 transition-colors hover:text-white"
             >
               {t(item.key)}
             </a>

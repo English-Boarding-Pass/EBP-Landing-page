@@ -31,7 +31,7 @@ export function Teachers() {
               <h3 className="mt-4 font-display text-lg font-bold text-navy">
                 {teacher.name}
               </h3>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-sky-ink">
+              <p className="mt-1 text-xs font-semibold tracking-wide text-sky-ink uppercase">
                 {teacher.role}
               </p>
               <p className="mt-3 text-sm leading-relaxed text-slate">

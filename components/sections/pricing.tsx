@@ -18,7 +18,7 @@ export function Pricing() {
 
         <div className="mx-auto mt-14 max-w-3xl overflow-hidden rounded-card border border-navy/10 bg-white shadow-[0_1px_2px_rgba(11,25,86,0.04),0_12px_32px_-16px_rgba(11,25,86,0.18)]">
           <div className="flex flex-col items-center gap-6 p-8 text-center sm:p-12">
-            <span className="inline-flex items-center rounded-full bg-sky/25 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-sky-ink">
+            <span className="inline-flex items-center rounded-full bg-sky/25 px-4 py-1.5 text-xs font-semibold tracking-[0.15em] text-sky-ink uppercase">
               {t("earlyBirdLabel")}
             </span>
 
@@ -34,7 +34,12 @@ export function Pricing() {
               </span>
             </div>
 
-            <Button href="/check-in" variant="primary" size="lg" className="mt-2">
+            <Button
+              href="/check-in"
+              variant="primary"
+              size="lg"
+              className="mt-2"
+            >
               {t("cta")}
             </Button>
 

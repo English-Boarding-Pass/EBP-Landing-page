@@ -35,7 +35,7 @@ export function Logo({
     <div className={clsx("inline-flex flex-col", className)}>
       <span
         className={clsx(
-          "font-display font-extrabold leading-[0.95] tracking-tight",
+          "font-display leading-[0.95] font-extrabold tracking-tight",
           s.word,
           inverted ? "text-white" : "text-navy",
         )}
@@ -44,7 +44,7 @@ export function Logo({
       </span>
       <span
         className={clsx(
-          "font-display font-extrabold leading-[0.95] tracking-tight",
+          "font-display leading-[0.95] font-extrabold tracking-tight",
           s.word,
           inverted ? "text-sky" : "text-sky-ink",
         )}

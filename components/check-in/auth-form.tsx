@@ -46,7 +46,7 @@ function Field({
       <div className="relative">
         <span
           aria-hidden
-          className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate/50"
+          className="pointer-events-none absolute top-1/2 left-3.5 -translate-y-1/2 text-slate/50"
         >
           {icon}
         </span>
@@ -89,15 +89,13 @@ export function AuthForm() {
         <h2 className="font-display text-xl font-bold text-navy">
           {t("successTitle")}
         </h2>
-        <p className="text-sm leading-relaxed text-slate">
-          {t("successBody")}
-        </p>
+        <p className="text-sm leading-relaxed text-slate">{t("successBody")}</p>
       </div>
     );
   }
 
   return (
-    <div className="px-6 pb-8 pt-2 sm:px-8">
+    <div className="px-6 pt-2 pb-8 sm:px-8">
       <div
         role="tablist"
         aria-label={`${t("loginTab")} / ${t("signupTab")}`}
@@ -161,7 +159,7 @@ export function AuthForm() {
             type="button"
             onClick={() => setShowPassword((v) => !v)}
             aria-label={showPassword ? "Hide password" : "Show password"}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate/50 hover:text-navy"
+            className="absolute top-1/2 right-3 -translate-y-1/2 text-slate/50 hover:text-navy"
           >
             {showPassword ? (
               <EyeClosed className="size-4" aria-hidden />
@@ -171,7 +169,12 @@ export function AuthForm() {
           </button>
         </Field>
 
-        <Button type="submit" variant="primary" size="md" className="mt-1 w-full">
+        <Button
+          type="submit"
+          variant="primary"
+          size="md"
+          className="mt-1 w-full"
+        >
           {tab === "login" ? t("loginSubmit") : t("signupSubmit")}
         </Button>
       </form>

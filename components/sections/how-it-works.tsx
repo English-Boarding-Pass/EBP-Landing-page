@@ -36,7 +36,7 @@ export function HowItWorks() {
               {i < steps.length - 1 ? (
                 <span
                   aria-hidden
-                  className="absolute right-[-1.35rem] top-1/2 hidden -translate-y-1/2 font-board text-lg text-navy/15 sm:block"
+                  className="absolute top-1/2 right-[-1.35rem] hidden -translate-y-1/2 font-board text-lg text-navy/15 sm:block"
                 >
                   →
                 </span>

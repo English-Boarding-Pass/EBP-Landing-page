@@ -47,7 +47,7 @@ export default async function CheckInPage({
       <Container className="max-w-md">
         <div className="overflow-hidden rounded-card border border-white/10 bg-white shadow-[0_24px_64px_-24px_rgba(0,0,0,0.6)]">
           <div className="flex flex-col gap-4 p-8 pb-6 text-center">
-            <p className="font-board text-xs font-semibold uppercase tracking-[0.25em] text-sky-ink">
+            <p className="font-board text-xs font-semibold tracking-[0.25em] text-sky-ink uppercase">
               {t("eyebrow")}
             </p>
             <h1 className="font-display text-2xl font-extrabold text-navy">
@@ -60,7 +60,7 @@ export default async function CheckInPage({
             {routeLabel ? (
               <div className="mt-2 flex items-center justify-between rounded-xl bg-ice px-4 py-3 text-left">
                 <div>
-                  <p className="font-board text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-ink">
+                  <p className="font-board text-[10px] font-semibold tracking-[0.2em] text-sky-ink uppercase">
                     {t("routeLabel")}
                   </p>
                   <p className="font-display text-sm font-bold text-navy">

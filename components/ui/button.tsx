@@ -1,8 +1,13 @@
 import { clsx } from "clsx";
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ReactNode,
+} from "react";
 import { Link } from "@/i18n/navigation";
 
-type Variant = "primary" | "accent" | "secondary" | "ghost" | "outline-inverted";
+type Variant =
+  "primary" | "accent" | "secondary" | "ghost" | "outline-inverted";
 type Size = "md" | "lg";
 
 const base =
@@ -68,7 +73,10 @@ export function Button({
   }
 
   return (
-    <button className={classes} {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}>
+    <button
+      className={classes}
+      {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
+    >
       {children}
     </button>
   );

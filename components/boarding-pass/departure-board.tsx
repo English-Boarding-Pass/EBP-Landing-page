@@ -31,26 +31,29 @@ export function DepartureBoard({
   return (
     <div className="w-full max-w-md rounded-card border border-white/10 bg-[#060d33] p-5 shadow-[0_24px_64px_-24px_rgba(0,0,0,0.6)] sm:p-6">
       <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <span className="font-board text-xs font-semibold uppercase tracking-[0.25em] text-sky">
+        <span className="font-board text-xs font-semibold tracking-[0.25em] text-sky uppercase">
           {label}
         </span>
-        <span className="flex size-2.5 animate-pulse rounded-full bg-sky" aria-hidden />
+        <span
+          className="flex size-2.5 animate-pulse rounded-full bg-sky"
+          aria-hidden
+        />
       </div>
 
       <div className="grid grid-cols-2 gap-4 border-b border-white/10 py-4 font-board text-xs">
         <div>
-          <p className="uppercase tracking-[0.2em] text-white/40">{gate}</p>
+          <p className="tracking-[0.2em] text-white/40 uppercase">{gate}</p>
           <p className="mt-1 text-sm font-semibold text-white">{gateValue}</p>
         </div>
         <div>
-          <p className="uppercase tracking-[0.2em] text-white/40">{status}</p>
+          <p className="tracking-[0.2em] text-white/40 uppercase">{status}</p>
           <p className="mt-1 text-sm font-semibold text-sky">{statusValue}</p>
         </div>
       </div>
 
       <table className="mt-4 w-full font-board text-[11px] sm:text-xs">
         <thead>
-          <tr className="text-left uppercase tracking-[0.15em] text-white/40">
+          <tr className="text-left tracking-[0.15em] text-white/40 uppercase">
             <th className="pb-2 font-medium">{columns.route}</th>
             <th className="pb-2 font-medium">{columns.duration}</th>
             <th className="pb-2 font-medium">{columns.classes}</th>

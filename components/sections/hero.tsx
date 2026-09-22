@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-navy pb-20 pt-14 sm:pb-28 sm:pt-20"
+      className="relative overflow-hidden bg-navy pt-14 pb-20 sm:pt-20 sm:pb-28"
     >
       <div
         aria-hidden
@@ -21,10 +21,10 @@ export function Hero() {
       />
       <Container className="relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div>
-          <p className="font-board text-xs font-semibold uppercase tracking-[0.25em] text-sky">
+          <p className="font-board text-xs font-semibold tracking-[0.25em] text-sky uppercase">
             {t("eyebrow")}
           </p>
-          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
             {t("title")}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">

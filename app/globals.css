@@ -21,11 +21,14 @@
   */
   --color-brand-sky-ink: #2563a8;
 
-  --font-display: var(--font-manrope), var(--font-noto-si), var(--font-noto-ta),
+  --font-display:
+    var(--font-manrope), var(--font-noto-si), var(--font-noto-ta),
     ui-sans-serif, sans-serif;
-  --font-body: var(--font-dm-sans), var(--font-noto-si), var(--font-noto-ta),
+  --font-body:
+    var(--font-dm-sans), var(--font-noto-si), var(--font-noto-ta),
     ui-sans-serif, sans-serif;
-  --font-board: var(--font-mono-board), ui-monospace, "SFMono-Regular", monospace;
+  --font-board:
+    var(--font-mono-board), ui-monospace, "SFMono-Regular", monospace;
 }
 
 @theme inline {
