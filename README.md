@@ -30,6 +30,8 @@ Until the class platform is built, every "Join the waitlist" button opens a popu
 
 A signup only shows an error when both step 1 and step 3 failed, so a key with "Sending access" only still works: signups then reach the inbox but not the contact list.
 
+The confirmation email's design lives in [lib/emails/waitlist-confirmation.ts](lib/emails/waitlist-confirmation.ts) and its text in the `waitlist.email` keys of `messages/*.json`. Until a domain is verified at [resend.com/domains](https://resend.com/domains), Resend's test sender can only deliver to the Resend account's own address, so in practice only the admin email (step 3) arrives; step 2 fails and is logged.
+
 Copy [.env.example](.env.example) to `.env.local` and fill it in; on Vercel, add the same variables under **Settings → Environment Variables**. Without `RESEND_API_KEY`, the form still works locally (signups are only logged to the terminal) but shows an error in production.
 
 ## Git hooks & CI

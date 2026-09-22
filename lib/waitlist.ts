@@ -3,6 +3,7 @@
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { addContact, isResendConfigured, sendEmail } from "@/lib/resend";
+import { waitlistConfirmationEmail } from "@/lib/emails/waitlist-confirmation";
 
 export type WaitlistRoute = "sinhala" | "tamil";
 
@@ -61,7 +62,10 @@ export async function joinWaitlist(
     : routing.defaultLocale;
 
   // Honeypot: real people never see or fill this field. Pretend it worked.
-  if (field(formData, "company")) {
+  // Its name must not look like anything browser autofill knows (e.g.
+  // "company"), or real signups get silently dropped.
+  if (field(formData, "ebp_hp_field")) {
+    console.warn("[waitlist] Honeypot filled — ignoring signup", values.email);
     return { status: "success", email: values.email };
   }
 
@@ -78,13 +82,16 @@ export async function joinWaitlist(
     return { status: "error", error: "invalidRoute", values };
   }
 
+  const routeLabel =
+    values.route === "sinhala" ? "Sinhala to English" : "Tamil to English";
+
   if (!isResendConfigured()) {
     if (process.env.NODE_ENV === "production") {
       console.error("[waitlist] RESEND_API_KEY is not set");
       return { status: "error", error: "generic", values };
     }
     // Local dev without a key: let the UI flow be tested end to end.
-    console.warn("[waitlist] RESEND_API_KEY not set — skipping Resend", values);
+    console.warn("[waitlist] RESEND_API_KEY not set — skipping send", values);
     return { status: "success", email: values.email };
   }
 
@@ -98,19 +105,35 @@ export async function joinWaitlist(
 
   const t = await getTranslations({ locale, namespace: "waitlist.email" });
   const tRoutes = await getTranslations({ locale, namespace: "routes" });
-  const routeName = tRoutes(`${values.route}.name`);
-  const paragraphs = [
-    t("greeting", { name: firstName }),
-    t("body"),
-    t("routeLine", { route: routeName }),
-  ];
-  const signoff = t("signoff");
+  const tPricing = await getTranslations({ locale, namespace: "pricing" });
+  const email = waitlistConfirmationEmail(
+    {
+      subject: t("subject"),
+      preheader: t("preheader"),
+      eyebrow: t("eyebrow"),
+      heading: t("heading", { name: firstName }),
+      body: t("body"),
+      passenger: t("passenger"),
+      route: t("route"),
+      status: t("status"),
+      statusValue: t("statusValue"),
+      departs: t("departs"),
+      earlyBird: t("earlyBird", { price: tPricing("earlyBirdPrice") }),
+      replyHint: t("replyHint"),
+      signoff: t("signoff"),
+      footer: t("footer"),
+    },
+    {
+      name: values.name,
+      routeCode: tRoutes(`${values.route}.code`),
+      routeName: tRoutes(`${values.route}.name`),
+      departs: tRoutes(`${values.route}.departs`),
+    },
+  );
 
   const confirmation = sendEmail({
     to: values.email,
-    subject: t("subject"),
-    text: `${paragraphs.join("\n\n")}\n\n${signoff}\nEnglish Boarding Pass`,
-    html: `${paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join("")}<p>${escapeHtml(signoff)}<br>English Boarding Pass</p>`,
+    ...email,
     replyTo: process.env.WAITLIST_NOTIFY_EMAIL,
   });
 
@@ -121,8 +144,7 @@ export async function joinWaitlist(
       ["Name", values.name],
       ["Email", values.email],
       ["Phone", values.phone],
-      ["Route", routeName],
-      ["Language", locale],
+      ["Route", routeLabel],
     ];
     notification = sendEmail({
       to: notify.split(",").map((s) => s.trim()),
