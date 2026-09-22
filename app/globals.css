@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/*
+  EBP brand tokens — sourced from "EBP - Brand Guidelines.pdf".
+  Keep hex values in sync with that document; do not introduce new brand
+  colors here without updating the guideline first.
+*/
+:root {
+  --color-brand-navy: #0b1956; /* Deep Navy — main brand color, typography */
+  --color-brand-slate: #26344d; /* Slate Navy — secondary text / supporting elements */
+  --color-brand-sky: #9cccf6; /* Sky Blue — primary accent, text on dark UI */
+  --color-brand-ice: #eaf5fc; /* Ice Blue — light backgrounds */
+  --color-brand-ivory: #f8f3ea; /* Warm Ivory — neutral backgrounds */
+
+  /*
+    Sky Blue reads at ~1.7:1 on white — well under WCAG AA. This is a
+    darker working shade of the same hue for text, links, and icon
+    strokes on light backgrounds (6.1:1 on white, 5.5:1 on Ivory). The
+    literal brand swatch stays reserved for dark UI, large decorative use,
+    and non-text elements, exactly as the guideline scopes it.
+  */
+  --color-brand-sky-ink: #2563a8;
+
+  --font-display: var(--font-manrope), var(--font-noto-si), var(--font-noto-ta),
+    ui-sans-serif, sans-serif;
+  --font-body: var(--font-dm-sans), var(--font-noto-si), var(--font-noto-ta),
+    ui-sans-serif, sans-serif;
+  --font-board: var(--font-mono-board), ui-monospace, "SFMono-Regular", monospace;
+}
+
+@theme inline {
+  --color-navy: var(--color-brand-navy);
+  --color-slate: var(--color-brand-slate);
+  --color-sky: var(--color-brand-sky);
+  --color-sky-ink: var(--color-brand-sky-ink);
+  --color-ice: var(--color-brand-ice);
+  --color-ivory: var(--color-brand-ivory);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-board: var(--font-board);
+
+  --radius-card: 1.25rem;
+  --radius-stub: 0.875rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  /*
+    Phase 1 ships a single light theme by design (see brand guidelines —
+    Deep Navy/Warm Ivory read as a light, editorial palette). Force
+    color-scheme so form controls and scrollbars don't mismatch a user's
+    OS dark mode.
+  */
+  :root {
+    color-scheme: light;
+  }
+}
+
+body {
+  background: var(--color-brand-ivory);
+  color: var(--color-brand-navy);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: var(--color-brand-sky);
+  color: var(--color-brand-navy);
+}
