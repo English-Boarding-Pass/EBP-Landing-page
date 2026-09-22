@@ -55,7 +55,7 @@ export function RoutesSection() {
             departsLabel={t("departsLabel")}
             departs={t("sinhala.departs")}
             ctaLabel={t("cta")}
-            ctaHref="/check-in?route=sinhala"
+            ctaRoute="sinhala"
           />
           <RouteCard
             code={t("tamil.code")}
@@ -69,7 +69,7 @@ export function RoutesSection() {
             departsLabel={t("departsLabel")}
             departs={t("tamil.departs")}
             ctaLabel={t("cta")}
-            ctaHref="/check-in?route=tamil"
+            ctaRoute="tamil"
           />
         </div>
       </div>

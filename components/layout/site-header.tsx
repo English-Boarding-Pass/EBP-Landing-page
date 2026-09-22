@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Menu, Xmark } from "iconoir-react";
 import { Logo } from "@/components/brand/logo";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { LanguageSwitch } from "@/components/layout/language-switch";
+import { WaitlistButton } from "@/components/waitlist/waitlist-dialog";
 
 const navItems = [
   { href: "#how-it-works", key: "howItWorks" } as const,
@@ -47,9 +47,9 @@ export function SiteHeader() {
 
         <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <LanguageSwitch tone="white" />
-          <Button href="/check-in" variant="accent" size="md">
+          <WaitlistButton variant="accent" size="md">
             {t("bookSeat")}
-          </Button>
+          </WaitlistButton>
         </div>
 
         <button
@@ -88,14 +88,14 @@ export function SiteHeader() {
               <LanguageSwitch tone="white" />
             </div>
             <div className="mt-3 px-3">
-              <Button
-                href="/check-in"
+              <WaitlistButton
                 variant="accent"
                 size="md"
                 className="w-full"
+                onClick={() => setOpen(false)}
               >
                 {t("bookSeat")}
-              </Button>
+              </WaitlistButton>
             </div>
           </Container>
         </div>

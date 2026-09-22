@@ -7,8 +7,7 @@
       "url": [
         "http://localhost:3000/en",
         "http://localhost:3000/si",
-        "http://localhost:3000/ta",
-        "http://localhost:3000/en/check-in"
+        "http://localhost:3000/ta"
       ],
       "numberOfRuns": 1
     },

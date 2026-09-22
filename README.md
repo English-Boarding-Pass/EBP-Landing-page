@@ -20,6 +20,18 @@ npm run dev      # http://localhost:3000
 | `npm run format`     | Format everything with Prettier                          |
 | `npm run check:i18n` | Check `en.json`, `si.json` and `ta.json` share every key |
 
+## Waitlist (Resend)
+
+Until the class platform is built, every "Join the waitlist" button opens a popup form on the same page ([components/waitlist/waitlist-dialog.tsx](components/waitlist/waitlist-dialog.tsx)) asking for name, email, phone number and route (Sinhala → English or Tamil → English). The route buttons pre-select their route. The server action in [lib/waitlist.ts](lib/waitlist.ts):
+
+1. saves the person as a [Resend](https://resend.com) contact (into `RESEND_AUDIENCE_ID` if set),
+2. emails them a confirmation in the language they used on the site,
+3. emails `WAITLIST_NOTIFY_EMAIL` with their details (name, email, phone, route), if set.
+
+A signup only shows an error when both step 1 and step 3 failed, so a key with "Sending access" only still works: signups then reach the inbox but not the contact list.
+
+Copy [.env.example](.env.example) to `.env.local` and fill it in; on Vercel, add the same variables under **Settings → Environment Variables**. Without `RESEND_API_KEY`, the form still works locally (signups are only logged to the terminal) but shows an error in production.
+
 ## Git hooks & CI
 
 ### Local git hooks
@@ -55,11 +67,11 @@ No API key is needed locally, and commit messages are free text.
 
 ### GitHub Actions
 
-| Workflow                                                  | Runs on                                 | What it does                                                                                                      |
-| --------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| [PR Check](.github/workflows/pr-check.yml)                | PRs and pushes to `develop` / `main`    | Lint, Prettier check, type check, locale key check, build, then Lighthouse on `/en`, `/si`, `/ta`, `/en/check-in` |
-| [PR title & summary](.github/workflows/pr-ai-summary.yml) | PR opened / reopened / edited / updated | On open, Gemini writes a summary and sets a Conventional Commit title. On every update, checks the title format   |
-| [Dependabot](.github/dependabot.yml)                      | Monthly                                 | One grouped PR each for npm and GitHub Actions minor/patch updates; major versions are ignored                    |
+| Workflow                                                  | Runs on                                 | What it does                                                                                                    |
+| --------------------------------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| [PR Check](.github/workflows/pr-check.yml)                | PRs and pushes to `develop` / `main`    | Lint, Prettier check, type check, locale key check, build, then Lighthouse on `/en`, `/si`, `/ta`               |
+| [PR title & summary](.github/workflows/pr-ai-summary.yml) | PR opened / reopened / edited / updated | On open, Gemini writes a summary and sets a Conventional Commit title. On every update, checks the title format |
+| [Dependabot](.github/dependabot.yml)                      | Monthly                                 | One grouped PR each for npm and GitHub Actions minor/patch updates; major versions are ignored                  |
 
 Lighthouse thresholds live in [lighthouserc.json](lighthouserc.json): accessibility and SEO must be at least 0.9 (failure), and performance and best practices at least 0.9 (warning only). Each run's report link is printed in the job log.
 

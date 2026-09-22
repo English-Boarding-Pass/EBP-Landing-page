@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Button } from "@/components/ui/button";
+import { WaitlistButton } from "@/components/waitlist/waitlist-dialog";
 
 export function Pricing() {
   const t = useTranslations("pricing");
@@ -34,14 +34,9 @@ export function Pricing() {
               </span>
             </div>
 
-            <Button
-              href="/check-in"
-              variant="primary"
-              size="lg"
-              className="mt-2"
-            >
+            <WaitlistButton variant="primary" size="lg" className="mt-2">
               {t("cta")}
-            </Button>
+            </WaitlistButton>
 
             <p className="max-w-md text-xs leading-relaxed text-slate">
               {t("fine")}
