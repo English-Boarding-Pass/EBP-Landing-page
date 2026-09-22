@@ -59,7 +59,7 @@ No API key is needed locally, and commit messages are free text.
 | --------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | [PR Check](.github/workflows/pr-check.yml)                | PRs and pushes to `develop` / `main`    | Lint, Prettier check, type check, locale key check, build, then Lighthouse on `/en`, `/si`, `/ta`, `/en/check-in` |
 | [PR title & summary](.github/workflows/pr-ai-summary.yml) | PR opened / reopened / edited / updated | On open, Gemini writes a summary and sets a Conventional Commit title. On every update, checks the title format   |
-| [Dependabot](.github/dependabot.yml)                      | Weekly                                  | npm and GitHub Actions update PRs into `develop`, with minor and patch updates grouped                            |
+| [Dependabot](.github/dependabot.yml)                      | Monthly                                 | One grouped PR each for npm and GitHub Actions minor/patch updates; major versions are ignored                    |
 
 Lighthouse thresholds live in [lighthouserc.json](lighthouserc.json): accessibility and SEO must be at least 0.9 (failure), and performance and best practices at least 0.9 (warning only). Each run's report link is printed in the job log.
 

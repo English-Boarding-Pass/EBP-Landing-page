@@ -1,26 +1,38 @@
+# Kept quiet on purpose: at most one PR per month for npm and one for GitHub Actions.
+# Major versions are ignored (they often break until Next.js supports them), so upgrade
+# those by hand when needed. Security alerts are separate and still arrive right away.
 version: 2
 updates:
   - package-ecosystem: npm
     directory: /
     target-branch: develop
     schedule:
-      interval: weekly
-    open-pull-requests-limit: 5
+      interval: monthly
+    open-pull-requests-limit: 1
     commit-message:
       prefix: chore
       include: scope
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major]
     groups:
       npm-minor-patch:
+        patterns: ["*"]
         update-types: [minor, patch]
 
   - package-ecosystem: github-actions
     directory: /
     target-branch: develop
     schedule:
-      interval: weekly
+      interval: monthly
+    open-pull-requests-limit: 1
     commit-message:
       prefix: ci
       include: scope
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major]
     groups:
       actions-minor-patch:
+        patterns: ["*"]
         update-types: [minor, patch]
