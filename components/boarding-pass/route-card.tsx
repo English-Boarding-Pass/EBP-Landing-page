@@ -85,7 +85,7 @@ export function RouteCard({
       {/* Stub side */}
       <div className="flex flex-row items-stretch justify-between gap-4 bg-ice p-6 sm:w-52 sm:flex-col sm:justify-between sm:p-6">
         <div>
-          <p className="font-board text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-ink">
+          <p className="font-board text-[10px] font-semibold tracking-[0.2em] text-sky-ink uppercase">
             {seatsLabel}
           </p>
           <p className="font-board text-3xl font-semibold text-navy">
@@ -93,7 +93,7 @@ export function RouteCard({
           </p>
         </div>
         <div className="sm:mt-4">
-          <p className="font-board text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-ink">
+          <p className="font-board text-[10px] font-semibold tracking-[0.2em] text-sky-ink uppercase">
             {departsLabel}
           </p>
           <p className="font-board text-sm font-semibold text-navy">

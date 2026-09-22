@@ -49,13 +49,13 @@ export function Perforation({
     >
       <span
         className={clsx(
-          "absolute -left-3 -top-3 size-6 rounded-full",
+          "absolute -top-3 -left-3 size-6 rounded-full",
           notchClassName,
         )}
       />
       <span
         className={clsx(
-          "absolute -right-3 -top-3 size-6 rounded-full",
+          "absolute -top-3 -right-3 size-6 rounded-full",
           notchClassName,
         )}
       />

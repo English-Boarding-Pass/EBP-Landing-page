@@ -40,7 +40,7 @@ export function SiteFooter() {
           </div>
 
           <nav aria-label={t("columns.explore.title")}>
-            <h2 className="font-display text-sm font-bold uppercase tracking-wide text-white/50">
+            <h2 className="font-display text-sm font-bold tracking-wide text-white/50 uppercase">
               {t("columns.explore.title")}
             </h2>
             <ul className="mt-4 space-y-3">
@@ -58,7 +58,7 @@ export function SiteFooter() {
           </nav>
 
           <nav aria-label={t("columns.contact.title")}>
-            <h2 className="font-display text-sm font-bold uppercase tracking-wide text-white/50">
+            <h2 className="font-display text-sm font-bold tracking-wide text-white/50 uppercase">
               {t("columns.contact.title")}
             </h2>
             <ul className="mt-4 space-y-3">

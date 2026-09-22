@@ -38,7 +38,7 @@ export function LanguageSwitch({
             aria-label={localeLabels[code].native}
             onClick={() => router.replace(pathname, { locale: code })}
             className={clsx(
-              "rounded-full px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2",
+              "rounded-full px-3 py-1.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none",
               active
                 ? tone === "white"
                   ? "bg-white text-navy"

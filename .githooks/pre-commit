@@ -1,0 +1,19 @@
+#!/bin/sh
+# Fast checks on staged files only: ESLint + Prettier (and the locale key check
+# when messages/*.json changes). Config lives under "lint-staged" in package.json.
+# Skip in an emergency with: git commit --no-verify
+#
+# Calls node directly instead of npx: the npm/npx launchers need /usr/bin/env,
+# which GitHub Desktop's bundled Git doesn't have.
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "pre-commit: node not found - install Node.js 20+ to run the checks." >&2
+  exit 1
+fi
+
+if [ ! -f node_modules/lint-staged/bin/lint-staged.js ]; then
+  echo "pre-commit: dependencies missing - run 'npm install' once, then commit again." >&2
+  exit 1
+fi
+
+node node_modules/lint-staged/bin/lint-staged.js
