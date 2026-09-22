@@ -123,11 +123,10 @@ def generate_with_retries(model: str, api_key: str, prompt: str) -> str | None:
         try:
             return call_gemini(model, api_key, prompt)
         except urllib.error.HTTPError as err:
-            print(
-                f"warning: {model} failed with HTTP {err.code}: {http_error_detail(err)}",
-                file=sys.stderr,
-            )
-            if err.code not in RETRYABLE_STATUS:
+            detail = http_error_detail(err)
+            print(f"warning: {model} failed with HTTP {err.code}: {detail}", file=sys.stderr)
+            # An exhausted quota (e.g. Pro models on the free tier) won't recover by waiting.
+            if err.code not in RETRYABLE_STATUS or "quota" in detail.lower():
                 return None
         except Exception as err:  # network errors, timeouts, unexpected payloads
             print(f"warning: {model} failed ({type(err).__name__}: {err})", file=sys.stderr)
@@ -150,16 +149,19 @@ def discover_flash_models(api_key: str, skip: list[str]) -> list[str]:
         print(f"warning: could not list models ({type(err).__name__}: {err})", file=sys.stderr)
         return []
 
-    excluded = ("image", "tts", "audio", "live", "embedding", "exp", "preview")
-    names = [
-        m["name"].removeprefix("models/")
-        for m in models
-        if "generateContent" in m.get("supportedGenerationMethods", [])
-        and "flash" in m.get("name", "")
-        and not any(word in m["name"] for word in excluded)
-    ]
-    names = [n for n in names if n not in skip]
-    return sorted(names, reverse=True)[:MAX_DISCOVERED_MODELS]
+    # Stable text models only, e.g. "gemini-3.8-flash" or "gemini-3.5-flash-lite".
+    stable = re.compile(r"^gemini-(\d+(?:\.\d+)?)-flash(-lite)?$")
+    ranked = []
+    for m in models:
+        name = m.get("name", "").removeprefix("models/")
+        match = stable.match(name)
+        if match and name not in skip and "generateContent" in m.get(
+            "supportedGenerationMethods", []
+        ):
+            # Newest version first; full Flash before Flash Lite.
+            version = tuple(int(part) for part in match.group(1).split("."))
+            ranked.append((version, match.group(2) is None, name))
+    return [name for *_, name in sorted(ranked, reverse=True)][:MAX_DISCOVERED_MODELS]
 
 
 def parse(text: str) -> tuple[str, str]:
