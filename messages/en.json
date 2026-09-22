@@ -223,10 +223,19 @@
     },
     "email": {
       "subject": "You're on the English Boarding Pass waitlist",
-      "greeting": "Hi {name},",
+      "preheader": "Your spot on the waitlist is saved. Here's what happens next.",
+      "eyebrow": "Waitlist confirmed",
+      "heading": "You're on the list, {name}.",
       "body": "Thanks for joining the English Boarding Pass waitlist. Our class platform is still being built — the moment seats open, we'll email you first so you can grab the early-bird price.",
-      "routeLine": "Route you picked: {route}",
-      "signoff": "See you on board,"
+      "passenger": "Passenger",
+      "route": "Route",
+      "status": "Status",
+      "statusValue": "Waitlisted",
+      "departs": "First cohort",
+      "earlyBird": "Early-bird price for the first cohort: {price}",
+      "replyHint": "Questions? Just reply to this email — a real person will answer.",
+      "signoff": "See you on board,",
+      "footer": "You're receiving this because you joined the English Boarding Pass waitlist."
     }
   }
 }

@@ -219,12 +219,14 @@ function WaitlistPanel({
             className="pointer-events-none absolute size-0 overflow-hidden opacity-0"
           >
             <label>
-              Company
+              Leave this empty
               <input
                 type="text"
-                name="company"
+                name="ebp_hp_field"
                 tabIndex={-1}
                 autoComplete="off"
+                data-1p-ignore
+                data-lpignore="true"
               />
             </label>
           </div>
