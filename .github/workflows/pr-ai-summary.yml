@@ -26,6 +26,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PR_NUMBER: ${{ github.event.pull_request.number }}
       BASE_REF: ${{ github.event.pull_request.base.ref }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -61,23 +62,26 @@ jobs:
             echo "Keeping current PR title: $current_title"
           fi
 
-          # Replace the description when it's empty, the unfilled PR template, or an
-          # earlier AI summary (marker); otherwise keep what the author wrote and comment.
+          # Replace the description unless the author wrote something: an empty body,
+          # the text GitHub copies from a single commit's message, or an earlier AI
+          # summary (marker) all get replaced. Otherwise comment instead.
           body="$(gh pr view "$PR_NUMBER" --json body -q .body)"
-          # What's left after removing HTML comments, headings and unticked boxes.
+          # Ignore HTML comments, headings and unticked boxes, then all whitespace.
           written="$(printf '%s\n' "$body" |
             sed -e '/<!--/,/-->/d' -e '/^[[:space:]]*#/d' -e '/^[[:space:]]*- \[ \]/d' |
             tr -d '[:space:]')"
-          if printf '%s' "$body" | grep -q '<!-- ai-pr-summary -->'; then
-            gh pr edit "$PR_NUMBER" --body-file pr_summary.md
-            echo "Earlier AI summary replaced."
-          elif [ -z "$written" ]; then
-            # Keep the template's project checklist under the summary.
-            checklist="$(printf '%s\n' "$body" | tr -d '\r' | grep -E '^[[:space:]]*- \[ \]' || true)"
-            cp pr_summary.md body.md
-            if [ -n "$checklist" ]; then
-              printf '\n### Author checklist\n\n%s\n' "$checklist" >> body.md
-            fi
+          commit_body="$(git log -1 --format=%b "$HEAD_SHA" | tr -d '[:space:]')"
+          if printf '%s' "$body" | grep -q '<!-- ai-pr-summary -->' ||
+            [ -z "$written" ] || [ "$written" = "$commit_body" ]; then
+            cat pr_summary.md - > body.md <<'CHECKLIST'
+
+          ### Author checklist
+
+          - [ ] Checked in English, Sinhala and Tamil (`/en`, `/si`, `/ta`)
+          - [ ] Checked on mobile width
+          - [ ] New text added to `en.json`, `si.json` and `ta.json`
+          - [ ] Screenshots added for visual changes
+          CHECKLIST
             gh pr edit "$PR_NUMBER" --body-file body.md
             echo "PR description set to the summary."
           else
