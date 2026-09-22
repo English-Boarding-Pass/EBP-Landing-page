@@ -5,6 +5,28 @@
 # Calls node directly instead of npm: the npm/npx launchers need /usr/bin/env,
 # which GitHub Desktop's bundled Git doesn't have.
 
+# Block direct pushes to develop/main: changes go in through a PR so CI runs.
+# GitHub can't enforce this on a private repo without a paid plan, so this
+# guards against accidents. Override on purpose with ALLOW_PROTECTED_PUSH=1.
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+  case "$remote_ref" in
+    refs/heads/develop | refs/heads/main)
+      if [ "$ALLOW_PROTECTED_PUSH" != "1" ]; then
+        branch="${remote_ref#refs/heads/}"
+        echo "pre-push: direct pushes to '$branch' are blocked." >&2
+        echo "" >&2
+        echo "  Push your feature branch instead and open a pull request into develop:" >&2
+        echo "    GitHub Desktop: switch to your branch > Publish branch > Create Pull Request" >&2
+        echo "    Terminal:       git switch -c feat/my-change && git push -u origin feat/my-change" >&2
+        echo "" >&2
+        echo "  If you merged a branch into '$branch' locally, undo it with:" >&2
+        echo "    git reset --hard origin/$branch   (only after pushing your branch)" >&2
+        exit 1
+      fi
+      ;;
+  esac
+done
+
 if ! command -v node >/dev/null 2>&1; then
   echo "pre-push: node not found - install Node.js 20+ to run the checks." >&2
   exit 1

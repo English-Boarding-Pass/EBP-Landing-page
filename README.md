@@ -42,10 +42,10 @@ The hooks live in `.githooks/` and are turned on automatically by `npm install`.
 git config core.hooksPath .githooks
 ```
 
-| Hook         | When         | What it does                                                                          |
-| ------------ | ------------ | ------------------------------------------------------------------------------------- |
-| `pre-commit` | `git commit` | ESLint + Prettier on staged files, plus the locale key check when `messages/` changes |
-| `pre-push`   | `git push`   | `npm run lint` and `npm run typecheck`; the push is blocked if either fails           |
+| Hook         | When         | What it does                                                                                             |
+| ------------ | ------------ | -------------------------------------------------------------------------------------------------------- |
+| `pre-commit` | `git commit` | ESLint + Prettier on staged files, plus the locale key check when `messages/` changes                    |
+| `pre-push`   | `git push`   | Blocks direct pushes to `develop`/`main`, then runs lint and type check; the push is blocked if any fail |
 
 The hooks work in the terminal, VS Code and GitHub Desktop (Node.js must be installed). In an emergency, skip them with `--no-verify`; CI still runs on the PR.
 
@@ -79,7 +79,7 @@ Lighthouse thresholds live in [lighthouserc.json](lighthouserc.json): accessibil
 
 1. **Gemini API key.** Create a key at <https://aistudio.google.com/apikey>, then add it under **Settings → Secrets and variables → Actions → New repository secret** with the name `GEMINI_API_KEY`. Only this repository secret is needed; contributors don't need their own key. Without it, the AI summary is replaced by a short note and everything else still works.
 2. **Squash merge.** In **Settings → General → Pull Requests**, allow only **Squash merging** and set the default message to **Pull request title and description**.
-3. **Branch protection.** In **Settings → Rules → Rulesets** (or **Branches**), protect `develop` and `main`: require a pull request, and require these status checks to pass:
+3. **Branch protection.** GitHub only enforces rulesets on private repositories with a paid plan (GitHub Team). Until then, the `pre-push` hook blocks accidental direct pushes to `develop` and `main` (override on purpose with `ALLOW_PROTECTED_PUSH=1 git push`). With a paid plan or a public repo: In **Settings → Rules → Rulesets** (or **Branches**), protect `develop` and `main`: require a pull request, and require these status checks to pass:
    - `Lint, type check & build`
    - `Lighthouse`
    - `PR title format`
