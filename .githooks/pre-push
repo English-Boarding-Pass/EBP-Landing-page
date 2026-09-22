@@ -1,20 +1,28 @@
 #!/bin/sh
 # Lint + type check before pushing. The full build runs in CI (pr-check.yml).
 # Skip in an emergency with: git push --no-verify
+#
+# Calls node directly instead of npm: the npm/npx launchers need /usr/bin/env,
+# which GitHub Desktop's bundled Git doesn't have.
 
-if ! command -v npm >/dev/null 2>&1; then
-  echo "pre-push: npm not found - install Node.js 20+ to run the checks." >&2
+if ! command -v node >/dev/null 2>&1; then
+  echo "pre-push: node not found - install Node.js 20+ to run the checks." >&2
+  exit 1
+fi
+
+if [ ! -f node_modules/eslint/bin/eslint.js ] || [ ! -f node_modules/typescript/bin/tsc ]; then
+  echo "pre-push: dependencies missing - run 'npm install' once, then push again." >&2
   exit 1
 fi
 
 echo "pre-push: running lint..."
-if ! npm run --silent lint; then
+if ! node node_modules/eslint/bin/eslint.js .; then
   echo "pre-push: lint failed - fix the errors above, then push again." >&2
   exit 1
 fi
 
 echo "pre-push: running type check..."
-if ! npm run --silent typecheck; then
+if ! node node_modules/typescript/bin/tsc --noEmit; then
   echo "pre-push: type check failed - fix the errors above, then push again." >&2
   exit 1
 fi
