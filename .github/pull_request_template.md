@@ -1,7 +1,7 @@
 <!--
-An AI summary is posted as a comment when the PR is opened.
-Delete everything here if you'd rather have it become the description.
-The title is set automatically if it isn't already type(scope): subject.
+Leave this as-is and the AI summary replaces it when the PR is opened
+(the checklist below is kept). Write anything here and the summary is
+posted as a comment instead. Screenshots are welcome for UI changes.
 -->
 
 ## What changed
