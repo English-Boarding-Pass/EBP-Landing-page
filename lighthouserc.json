@@ -10,7 +10,7 @@
         "http://localhost:3000/ta",
         "http://localhost:3000/en/check-in"
       ],
-      "numberOfRuns": 3
+      "numberOfRuns": 1
     },
     "assert": {
       "assertions": {

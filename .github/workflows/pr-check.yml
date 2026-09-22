@@ -25,6 +25,12 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx', '**/*.css', 'messages/*.json') }}
+          restore-keys: nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
+
       - run: npm ci
       - run: npm run lint --if-present
       - run: npm run format:check
@@ -34,7 +40,7 @@ jobs:
 
   lighthouse:
     name: Lighthouse
-    needs: build
+    # Runs in parallel with the build job: it builds the site itself anyway.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -43,6 +49,12 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+
+      - uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx', '**/*.css', 'messages/*.json') }}
+          restore-keys: nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
 
       - run: npm ci
       - run: npm run build
