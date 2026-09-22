@@ -8,6 +8,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 
@@ -18,9 +19,20 @@ MAX_DIFF_CHARS = 50_000
 TIMEOUT_SECONDS = 60
 
 # Tried in order until one responds. Override with a comma-separated GEMINI_MODELS.
-DEFAULT_MODELS = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-2.5-flash-lite"]
+# "-latest" aliases always point at a current model, so they don't get retired.
+# If all of these fail, the script asks the API which Flash models exist and tries those.
+DEFAULT_MODELS = ["gemini-flash-latest", "gemini-flash-lite-latest", "gemini-pro-latest"]
 
-API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+# Temporary errors (rate limit, overloaded) are retried after these waits, in seconds.
+RETRYABLE_STATUS = {429, 500, 502, 503, 504}
+RETRY_DELAYS = [5, 15]
+MAX_DISCOVERED_MODELS = 3
+
+API_BASE = "https://generativelanguage.googleapis.com/v1beta"
+API_URL = API_BASE + "/models/{model}:generateContent"
+
+# Hidden marker so a later run can replace its own earlier summary in the PR body.
+MARKER = "<!-- ai-pr-summary -->"
 
 TITLE_RE = re.compile(
     r"^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)"
@@ -68,7 +80,7 @@ def fallback(reason: str) -> None:
     print(f"warning: {reason}", file=sys.stderr)
     write_outputs(
         "",
-        "## Pull Request Summary\n\n"
+        f"{MARKER}\n## Pull Request Summary\n\n"
         f"_An AI summary could not be generated: {reason}_\n\n"
         "Please describe what changed and why, and add screenshots for UI changes.\n\n"
         "<sub>Maintainers: check that the `GEMINI_API_KEY` repository secret is set "
@@ -96,6 +108,58 @@ def call_gemini(model: str, api_key: str, prompt: str) -> str:
     if not text:
         raise ValueError("empty response")
     return text
+
+
+def http_error_detail(err: urllib.error.HTTPError) -> str:
+    try:
+        return json.load(err)["error"]["message"]
+    except Exception:
+        return str(err.reason)
+
+
+def generate_with_retries(model: str, api_key: str, prompt: str) -> str | None:
+    """Return the model's text, or None if this model should be skipped."""
+    for attempt in range(len(RETRY_DELAYS) + 1):
+        try:
+            return call_gemini(model, api_key, prompt)
+        except urllib.error.HTTPError as err:
+            print(
+                f"warning: {model} failed with HTTP {err.code}: {http_error_detail(err)}",
+                file=sys.stderr,
+            )
+            if err.code not in RETRYABLE_STATUS:
+                return None
+        except Exception as err:  # network errors, timeouts, unexpected payloads
+            print(f"warning: {model} failed ({type(err).__name__}: {err})", file=sys.stderr)
+        if attempt < len(RETRY_DELAYS):
+            delay = RETRY_DELAYS[attempt]
+            print(f"retrying {model} in {delay}s...", file=sys.stderr)
+            time.sleep(delay)
+    return None
+
+
+def discover_flash_models(api_key: str, skip: list[str]) -> list[str]:
+    """Ask the API for current text Flash models, newest first."""
+    request = urllib.request.Request(
+        API_BASE + "/models?pageSize=1000", headers={"x-goog-api-key": api_key}
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=TIMEOUT_SECONDS) as response:
+            models = json.load(response).get("models", [])
+    except Exception as err:
+        print(f"warning: could not list models ({type(err).__name__}: {err})", file=sys.stderr)
+        return []
+
+    excluded = ("image", "tts", "audio", "live", "embedding", "exp", "preview")
+    names = [
+        m["name"].removeprefix("models/")
+        for m in models
+        if "generateContent" in m.get("supportedGenerationMethods", [])
+        and "flash" in m.get("name", "")
+        and not any(word in m["name"] for word in excluded)
+    ]
+    names = [n for n in names if n not in skip]
+    return sorted(names, reverse=True)[:MAX_DISCOVERED_MODELS]
 
 
 def parse(text: str) -> tuple[str, str]:
@@ -133,27 +197,31 @@ def main() -> None:
     models = [m.strip() for m in os.environ.get("GEMINI_MODELS", "").split(",") if m.strip()]
     prompt = PROMPT.format(diff=diff)
 
-    for model in models or DEFAULT_MODELS:
-        try:
-            text = call_gemini(model, api_key, prompt)
-        except urllib.error.HTTPError as err:
-            try:
-                detail = json.load(err)["error"]["message"]
-            except Exception:
-                detail = err.reason
-            print(f"warning: {model} failed with HTTP {err.code}: {detail}", file=sys.stderr)
-            continue
-        except Exception as err:  # network errors, timeouts, unexpected payloads
-            print(f"warning: {model} failed ({type(err).__name__}: {err})", file=sys.stderr)
+    models = models or list(DEFAULT_MODELS)
+    tried: list[str] = []
+    discovered = False
+    while models:
+        model = models.pop(0)
+        tried.append(model)
+        text = generate_with_retries(model, api_key, prompt)
+        if text is None:
+            if not models and not discovered:
+                discovered = True
+                models = discover_flash_models(api_key, tried)
+                if models:
+                    print(f"trying models from the API list: {', '.join(models)}", file=sys.stderr)
             continue
 
         title, summary = parse(text)
-        summary += f"\n\n---\n<sub>Generated automatically by `{model}` from the PR diff.</sub>\n"
+        summary = (
+            f"{MARKER}\n{summary}\n\n---\n"
+            f"<sub>Generated automatically by `{model}` from the PR diff.</sub>\n"
+        )
         write_outputs(title, summary)
         print(f"summary generated with {model}; title: {title or '(none)'}")
         return
 
-    fallback("every Gemini model in the fallback list failed; see the workflow log")
+    fallback(f"all Gemini models failed ({', '.join(tried)}); see the workflow log")
 
 
 if __name__ == "__main__":

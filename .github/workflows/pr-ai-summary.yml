@@ -61,8 +61,11 @@ jobs:
             echo "Keeping current PR title: $current_title"
           fi
 
+          # Replace the description when it's empty or an earlier AI summary (marker);
+          # otherwise keep what the author wrote and comment instead.
           body="$(gh pr view "$PR_NUMBER" --json body -q .body)"
-          if [ -z "$(printf '%s' "$body" | tr -d '[:space:]')" ]; then
+          if [ -z "$(printf '%s' "$body" | tr -d '[:space:]')" ] ||
+            printf '%s' "$body" | grep -q '<!-- ai-pr-summary -->'; then
             gh pr edit "$PR_NUMBER" --body-file pr_summary.md
             echo "PR description set to the summary."
           else
