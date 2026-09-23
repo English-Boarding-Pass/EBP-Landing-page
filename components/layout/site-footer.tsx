@@ -24,7 +24,7 @@ export function SiteFooter() {
       <Container className="py-14 sm:py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
           <div>
-            <Logo variant="inverted" size="md" showTagline={false} />
+            <Logo variant="inverted" size="md" />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
               {t("description")}
             </p>

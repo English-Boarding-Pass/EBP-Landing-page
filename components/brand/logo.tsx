@@ -5,6 +5,8 @@ type LogoProps = {
   variant?: "default" | "inverted";
   size?: "sm" | "md" | "lg";
   showTagline?: boolean;
+  /** Extra classes on the tagline — e.g. hiding it on small screens. */
+  taglineClassName?: string;
   className?: string;
 };
 
@@ -26,6 +28,7 @@ export function Logo({
   variant = "default",
   size = "md",
   showTagline = true,
+  taglineClassName,
   className,
 }: LogoProps) {
   const s = sizeMap[size];
@@ -57,6 +60,7 @@ export function Logo({
             "mt-1 font-body tracking-wide",
             s.tagline,
             inverted ? "text-white/80" : "text-slate",
+            taglineClassName,
           )}
         >
           English That Takes You Places

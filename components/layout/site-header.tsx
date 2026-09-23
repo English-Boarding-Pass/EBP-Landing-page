@@ -30,7 +30,11 @@ export function SiteHeader() {
       </a>
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
         <a href="#top" aria-label="English Boarding Pass — home">
-          <Logo variant="inverted" size="sm" showTagline={false} />
+          <Logo
+            variant="inverted"
+            size="sm"
+            taglineClassName="hidden sm:block"
+          />
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-5 xl:flex">
