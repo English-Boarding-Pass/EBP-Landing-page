@@ -1,23 +1,17 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Whatsapp, Mail } from "iconoir-react";
 import { Logo } from "@/components/brand/logo";
 import { Container } from "@/components/ui/container";
-
-const WHATSAPP_NUMBER = "94770000000";
-const CONTACT_EMAIL = "hello@englishboardingpass.lk";
+import { Link } from "@/i18n/navigation";
+import { CONTACT_EMAIL, whatsappUrl } from "@/lib/site";
 
 export function SiteFooter() {
   const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
+  const locale = useLocale();
 
   const year = new Date().getFullYear();
-
-  const exploreLinks = [
-    { href: "#how-it-works", key: "howItWorks" },
-    { href: "#routes", key: "routes" },
-    { href: "#pricing", key: "pricing" },
-    { href: "#teachers", key: "teachers" },
-    { href: "#faq", key: "faq" },
-  ] as const;
+  const linkClasses = "text-sm text-white/75 hover:text-white";
 
   return (
     <footer className="border-t border-white/10 bg-navy">
@@ -29,7 +23,7 @@ export function SiteFooter() {
               {t("description")}
             </p>
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/15"
@@ -44,16 +38,31 @@ export function SiteFooter() {
               {t("columns.explore.title")}
             </h2>
             <ul className="mt-4 space-y-3">
-              {exploreLinks.map((link) => (
-                <li key={link.key}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/75 hover:text-white"
-                  >
-                    {t(`columns.explore.links.${link.key}`)}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href={`/${locale}#how-it-works`} className={linkClasses}>
+                  {tNav("howItWorks")}
+                </a>
+              </li>
+              <li>
+                <Link href="/corporates" className={linkClasses}>
+                  {tNav("corporates")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/science" className={linkClasses}>
+                  {tNav("science")}
+                </Link>
+              </li>
+              <li>
+                <a href={`/${locale}#teachers`} className={linkClasses}>
+                  {tNav("teachers")}
+                </a>
+              </li>
+              <li>
+                <a href={`/${locale}#faq`} className={linkClasses}>
+                  {tNav("faq")}
+                </a>
+              </li>
             </ul>
           </nav>
 
@@ -64,7 +73,7 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-white/75 hover:text-white"

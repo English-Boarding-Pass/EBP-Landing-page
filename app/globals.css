@@ -21,6 +21,15 @@
   */
   --color-brand-sky-ink: #2563a8;
 
+  /*
+    Accent red, added in the Oct 2026 content brief as a small nod to
+    "British" English. Not in the brand guideline yet, so this one value is
+    provisional: change it here and everything follows. Use it sparingly.
+    It passes AA as text on white and Ivory (5.1:1, 4.6:1) and 3:1 as a
+    non-text mark on Navy; don't set it as text on Navy or Ice.
+  */
+  --color-brand-red: #d6223a;
+
   --font-display:
     var(--font-manrope), var(--font-noto-si), var(--font-noto-ta),
     ui-sans-serif, sans-serif;
@@ -38,6 +47,7 @@
   --color-sky-ink: var(--color-brand-sky-ink);
   --color-ice: var(--color-brand-ice);
   --color-ivory: var(--color-brand-ivory);
+  --color-red: var(--color-brand-red);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -77,7 +87,23 @@ h4 {
   color: var(--color-brand-navy);
 }
 
-/* Keep the page behind the waitlist popup from scrolling. */
+/*
+  Letter-spacing pulls Sinhala and Tamil apart (vowel signs drift away from
+  their consonants), so the tracked labels and tight headings only apply to
+  English. Unlayered on purpose: it has to beat Tailwind's tracking utilities.
+  Latin-only pieces such as the logo opt back in with lang="en".
+*/
+:lang(si),
+:lang(ta) {
+  letter-spacing: normal;
+}
+
+/* Anchor links land below the sticky header instead of underneath it. */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Keep the page behind an open popup from scrolling. */
 html:has(dialog[open]) {
   overflow: hidden;
 }

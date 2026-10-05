@@ -46,3 +46,6 @@ next-env.d.ts
 
 # python
 __pycache__/
+
+# impeccable design plugin cache
+.impeccable/

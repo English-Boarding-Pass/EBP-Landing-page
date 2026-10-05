@@ -13,28 +13,22 @@ const SANS =
   "'DM Sans','Segoe UI',Roboto,Helvetica,Arial,'Noto Sans Sinhala','Iskoola Pota','Noto Sans Tamil','Latha',sans-serif";
 const MONO = "'JetBrains Mono',Menlo,Consolas,'Courier New',monospace";
 
-export type WaitlistEmailCopy = {
+export type EnquiryEmailCopy = {
   subject: string;
   preheader: string;
   eyebrow: string;
   heading: string;
   body: string;
-  passenger: string;
-  route: string;
-  status: string;
-  statusValue: string;
-  departs: string;
-  earlyBird: string;
   replyHint: string;
   signoff: string;
   footer: string;
 };
 
-export type WaitlistEmailData = {
-  name: string;
-  routeCode: string;
-  routeName: string;
-  departs: string;
+/** One labelled value on the boarding pass, e.g. Passenger / Status. */
+export type EnquiryEmailField = {
+  label: string;
+  value: string;
+  highlight?: boolean;
 };
 
 function esc(value: string) {
@@ -45,15 +39,33 @@ function esc(value: string) {
     .replaceAll('"', "&quot;");
 }
 
-function passField(label: string, value: string, highlight = false) {
+function passField({ label, value, highlight }: EnquiryEmailField) {
   return `
     <p style="margin:0;font-family:${MONO};font-size:10px;letter-spacing:2px;text-transform:uppercase;color:${SKY_INK};">${esc(label)}</p>
     <p style="margin:4px 0 0;font-family:${MONO};font-size:15px;font-weight:700;color:${highlight ? SKY_INK : NAVY};">${esc(value)}</p>`;
 }
 
-export function waitlistConfirmationEmail(
-  copy: WaitlistEmailCopy,
-  data: WaitlistEmailData,
+// Fields sit two to a row; an odd one out gets the row to itself.
+function passRows(fields: EnquiryEmailField[]) {
+  const rows: string[] = [];
+  for (let i = 0; i < fields.length; i += 2) {
+    const pair = fields.slice(i, i + 2);
+    const padding = i === 0 ? "20px 20px 16px" : "0 20px 20px";
+    rows.push(
+      `<tr>${pair
+        .map(
+          (field) =>
+            `<td style="padding:${padding};" width="50%"${pair.length === 1 ? ' colspan="2"' : ""} valign="top">${passField(field)}</td>`,
+        )
+        .join("")}</tr>`,
+    );
+  }
+  return rows.join("\n        ");
+}
+
+export function enquiryConfirmationEmail(
+  copy: EnquiryEmailCopy,
+  fields: EnquiryEmailField[],
 ) {
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -80,23 +92,13 @@ export function waitlistConfirmationEmail(
     <!-- Boarding pass -->
     <tr><td style="padding:28px 32px 0;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${ICE};border-radius:14px;">
-        <tr>
-          <td style="padding:20px 20px 16px;" width="50%" valign="top">${passField(copy.passenger, data.name)}</td>
-          <td style="padding:20px 20px 16px;" width="50%" valign="top">${passField(copy.route, data.routeCode)}</td>
-        </tr>
-        <tr>
-          <td style="padding:0 20px 20px;" width="50%" valign="top">${passField(copy.status, copy.statusValue, true)}</td>
-          <td style="padding:0 20px 20px;" width="50%" valign="top">${passField(copy.departs, data.departs)}</td>
-        </tr>
-        <tr><td colspan="2" style="padding:0 20px;"><div style="border-top:2px dashed #c4dcee;font-size:0;line-height:0;">&nbsp;</div></td></tr>
-        <tr><td colspan="2" style="padding:14px 20px 18px;font-family:${SANS};font-size:13px;color:${SLATE};">${esc(data.routeName)}</td></tr>
+        ${passRows(fields)}
       </table>
     </td></tr>
 
     <!-- Body -->
     <tr><td style="padding:28px 32px 8px;font-family:${SANS};font-size:15px;line-height:24px;color:${SLATE};">
       <p style="margin:0 0 16px;">${esc(copy.body)}</p>
-      <p style="margin:0 0 16px;padding:12px 16px;border:1px solid #d6e8f6;background:#f4f9fd;border-radius:10px;color:${NAVY};font-weight:700;">${esc(copy.earlyBird)}</p>
       <p style="margin:0 0 24px;">${esc(copy.replyHint)}</p>
       <p style="margin:0;">${esc(copy.signoff)}<br><strong style="color:${NAVY};">English Boarding Pass</strong></p>
     </td></tr>
@@ -116,21 +118,16 @@ export function waitlistConfirmationEmail(
   const text = [
     copy.heading,
     "",
-    `${copy.passenger}: ${data.name}`,
-    `${copy.route}: ${data.routeCode} (${data.routeName})`,
-    `${copy.status}: ${copy.statusValue}`,
-    `${copy.departs}: ${data.departs}`,
+    ...fields.map((field) => `${field.label}: ${field.value}`),
     "",
     copy.body,
-    "",
-    copy.earlyBird,
     "",
     copy.replyHint,
     "",
     copy.signoff,
     "English Boarding Pass",
     "",
-    "—",
+    "--",
     copy.footer,
   ].join("\n");
 

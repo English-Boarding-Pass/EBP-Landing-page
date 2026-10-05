@@ -3,14 +3,14 @@ import { NavArrowDown } from "iconoir-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-type FaqItem = { question: string; answer: string };
+type FaqItem = { question: string; answer: string; points?: string[] };
 
 export function Faq() {
   const t = useTranslations("faq");
   const items = t.raw("items") as FaqItem[];
 
   return (
-    <section id="faq" className="bg-white py-20 sm:py-28">
+    <section id="faq" className="bg-ivory py-20 sm:py-28">
       <Container className="max-w-3xl">
         <SectionHeading
           title={t("title")}
@@ -32,6 +32,13 @@ export function Faq() {
               <p className="mt-3 text-sm leading-relaxed text-slate">
                 {item.answer}
               </p>
+              {item.points ? (
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate marker:text-red">
+                  {item.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              ) : null}
             </details>
           ))}
         </div>

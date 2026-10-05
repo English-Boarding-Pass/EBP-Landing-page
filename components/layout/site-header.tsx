@@ -1,24 +1,58 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Menu, Xmark } from "iconoir-react";
 import { Logo } from "@/components/brand/logo";
 import { Container } from "@/components/ui/container";
 import { LanguageSwitch } from "@/components/layout/language-switch";
-import { WaitlistButton } from "@/components/waitlist/waitlist-dialog";
+import { ContactButton } from "@/components/contact/contact-dialog";
+import { Link } from "@/i18n/navigation";
 
+// `page` items are their own routes; `section` items are anchors on the home page.
 const navItems = [
-  { href: "#how-it-works", key: "howItWorks" } as const,
-  { href: "#routes", key: "routes" } as const,
-  { href: "#pricing", key: "pricing" } as const,
-  { href: "#teachers", key: "teachers" } as const,
-  { href: "#faq", key: "faq" } as const,
-];
+  { key: "howItWorks", section: "how-it-works" },
+  { key: "corporates", page: "/corporates" },
+  { key: "science", page: "/science" },
+  { key: "teachers", section: "teachers" },
+  { key: "faq", section: "faq" },
+] as const;
 
 export function SiteHeader() {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
+
+  const desktopLink =
+    "shrink-0 font-body text-sm font-medium whitespace-nowrap text-white/80 transition-colors hover:text-white";
+  const mobileLink =
+    "rounded-lg px-3 py-2.5 font-body text-base font-medium text-white/85 hover:bg-white/5 hover:text-white";
+
+  function renderLinks(className: string, onClick?: () => void) {
+    return navItems.map((item) =>
+      "page" in item ? (
+        <Link
+          key={item.key}
+          href={item.page}
+          onClick={onClick}
+          className={className}
+        >
+          {t(item.key)}
+        </Link>
+      ) : (
+        // A plain anchor: it scrolls in place on the home page and loads the
+        // home page at that section from anywhere else.
+        <a
+          key={item.key}
+          href={`/${locale}#${item.section}`}
+          onClick={onClick}
+          className={className}
+        >
+          {t(item.key)}
+        </a>
+      ),
+    );
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy/10 bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/90">
@@ -29,48 +63,54 @@ export function SiteHeader() {
         {t("skipToContent")}
       </a>
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
-        <a href="#top" aria-label="English Boarding Pass — home">
+        <Link href="/" aria-label="English Boarding Pass, home">
           <Logo
             variant="inverted"
             size="sm"
             taglineClassName="hidden sm:block"
           />
-        </a>
+        </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-5 xl:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.key}
-              href={item.href}
-              className="shrink-0 font-body text-sm font-medium whitespace-nowrap text-white/80 transition-colors hover:text-white"
-            >
-              {t(item.key)}
-            </a>
-          ))}
+          {renderLinks(desktopLink)}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-3 xl:flex">
-          <LanguageSwitch tone="white" />
-          <WaitlistButton variant="accent" size="md">
-            {t("bookSeat")}
-          </WaitlistButton>
+        <div className="flex shrink-0 items-center gap-3">
+          {/*
+            The language choice has to be on screen from the first second:
+            much of the audience can't read the English nav. From `sm` up it
+            sits in the bar; on phones it gets its own row below.
+          */}
+          <div className="hidden sm:block">
+            <LanguageSwitch tone="white" />
+          </div>
+          <div className="hidden xl:block">
+            <ContactButton variant="accent" size="md">
+              {t("cta")}
+            </ContactButton>
+          </div>
+          <button
+            type="button"
+            className="inline-flex size-10 shrink-0 items-center justify-center rounded-full text-white xl:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? (
+              <Xmark className="size-6" aria-hidden />
+            ) : (
+              <Menu className="size-6" aria-hidden />
+            )}
+          </button>
         </div>
-
-        <button
-          type="button"
-          className="inline-flex size-10 shrink-0 items-center justify-center rounded-full text-white xl:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? (
-            <Xmark className="size-6" aria-hidden />
-          ) : (
-            <Menu className="size-6" aria-hidden />
-          )}
-        </button>
       </Container>
+
+      <div className="border-t border-white/10 sm:hidden">
+        <Container className="flex justify-center py-2">
+          <LanguageSwitch tone="white" />
+        </Container>
+      </div>
 
       {open ? (
         <div
@@ -78,28 +118,16 @@ export function SiteHeader() {
           className="border-t border-white/10 bg-navy xl:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
-            {navItems.map((item) => (
-              <a
-                key={item.key}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 font-body text-base font-medium text-white/85 hover:bg-white/5 hover:text-white"
-              >
-                {t(item.key)}
-              </a>
-            ))}
-            <div className="mt-2 flex items-center justify-between gap-3 px-3">
-              <LanguageSwitch tone="white" />
-            </div>
+            {renderLinks(mobileLink, () => setOpen(false))}
             <div className="mt-3 px-3">
-              <WaitlistButton
+              <ContactButton
                 variant="accent"
                 size="md"
                 className="w-full"
                 onClick={() => setOpen(false)}
               >
-                {t("bookSeat")}
-              </WaitlistButton>
+                {t("cta")}
+              </ContactButton>
             </div>
           </Container>
         </div>

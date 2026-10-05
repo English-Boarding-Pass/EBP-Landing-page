@@ -4,6 +4,9 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { fontVariables } from "@/lib/fonts";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { ContactProvider } from "@/components/contact/contact-dialog";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -49,7 +52,13 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-ivory font-body text-navy antialiased">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <ContactProvider>
+            <SiteHeader />
+            {children}
+            <SiteFooter />
+          </ContactProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

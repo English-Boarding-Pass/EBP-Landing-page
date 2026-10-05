@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
-import { WaitlistButton } from "@/components/waitlist/waitlist-dialog";
+import { ContactButton } from "@/components/contact/contact-dialog";
 
 export function FinalCta() {
   const t = useTranslations("finalCta");
@@ -16,9 +16,9 @@ export function FinalCta() {
           {t("title")}
         </h2>
         <p className="max-w-md text-base text-white/75">{t("subtitle")}</p>
-        <WaitlistButton variant="accent" size="lg">
+        <ContactButton variant="accent" size="lg">
           {t("cta")}
-        </WaitlistButton>
+        </ContactButton>
       </Container>
     </section>
   );

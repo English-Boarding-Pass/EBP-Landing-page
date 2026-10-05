@@ -35,7 +35,8 @@ export function Logo({
   const inverted = variant === "inverted";
 
   return (
-    <div className={clsx("inline-flex flex-col", className)}>
+    // The wordmark is English in every locale; lang keeps its letter-spacing.
+    <div lang="en" className={clsx("inline-flex flex-col", className)}>
       <span
         className={clsx(
           "font-display leading-[0.95] font-extrabold tracking-tight",

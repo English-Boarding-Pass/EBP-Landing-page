@@ -1,29 +1,32 @@
 {
   "meta": {
-    "title": "English Boarding Pass — English That Takes You Places",
-    "description": "Live online English classes for Sri Lankan students. Learn from Sinhala or Tamil with experienced Sri Lankan teachers — 40 live classes, real conversation practice, a certificate at the end."
+    "title": "English Boarding Pass | English That Takes You Places",
+    "description": "Learn to use English with confidence. Experienced Sri Lankan teachers, taught in the language you already think in. For individual students and companies.",
+    "corporates": {
+      "title": "English for your team | English Boarding Pass",
+      "description": "Tailor-made English courses for companies in Sri Lanka, built around your team's job roles, with evaluations before and after."
+    },
+    "science": {
+      "title": "The science behind English | English Boarding Pass",
+      "description": "The four skills of English, how they are measured on the CEFR scale, and the order we build them in class."
+    }
   },
   "nav": {
     "howItWorks": "How it works",
-    "routes": "Courses",
-    "pricing": "Fees",
+    "corporates": "For corporates",
+    "science": "The science",
     "teachers": "Teachers",
     "faq": "FAQ",
-    "bookSeat": "Join the waitlist",
+    "cta": "Get in touch",
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "eyebrow": "Live online English classes · Sri Lanka",
     "title": "English that takes you places.",
-    "titleAccent": "places.",
-    "subtitle": "Want to speak English with confidence? Learn live, online, with experienced Sri Lankan teachers — taught in the language you already think in.",
-    "cta": "Join the waitlist",
-    "ctaSecondary": "See how it works",
-    "trustPoints": [
-      "Live Sri Lankan teachers",
-      "Small batches",
-      "You speak every class"
-    ],
+    "subtitle": "Want to use English with confidence? Learn with experienced Sri Lankan teachers, taught in the language you already think in.",
+    "audience": "We teach individual students and build tailor-made courses for companies.",
+    "cta": "Get in touch",
+    "ctaSecondary": "For corporates",
+    "skills": ["Listening", "Reading", "Writing", "Speaking"],
     "board": {
       "label": "DEPARTURES",
       "gate": "GATE",
@@ -31,162 +34,146 @@
       "status": "STATUS",
       "statusValue": "BOARDING",
       "columns": {
-        "route": "ROUTE",
-        "duration": "DURATION",
-        "classes": "CLASSES"
-      }
-    }
-  },
-  "routes": {
-    "title": "Choose your route",
-    "subtitle": "Two direct routes to confident spoken English. Pick the one that starts where you are — no levels to guess, no placement test.",
-    "sharedFactsLabel": "Every route includes",
-    "facts": {
-      "classes": "40 live classes",
-      "frequency": "2 classes a week",
-      "duration": "5 months",
-      "outcome": "Certificate + mock interview"
-    },
-    "seatsRemaining": "seats left",
-    "departsLabel": "Next cohort departs",
-    "cta": "Join the waitlist",
-    "sinhala": {
-      "code": "SIN → ENG",
-      "flagLabel": "සි",
-      "name": "Sinhala to English",
-      "departs": "6 October 2026",
-      "seats": 14
-    },
-    "tamil": {
-      "code": "TAM → ENG",
-      "flagLabel": "த",
-      "name": "Tamil to English",
-      "departs": "6 October 2026",
-      "seats": 11
+        "flight": "FLIGHT",
+        "skill": "SKILL"
+      },
+      "destination": "DESTINATION",
+      "destinationValue": "THINKING IN ENGLISH"
     }
   },
   "howItWorks": {
     "title": "How it works",
-    "subtitle": "No passive watching. No guessing what to do next. Just a clear path from your first class to a certificate you earned.",
-    "steps": [
-      {
-        "number": "01",
-        "title": "Two live classes a week",
-        "description": "Real Sri Lankan teachers, live on screen — not pre-recorded videos. Twice a week, every week, for five months."
-      },
-      {
-        "number": "02",
-        "title": "You speak every class",
-        "description": "This isn't a lecture you watch. Every class is built around you talking — answering, practising, getting it wrong, and trying again."
-      },
-      {
-        "number": "03",
-        "title": "Finish 40 classes, get certified",
-        "description": "Complete all 40 classes and leave with a certificate and a mock interview, so you know exactly how far you've come."
-      }
-    ]
-  },
-  "pricing": {
-    "title": "Simple pricing, no surprises",
-    "subtitle": "One price for the full 5-month route. No hidden fees, no upsells.",
-    "regularLabel": "Regular price",
-    "regularPrice": "Rs 40,000",
-    "earlyBirdLabel": "Early-bird — first cohort only",
-    "earlyBirdPrice": "Rs 20,000",
-    "cta": "Join the waitlist",
-    "fine": "Covers all 40 live classes, class materials, and your certificate. Seats confirmed on payment."
-  },
-  "testimonials": {
-    "title": "Students who found their words",
-    "subtitle": "Real students, real progress. Photos and stories to follow as our first cohorts graduate.",
-    "items": [
-      {
-        "quote": "I used to freeze in interviews. After a few weeks of actually speaking every class, I stopped translating in my head and just answered.",
-        "name": "Nimasha P.",
-        "role": "Sinhala to English student"
-      },
-      {
-        "quote": "Having the teacher explain in Tamil first meant nothing felt out of reach. By class 20 I was arguing my own opinions in English.",
-        "name": "Aravind S.",
-        "role": "Tamil to English student"
-      },
-      {
-        "quote": "Small batch, so the teacher actually knew my name and where I kept getting stuck. That made all the difference.",
-        "name": "Dilshan K.",
-        "role": "Sinhala to English student"
-      }
-    ]
+    "subtitle": "Two ways to learn with us.",
+    "students": {
+      "label": "For students",
+      "title": "Your class, your voice",
+      "points": [
+        {
+          "title": "Weekly classes with experienced teachers",
+          "description": "You meet your teacher every week and build your English step by step."
+        },
+        {
+          "title": "You shine in the class",
+          "description": "Less teaching, more using the language. Most of the class time is yours."
+        }
+      ],
+      "cta": "Get in touch"
+    },
+    "corporates": {
+      "label": "For corporates",
+      "title": "Courses built around your team",
+      "points": [
+        {
+          "title": "Tailor-made courses",
+          "description": "Designed around your batch size and the job your people do."
+        },
+        {
+          "title": "Real workplace language",
+          "description": "Examples and activities come from your team's daily work."
+        },
+        {
+          "title": "Pre- and post-evaluations",
+          "description": "We assess your team before and after, so you can see the progress."
+        }
+      ],
+      "cta": "Find out more"
+    }
   },
   "teachers": {
-    "title": "Learn from teachers who get it",
-    "subtitle": "Experienced Sri Lankan English teachers who know exactly where Sinhala and Tamil speakers get stuck — because they've taught this journey before.",
+    "title": "Meet your teachers",
+    "subtitle": "Experienced Sri Lankan teachers who understand the local context and know exactly where Sinhala and Tamil speakers get stuck.",
     "items": [
       {
         "name": "Ms. Ruwanthi Fernando",
-        "role": "Lead Teacher, Sinhala to English",
-        "bio": "12 years teaching spoken English to school leavers and working adults across Colombo and Kandy."
+        "bio": "12 years teaching spoken English to school leavers and working adults across Colombo and Kandy.",
+        "longBio": "Ruwanthi has taught spoken English for 12 years, to school leavers and working adults in Colombo and Kandy. Her classes are built on conversation. She keeps the teaching short, gets everyone talking, and explains in Sinhala whenever a point needs it.",
+        "testimonials": [
+          {
+            "quote": "I got a lot of chances to talk in class.",
+            "name": "Sample student"
+          },
+          {
+            "quote": "She gives each of us individual attention, so we can be ourselves.",
+            "name": "Sample student"
+          }
+        ]
       },
       {
         "name": "Mr. Kavindu Perera",
-        "role": "Teacher, Sinhala to English",
-        "bio": "Specialises in interview and workplace English for students entering their first job."
+        "bio": "Specialises in interview and workplace English for students entering their first job.",
+        "longBio": "Kavindu prepares students for interviews and their first job. He brings real workplace situations into class, such as emails, meetings and phone calls, and students practise them until they feel natural. He explains in Sinhala whenever it helps.",
+        "testimonials": [
+          {
+            "quote": "We practised real interview questions in class, so I wasn't nervous in my own interview.",
+            "name": "Sample student"
+          },
+          {
+            "quote": "He went through every email I wrote with me, line by line.",
+            "name": "Sample student"
+          }
+        ]
       },
       {
         "name": "Ms. Priyatharshini Raj",
-        "role": "Lead Teacher, Tamil to English",
-        "bio": "8 years teaching English across Jaffna and Colombo, focused on real conversation over grammar drills."
+        "bio": "8 years teaching English across Jaffna and Colombo, focused on real conversation over grammar drills.",
+        "longBio": "Priyatharshini has taught English in Jaffna and Colombo for 8 years. She puts real conversation ahead of grammar drills and explains in Tamil whenever a student needs it. Her students speak in every class, in pairs and in small groups.",
+        "testimonials": [
+          {
+            "quote": "I spoke with a partner in every class. That was easier than speaking in front of everyone.",
+            "name": "Sample student"
+          },
+          {
+            "quote": "When I didn't understand, she explained in Tamil and then let me try again in English.",
+            "name": "Sample student"
+          }
+        ]
       }
     ],
-    "photoNote": "Teacher photos to be added"
+    "more": "Read more",
+    "testimonialsTitle": "What students say",
+    "close": "Close",
+    "sampleNote": "Sample profiles. Real teachers, photos and student feedback will be added soon."
   },
   "faq": {
     "title": "Questions, answered",
-    "subtitle": "Can't find what you're looking for? Message us on WhatsApp — we reply fast.",
+    "subtitle": "Can't find your answer? Message us on WhatsApp.",
     "items": [
       {
         "question": "Do I need to know any English to start?",
-        "answer": "No. Classes are taught with Sinhala or Tamil explanations from day one, so you can start from wherever you are right now."
+        "answer": "No. Your teacher explains in Sinhala or Tamil whenever you need it, so you can start from where you are right now."
       },
       {
-        "question": "What if I miss a class?",
-        "answer": "Let your teacher know and we'll help you catch up before the next one. Because batches are small, teachers notice when you're behind and help you keep pace."
+        "question": "Are the classes online or in person?",
+        "answer": "Both. We run a hybrid model, so classes can be arranged online or in person, based on what you need."
       },
       {
-        "question": "Are the classes live or recorded?",
-        "answer": "Live, always. Every class is taught by a real teacher in real time, because speaking practice only works when someone is actually listening and responding."
-      },
-      {
-        "question": "How does payment work?",
-        "answer": "Pay the full amount, or split it into two interest-free instalments. Your seat is confirmed once payment is made."
+        "question": "What is the course fee?",
+        "answer": "Fees are tailored, so we agree them with you directly.",
+        "points": [
+          "Individuals: we recommend a course based on your batch size, language needs and current level, then discuss the fee with you one to one.",
+          "Corporates: the fee is part of your tailor-made package, based on the number of teachers, hours and students."
+        ]
       },
       {
         "question": "Is there a certificate at the end?",
-        "answer": "Yes. Finish all 40 classes and you'll get a certificate and a mock interview, so you leave with proof of how far you've come."
+        "answer": "Yes. To earn it, you complete your classes and show how your English has grown."
       },
       {
         "question": "What if I'm too nervous to speak in class?",
-        "answer": "That's normal, and it's exactly what we're here for. Batches stay small so your teacher can bring you in gently — mistakes are expected, not judged."
+        "answer": "That's normal, and it's what we're here for. Your teacher brings you in gently. Mistakes are expected, not judged."
       }
     ]
   },
   "finalCta": {
     "title": "Ready for takeoff?",
-    "subtitle": "Seats are limited to keep every class small enough that you actually get heard.",
-    "cta": "Join the waitlist"
+    "subtitle": "Tell us what you need and we'll find the right class for you.",
+    "cta": "Get in touch"
   },
   "footer": {
-    "tagline": "English That Takes You Places.",
-    "description": "Live online English classes for Sri Lankan students, taught by experienced Sri Lankan teachers in Sinhala, Tamil, and English.",
+    "description": "English classes for Sri Lankan students and companies, taught by experienced Sri Lankan teachers.",
     "columns": {
       "explore": {
-        "title": "Explore",
-        "links": {
-          "howItWorks": "How it works",
-          "routes": "Courses",
-          "pricing": "Fees",
-          "teachers": "Teachers",
-          "faq": "FAQ"
-        }
+        "title": "Explore"
       },
       "contact": {
         "title": "Contact",
@@ -199,43 +186,172 @@
       "rights": "All rights reserved."
     }
   },
-  "waitlist": {
-    "title": "Join the waitlist",
-    "subtitle": "Our class platform is still being built. Leave your details and we'll contact you the moment seats open — early-bird price included.",
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "Leave your details and we'll contact you to talk about what you need.",
     "close": "Close",
     "nameLabel": "Full name",
     "emailLabel": "Email",
     "phoneLabel": "Phone number",
-    "phoneHint": "We'll call or WhatsApp you when seats open.",
-    "routeLegend": "Which course do you want?",
-    "submit": "Join the waitlist",
-    "submitting": "Adding you…",
-    "privacy": "We'll only use your details to tell you about English Boarding Pass. Unsubscribe any time.",
-    "successTitle": "You're on the list.",
-    "successBody": "We've sent a confirmation to {email}. The moment seats open, you'll be the first to know.",
+    "phoneHint": "We'll call or WhatsApp you on this number.",
+    "messageLabel": "What would you like help with?",
+    "optional": "optional",
+    "submit": "Send my details",
+    "submitting": "Sending…",
+    "privacy": "We'll only use your details to contact you about English Boarding Pass.",
+    "successTitle": "We've got your details.",
+    "successBody": "Thank you. One of our team will contact you soon.",
     "done": "Done",
     "errors": {
       "name": "Please enter your name.",
       "email": "Please enter a valid email address.",
       "phone": "Please enter a valid phone number, e.g. 077 123 4567.",
-      "route": "Please choose a course.",
       "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp."
     },
     "email": {
-      "subject": "You're on the English Boarding Pass waitlist",
-      "preheader": "Your spot on the waitlist is saved. Here's what happens next.",
-      "eyebrow": "Waitlist confirmed",
-      "heading": "You're on the list, {name}.",
-      "body": "Thanks for joining the English Boarding Pass waitlist. Our class platform is still being built — the moment seats open, we'll email you first so you can grab the early-bird price.",
+      "subject": "English Boarding Pass: we've got your details",
+      "preheader": "Thank you. We'll contact you soon.",
+      "eyebrow": "Details received",
+      "heading": "Thank you, {name}.",
+      "body": "Thanks for getting in touch with English Boarding Pass. One of our team will contact you soon to talk about what you need.",
       "passenger": "Passenger",
-      "route": "Route",
+      "company": "Company",
       "status": "Status",
-      "statusValue": "Waitlisted",
-      "departs": "First cohort",
-      "earlyBird": "Early-bird price for the first cohort: {price}",
-      "replyHint": "Questions? Just reply to this email — a real person will answer.",
+      "statusValue": "Received",
+      "replyHint": "Questions? Just reply to this email. A real person will answer.",
       "signoff": "See you on board,",
-      "footer": "You're receiving this because you joined the English Boarding Pass waitlist."
+      "footer": "You're receiving this because you sent your details to English Boarding Pass."
+    }
+  },
+  "corporates": {
+    "eyebrow": "For corporates",
+    "title": "English built around your team's work.",
+    "subtitle": "Our teachers train your staff on tailor-made courses, using the language of the job they do every day.",
+    "cta": "Talk to us",
+    "pillars": [
+      {
+        "title": "Tailor-made courses",
+        "description": "No two teams are the same. We design each course around your batch size, the job roles in the room and where your people are today."
+      },
+      {
+        "title": "Real workplace language",
+        "description": "A team that sells gems learns with examples about gems. Restaurant staff practise food, drinks and taking orders. Your team learns English they can use the next day."
+      },
+      {
+        "title": "Pre- and post-evaluations",
+        "description": "We assess every learner before the course starts and again at the end, so you can see exactly how far your team has come."
+      }
+    ],
+    "form": {
+      "title": "Tell us about your team",
+      "subtitle": "Share your contact details and we'll get back to you. The rest is optional, but it helps us prepare.",
+      "companyLabel": "Company",
+      "learnersLabel": "Number of learners",
+      "levelLabel": "Current English level",
+      "levels": {
+        "unsure": "Not sure yet",
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced",
+        "mixed": "Mixed levels"
+      },
+      "roleLabel": "Job role or team",
+      "roleHint": "For example: waiters, sales staff, call centre agents.",
+      "messageLabel": "Anything else we should know?",
+      "submit": "Send enquiry",
+      "successTitle": "Thank you. We've got your enquiry.",
+      "successBody": "One of our team will contact you soon to talk about your team's course.",
+      "errors": {
+        "company": "Please enter your company name."
+      }
+    }
+  },
+  "science": {
+    "eyebrow": "How English is learned",
+    "title": "The science behind the English language",
+    "subtitle": "What you need to improve, how it is measured, and how we build it in class.",
+    "skills": {
+      "title": "Four skills",
+      "body": "English, like any language, has four main skills.",
+      "items": [
+        {
+          "name": "Listening",
+          "description": "Understanding what you hear."
+        },
+        {
+          "name": "Reading",
+          "description": "Understanding what you read."
+        },
+        {
+          "name": "Writing",
+          "description": "Putting your ideas into written words."
+        },
+        {
+          "name": "Speaking",
+          "description": "Saying what you mean out loud."
+        }
+      ],
+      "outcome": "Together, they lead to one thing: thinking in English."
+    },
+    "cefr": {
+      "title": "How it is measured",
+      "body": "The CEFR, the Common European Framework of Reference, is the global scale for language ability. It has six levels, from A1 to C2. IELTS, PTE, TOEFL and the Cambridge English exams all map to it.",
+      "levels": [
+        {
+          "code": "A1",
+          "name": "Beginner",
+          "description": "You use simple everyday phrases."
+        },
+        {
+          "code": "A2",
+          "name": "Elementary",
+          "description": "You handle short, routine conversations."
+        },
+        {
+          "code": "B1",
+          "name": "Intermediate",
+          "description": "You manage most situations at work, in study and when travelling."
+        },
+        {
+          "code": "B2",
+          "name": "Upper intermediate",
+          "description": "You speak with ease and follow complex ideas."
+        },
+        {
+          "code": "C1",
+          "name": "Advanced",
+          "description": "You use English flexibly for work and study."
+        },
+        {
+          "code": "C2",
+          "name": "Proficiency",
+          "description": "You understand almost everything and express yourself precisely."
+        }
+      ]
+    },
+    "progression": {
+      "title": "How we build it",
+      "body": "In class, we build each skill in this order.",
+      "steps": [
+        {
+          "name": "Pronunciation",
+          "description": "Fine-tuning the way you already speak English."
+        },
+        {
+          "name": "Spelling",
+          "description": "Fine-tuning the way you already write English."
+        },
+        {
+          "name": "Vocabulary",
+          "description": "New words you can use every day, chosen for your life and work."
+        },
+        {
+          "name": "Grammar",
+          "description": "The structures behind the language. This comes last, as the pinnacle of learning."
+        }
+      ],
+      "lastLabel": "Last focus",
+      "note": "Many people believe grammar is the only thing they have to learn. It is not. You can be confident in English without knowing a single grammar rule."
     }
   }
 }
