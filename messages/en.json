@@ -9,24 +9,29 @@
     "science": {
       "title": "The science behind English | English Boarding Pass",
       "description": "The four skills of English, how they are measured on the CEFR scale, and the order we build them in class."
+    },
+    "teachers": {
+      "title": "Our teachers | English Boarding Pass",
+      "description": "The full directory of English Boarding Pass teachers is coming soon."
     }
   },
   "nav": {
     "howItWorks": "How it works",
+    "programmes": "Programmes",
     "corporates": "For corporates",
     "science": "The science",
     "teachers": "Teachers",
     "faq": "FAQ",
-    "cta": "Get in touch",
+    "cta": "Chat on WhatsApp",
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "title": "English that takes you places.",
+    "title": "Find your voice in English.",
     "subtitle": "Want to use English with confidence? Learn with experienced Sri Lankan teachers, taught in the language you already think in.",
     "audience": "We teach individual students and build tailor-made courses for companies.",
-    "cta": "Get in touch",
+    "cta": "Book a class",
     "ctaSecondary": "For corporates",
-    "skills": ["Listening", "Reading", "Writing", "Speaking"],
+    "skills": ["Speaking", "Listening", "Reading", "Writing"],
     "board": {
       "label": "DEPARTURES",
       "gate": "GATE",
@@ -57,7 +62,7 @@
           "description": "Less teaching, more using the language. Most of the class time is yours."
         }
       ],
-      "cta": "Get in touch"
+      "cta": "Find the right class"
     },
     "corporates": {
       "label": "For corporates",
@@ -79,13 +84,34 @@
       "cta": "Find out more"
     }
   },
+  "programmes": {
+    "title": "Programmes",
+    "subtitle": "Three ways to learn with us. We agree the fee with you directly.",
+    "items": [
+      {
+        "name": "[Programme 1 name]",
+        "description": "[Short description]"
+      },
+      {
+        "name": "[Programme 2 name]",
+        "description": "[Short description]"
+      },
+      {
+        "name": "[Programme 3 name]",
+        "description": "[Short description]"
+      }
+    ],
+    "cta": "Ask about fees"
+  },
   "teachers": {
     "title": "Meet your teachers",
     "subtitle": "Experienced Sri Lankan teachers who understand the local context and know exactly where Sinhala and Tamil speakers get stuck.",
     "items": [
       {
         "name": "Ms. Ruwanthi Fernando",
-        "bio": "12 years teaching spoken English to school leavers and working adults across Colombo and Kandy.",
+        "experience": "12 years of experience",
+        "specialism": "Spoken English for school leavers and working adults",
+        "line": "Conversation-led classes in Colombo and Kandy.",
         "longBio": "Ruwanthi has taught spoken English for 12 years, to school leavers and working adults in Colombo and Kandy. Her classes are built on conversation. She keeps the teaching short, gets everyone talking, and explains in Sinhala whenever a point needs it.",
         "testimonials": [
           {
@@ -100,7 +126,9 @@
       },
       {
         "name": "Mr. Kavindu Perera",
-        "bio": "Specialises in interview and workplace English for students entering their first job.",
+        "experience": "6 years of experience",
+        "specialism": "Interview and workplace English",
+        "line": "Real emails, meetings and phone calls, practised until they feel natural.",
         "longBio": "Kavindu prepares students for interviews and their first job. He brings real workplace situations into class, such as emails, meetings and phone calls, and students practise them until they feel natural. He explains in Sinhala whenever it helps.",
         "testimonials": [
           {
@@ -115,7 +143,9 @@
       },
       {
         "name": "Ms. Priyatharshini Raj",
-        "bio": "8 years teaching English across Jaffna and Colombo, focused on real conversation over grammar drills.",
+        "experience": "8 years of experience",
+        "specialism": "Conversational English",
+        "line": "Real conversation ahead of grammar drills, with Tamil explanations when needed.",
         "longBio": "Priyatharshini has taught English in Jaffna and Colombo for 8 years. She puts real conversation ahead of grammar drills and explains in Tamil whenever a student needs it. Her students speak in every class, in pairs and in small groups.",
         "testimonials": [
           {
@@ -129,6 +159,7 @@
         ]
       }
     ],
+    "all": "Meet all teachers",
     "more": "Read more",
     "testimonialsTitle": "What students say",
     "close": "Close",
@@ -152,7 +183,8 @@
         "points": [
           "Individuals: we recommend a course based on your batch size, language needs and current level, then discuss the fee with you one to one.",
           "Corporates: the fee is part of your tailor-made package, based on the number of teachers, hours and students."
-        ]
+        ],
+        "link": "See our programmes"
       },
       {
         "question": "Is there a certificate at the end?",
@@ -167,7 +199,7 @@
   "finalCta": {
     "title": "Ready for takeoff?",
     "subtitle": "Tell us what you need and we'll find the right class for you.",
-    "cta": "Get in touch"
+    "cta": "Start the conversation"
   },
   "footer": {
     "description": "English classes for Sri Lankan students and companies, taught by experienced Sri Lankan teachers.",
@@ -184,6 +216,13 @@
     "legal": {
       "privacy": "Privacy notice",
       "rights": "All rights reserved."
+    },
+    "social": {
+      "label": "Follow us",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "youtube": "YouTube"
     }
   },
   "contact": {
@@ -194,6 +233,7 @@
     "emailLabel": "Email",
     "phoneLabel": "Phone number",
     "phoneHint": "We'll call or WhatsApp you on this number.",
+    "countryCodeLabel": "Country code",
     "messageLabel": "What would you like help with?",
     "optional": "optional",
     "submit": "Send my details",
@@ -205,7 +245,7 @@
     "errors": {
       "name": "Please enter your name.",
       "email": "Please enter a valid email address.",
-      "phone": "Please enter a valid phone number, e.g. 077 123 4567.",
+      "phone": "Please enter a valid phone number using digits only, e.g. 77 123 4567.",
       "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp."
     },
     "email": {
@@ -222,6 +262,15 @@
       "signoff": "See you on board,",
       "footer": "You're receiving this because you sent your details to English Boarding Pass."
     }
+  },
+  "teachersPage": {
+    "eyebrow": "Our teachers",
+    "title": "Meet all our teachers",
+    "subtitle": "The full teacher directory is coming soon.",
+    "soonTitle": "Coming soon",
+    "soonBody": "We are adding every teacher, with photos and student feedback. Until then, see three sample profiles on the home page, or tell us what you need and we will match you with the right teacher.",
+    "seeSample": "See sample teachers",
+    "ask": "Ask us to match you"
   },
   "corporates": {
     "eyebrow": "For corporates",

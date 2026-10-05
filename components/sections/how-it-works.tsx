@@ -19,7 +19,7 @@ function Pillar({
   action: ReactNode;
 }) {
   return (
-    <div className="flex flex-col rounded-card border border-navy/10 bg-white p-7 sm:p-9">
+    <div className="flex flex-col rounded-card border border-navy/10 bg-paper p-7 sm:p-9">
       <p className="font-board text-xs font-semibold tracking-[0.2em] text-sky-ink uppercase">
         {label}
       </p>
@@ -57,16 +57,11 @@ export function HowItWorks() {
   const t = useTranslations("howItWorks");
 
   return (
-    <section id="how-it-works" className="bg-ivory py-20 sm:py-28">
+    <section id="how-it-works" className="bg-ivory py-16 sm:py-28">
       <Container>
-        <SectionHeading
-          title={t("title")}
-          subtitle={t("subtitle")}
-          align="center"
-          className="mx-auto"
-        />
+        <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-2">
           <Pillar
             label={t("students.label")}
             title={t("students.title")}

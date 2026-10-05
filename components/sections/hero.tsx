@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
+import { NavArrowRight } from "iconoir-react";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { ContactButton } from "@/components/contact/contact-dialog";
 import { DepartureBoard } from "@/components/boarding-pass/departure-board";
 
@@ -10,23 +11,12 @@ export function Hero() {
   const skills = t.raw("skills") as string[];
 
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden bg-navy pt-14 pb-20 sm:pt-20 sm:pb-28"
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(156,204,246,0.18),transparent_55%)]"
-      />
-      <Container className="relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+    <section id="top" className="bg-navy pt-44 pb-20 sm:pt-40 sm:pb-28">
+      <Container className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div>
-          <h1 className="font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-[clamp(2.25rem,1.2rem+4.5vw,3.75rem)] leading-[1.05] font-extrabold tracking-tight text-white">
             {t("title")}
           </h1>
-          <span
-            aria-hidden
-            className="mt-6 block h-1.5 w-20 rounded-full bg-red"
-          />
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
             {t("subtitle")}
           </p>
@@ -43,13 +33,18 @@ export function Hero() {
             same shape across languages. It grows a little taller for
             longer translations, but it doesn't rearrange itself.
           */}
-          <div className="mt-9 flex flex-col items-start gap-3">
+          <div className="mt-9 flex flex-col items-start gap-2">
             <ContactButton variant="accent" size="lg">
               {t("cta")}
             </ContactButton>
-            <Button href="/corporates" variant="outline-inverted" size="lg">
+            {/* A quiet text link: the hero belongs to individual learners. */}
+            <Link
+              href="/corporates"
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-full text-sm font-medium text-white/80 underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            >
               {t("ctaSecondary")}
-            </Button>
+              <NavArrowRight className="size-4" aria-hidden />
+            </Link>
           </div>
         </div>
 
@@ -65,9 +60,11 @@ export function Hero() {
               flight: t("board.columns.flight"),
               skill: t("board.columns.skill"),
             }}
+            // Speaking leads the list: live spoken English is what we teach.
             rows={skills.map((skill, i) => ({
               code: `EBP 0${i + 1}`,
               skill,
+              featured: i === 0,
             }))}
             destination={t("board.destination")}
             destinationValue={t("board.destinationValue")}

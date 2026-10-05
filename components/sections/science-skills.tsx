@@ -14,7 +14,7 @@ export function ScienceSkills() {
   const items = t.raw("items") as Skill[];
 
   return (
-    <section className="bg-ivory py-20 sm:py-28">
+    <section className="bg-ivory py-16 sm:py-28">
       <Container>
         <SectionHeading eyebrow="01" title={t("title")} subtitle={t("body")} />
 
@@ -24,7 +24,7 @@ export function ScienceSkills() {
             return (
               <li
                 key={skill.name}
-                className="rounded-card border border-navy/10 bg-white p-6"
+                className="rounded-card border border-navy/10 bg-paper p-6"
               >
                 <span className="inline-flex size-11 items-center justify-center rounded-full bg-ice text-sky-ink">
                   <Icon className="size-5" aria-hidden />

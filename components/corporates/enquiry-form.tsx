@@ -1,12 +1,13 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { CheckCircle } from "iconoir-react";
 import { Button } from "@/components/ui/button";
 import {
   Field,
   Honeypot,
+  PhoneField,
   SelectField,
   TextAreaField,
 } from "@/components/ui/form-field";
@@ -33,6 +34,16 @@ export function EnquiryForm() {
     sendCorporateEnquiry,
     { status: "idle" },
   );
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // After a failed submit, jump to the field that needs fixing.
+  useEffect(() => {
+    if (state.status === "error") {
+      formRef.current
+        ?.querySelector<HTMLElement>('[aria-invalid="true"]')
+        ?.focus();
+    }
+  }, [state]);
 
   if (state.status === "success") {
     return (
@@ -57,6 +68,7 @@ export function EnquiryForm() {
 
   return (
     <form
+      ref={formRef}
       action={action}
       className="relative flex flex-col gap-4 rounded-card border border-navy/10 bg-ivory p-6 sm:p-8"
     >
@@ -87,18 +99,18 @@ export function EnquiryForm() {
           type="email"
           inputMode="email"
           autoComplete="email"
+          invalidMessage={tContact("errors.email")}
           defaultValue={values?.email}
           error={
             error === "invalidEmail" ? tContact("errors.email") : undefined
           }
         />
-        <Field
+        <PhoneField
           form="corporate"
           id="phone"
           label={tContact("phoneLabel")}
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
+          countryLabel={tContact("countryCodeLabel")}
+          invalidMessage={tContact("errors.phone")}
           defaultValue={values?.phone}
           error={
             error === "invalidPhone" ? tContact("errors.phone") : undefined

@@ -1,8 +1,20 @@
+"use client";
+
 import { clsx } from "clsx";
-import type { ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
+import {
+  COUNTRIES,
+  DEFAULT_DIAL,
+  EMAIL_MAX,
+  EMAIL_PATTERN,
+  digitsOnly,
+  isValidNationalNumber,
+  nationalDigits,
+} from "@/lib/validation";
 
 const controlClasses =
-  "w-full rounded-xl border border-navy/15 bg-white py-2.5 pr-4 text-sm text-navy " +
+  // 16px text stops iOS Safari zooming the page on focus; 44px is the touch minimum.
+  "min-h-11 w-full rounded-xl border border-navy/15 bg-paper py-2.5 pr-4 text-base text-navy " +
   "placeholder:text-slate/40 focus:border-sky-ink focus:outline-none focus:ring-2 focus:ring-sky-ink/25 " +
   "aria-invalid:border-red-500";
 
@@ -47,7 +59,8 @@ function FieldShell({
         <p id={`${inputId}-error`} className="mt-1.5 text-xs text-red-600">
           {error}
         </p>
-      ) : hint ? (
+      ) : null}
+      {hint ? (
         <p id={`${inputId}-hint`} className="mt-1.5 text-xs text-slate/70">
           {hint}
         </p>
@@ -57,7 +70,10 @@ function FieldShell({
 }
 
 function describedBy(inputId: string, error?: string, hint?: string) {
-  return error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined;
+  const ids = [error && `${inputId}-error`, hint && `${inputId}-hint`].filter(
+    Boolean,
+  );
+  return ids.length ? ids.join(" ") : undefined;
 }
 
 export function Field({
@@ -70,6 +86,7 @@ export function Field({
   min,
   required = true,
   defaultValue,
+  invalidMessage,
   ...shell
 }: FieldProps & {
   icon?: ReactNode;
@@ -77,8 +94,11 @@ export function Field({
   autoComplete?: string;
   inputMode?: "tel" | "email" | "numeric";
   min?: number;
+  /** Replaces the browser's default message when the value is invalid. */
+  invalidMessage?: string;
 }) {
   const inputId = `${form}-${id}`;
+  const isEmail = type === "email";
   return (
     <FieldShell inputId={inputId} required={required} {...shell}>
       <div className="relative">
@@ -98,12 +118,144 @@ export function Field({
           autoComplete={autoComplete}
           inputMode={inputMode}
           min={min}
+          pattern={isEmail ? EMAIL_PATTERN : undefined}
+          maxLength={isEmail ? EMAIL_MAX : undefined}
           defaultValue={defaultValue}
           aria-invalid={shell.error ? true : undefined}
           aria-describedby={describedBy(inputId, shell.error, shell.hint)}
+          onInvalid={
+            invalidMessage
+              ? (e) => e.currentTarget.setCustomValidity(invalidMessage)
+              : undefined
+          }
+          onInput={
+            invalidMessage
+              ? (e) => e.currentTarget.setCustomValidity("")
+              : undefined
+          }
           className={clsx(controlClasses, icon ? "pl-10" : "pl-4")}
         />
       </div>
+    </FieldShell>
+  );
+}
+
+/** Splits a stored "+94 771234567" back into its country code and digits. */
+function splitPhone(value?: string) {
+  const match = value ? /^(\+\d{1,3}) (\d+)$/.exec(value) : null;
+  return match
+    ? { dial: match[1], national: match[2] }
+    : { dial: DEFAULT_DIAL, national: "" };
+}
+
+/**
+ * Country-code picker plus a digits-only number box. Letters and symbols are
+ * stripped as they're typed or pasted. Submits one `phone` value such as
+ * "+94 771234567".
+ */
+export function PhoneField({
+  form,
+  id,
+  required = true,
+  defaultValue,
+  countryLabel,
+  invalidMessage,
+  ...shell
+}: FieldProps & {
+  countryLabel: string;
+  invalidMessage: string;
+}) {
+  const inputId = `${form}-${id}`;
+  const initial = splitPhone(defaultValue);
+  // Tracked by ISO code because several countries share a dial code (+1).
+  const [iso, setIso] = useState(
+    (COUNTRIES.find((c) => c.dial === initial.dial) ?? COUNTRIES[0]).iso,
+  );
+  const [national, setNational] = useState(initial.national);
+  const selectId = useId();
+  const dial = COUNTRIES.find((c) => c.iso === iso)?.dial ?? DEFAULT_DIAL;
+
+  const digits = nationalDigits(national);
+  const value = digits ? `${dial} ${digits}` : "";
+
+  function validate(
+    el: HTMLInputElement,
+    nextDial: string,
+    nextNational: string,
+  ) {
+    const ok =
+      !nextNational ||
+      isValidNationalNumber(nextDial, nationalDigits(nextNational));
+    el.setCustomValidity(ok ? "" : invalidMessage);
+  }
+
+  return (
+    <FieldShell inputId={inputId} required={required} {...shell}>
+      <div className="flex gap-2">
+        <select
+          id={selectId}
+          aria-label={countryLabel}
+          value={iso}
+          onChange={(e) => {
+            setIso(e.target.value);
+            const nextDial =
+              COUNTRIES.find((c) => c.iso === e.target.value)?.dial ??
+              DEFAULT_DIAL;
+            const input = document.getElementById(inputId);
+            if (input instanceof HTMLInputElement) {
+              validate(input, nextDial, national);
+            }
+          }}
+          className={clsx(
+            controlClasses.replace("w-full", "").replace("pr-4", ""),
+            "w-[6.5rem] shrink-0 pr-1 pl-3",
+          )}
+        >
+          {COUNTRIES.map((c) => (
+            <option key={c.iso} value={c.iso}>
+              {c.iso} {c.dial}
+            </option>
+          ))}
+        </select>
+        <div className="min-w-0 flex-1">
+          <input
+            id={inputId}
+            type="tel"
+            inputMode="numeric"
+            autoComplete="tel-national"
+            required={required}
+            maxLength={14}
+            pattern="[0-9]*"
+            value={national}
+            onChange={(e) => {
+              const next = digitsOnly(e.target.value).slice(0, 14);
+              setNational(next);
+              validate(e.currentTarget, dial, next);
+            }}
+            // Block letters before they appear; paste and autofill are
+            // cleaned by onChange above.
+            onKeyDown={(e) => {
+              if (
+                e.key.length === 1 &&
+                !/\d/.test(e.key) &&
+                !e.ctrlKey &&
+                !e.metaKey
+              ) {
+                e.preventDefault();
+              }
+            }}
+            onInvalid={(e) => {
+              if (e.currentTarget.value) {
+                e.currentTarget.setCustomValidity(invalidMessage);
+              }
+            }}
+            aria-invalid={shell.error ? true : undefined}
+            aria-describedby={describedBy(inputId, shell.error, shell.hint)}
+            className={clsx(controlClasses, "pl-4")}
+          />
+        </div>
+      </div>
+      <input type="hidden" name={id} value={value} />
     </FieldShell>
   );
 }

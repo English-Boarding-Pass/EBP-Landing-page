@@ -1,6 +1,8 @@
 export type DepartureRow = {
   code: string;
   skill: string;
+  /** The row we want eyes on; the rest recede. */
+  featured?: boolean;
 };
 
 /**
@@ -31,7 +33,7 @@ export function DepartureBoard({
   destinationValue: string;
 }) {
   return (
-    <div className="w-full max-w-lg rounded-card border border-white/10 bg-[#060d33] p-6 shadow-[0_24px_64px_-24px_rgba(0,0,0,0.6)] sm:p-8">
+    <div className="w-full max-w-lg rounded-card border border-white/10 bg-board p-6 shadow-float sm:p-8">
       <div className="flex items-center justify-between border-b border-white/10 pb-5">
         <span className="font-board text-sm font-semibold tracking-[0.25em] text-sky uppercase">
           {label}
@@ -44,13 +46,13 @@ export function DepartureBoard({
 
       <div className="grid grid-cols-2 gap-4 border-b border-white/10 py-5 font-board text-xs sm:text-sm">
         <div>
-          <p className="tracking-[0.2em] text-white/40 uppercase">{gate}</p>
+          <p className="tracking-[0.2em] text-white/60 uppercase">{gate}</p>
           <p className="mt-1.5 text-base font-semibold text-white sm:text-lg">
             {gateValue}
           </p>
         </div>
         <div>
-          <p className="tracking-[0.2em] text-white/40 uppercase">{status}</p>
+          <p className="tracking-[0.2em] text-white/60 uppercase">{status}</p>
           <p className="mt-1.5 text-base font-semibold text-sky sm:text-lg">
             {statusValue}
           </p>
@@ -59,16 +61,37 @@ export function DepartureBoard({
 
       <table className="mt-5 w-full font-board text-xs sm:text-sm">
         <thead>
-          <tr className="text-left tracking-[0.15em] text-white/40 uppercase">
+          <tr className="text-left tracking-[0.15em] text-white/60 uppercase">
             <th className="pb-3 font-medium">{columns.flight}</th>
             <th className="pb-3 text-right font-medium">{columns.skill}</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.code} className="border-t border-white/10 text-white">
-              <td className="py-3.5 text-white/70">{row.code}</td>
-              <td className="py-3.5 text-right font-semibold uppercase">
+            <tr
+              key={row.code}
+              className={
+                row.featured
+                  ? "border-t border-sky/40 bg-white/10 text-sky"
+                  : "border-t border-white/10 text-white/70"
+              }
+            >
+              <td
+                className={
+                  row.featured
+                    ? "rounded-l-lg py-5 pl-3 text-base font-semibold sm:text-lg"
+                    : "py-3 text-white/60"
+                }
+              >
+                {row.code}
+              </td>
+              <td
+                className={
+                  row.featured
+                    ? "rounded-r-lg py-5 pr-3 text-right text-base font-bold uppercase sm:text-lg"
+                    : "py-3 text-right font-medium uppercase"
+                }
+              >
                 {row.skill}
               </td>
             </tr>
@@ -77,7 +100,7 @@ export function DepartureBoard({
       </table>
 
       <div className="mt-2 border-t border-white/10 pt-5 font-board text-xs sm:text-sm">
-        <p className="tracking-[0.2em] text-white/40 uppercase">
+        <p className="tracking-[0.2em] text-white/60 uppercase">
           {destination}
         </p>
         <p className="mt-1.5 text-base font-semibold text-sky uppercase sm:text-lg">

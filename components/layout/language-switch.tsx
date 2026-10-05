@@ -24,7 +24,7 @@ export function LanguageSwitch({
         "inline-flex items-center gap-0.5 rounded-full border p-0.5",
         tone === "white"
           ? "border-white/25 bg-white/10"
-          : "border-navy/10 bg-white",
+          : "border-navy/10 bg-paper",
         className,
       )}
     >
@@ -38,7 +38,7 @@ export function LanguageSwitch({
             aria-label={localeLabels[code].native}
             onClick={() => router.replace(pathname, { locale: code })}
             className={clsx(
-              "rounded-full px-3 py-1.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none",
+              "min-h-11 rounded-full px-3 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none",
               active
                 ? tone === "white"
                   ? "bg-white text-navy"

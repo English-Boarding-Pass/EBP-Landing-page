@@ -21,7 +21,7 @@ export function CorporatePillars() {
   const pillars = t.raw("pillars") as Pillar[];
 
   return (
-    <section className="bg-ivory py-20 sm:py-28">
+    <section className="bg-ivory py-16 sm:py-28">
       <Container className="space-y-16 sm:space-y-24">
         {pillars.map((pillar, i) => {
           const Illustration = illustrations[i];
@@ -40,7 +40,7 @@ export function CorporatePillars() {
                 >
                   0{i + 1}
                 </span>
-                <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
+                <h2 className="mt-3 font-display text-[clamp(1.875rem,1.4rem+2vw,2.25rem)] font-extrabold tracking-tight text-navy">
                   {pillar.title}
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-slate sm:text-lg">

@@ -10,7 +10,7 @@ export function ScienceProgression() {
   const steps = t.raw("steps") as Step[];
 
   return (
-    <section className="bg-ivory py-20 sm:py-28">
+    <section className="bg-ivory py-16 sm:py-28">
       <Container>
         <SectionHeading eyebrow="03" title={t("title")} subtitle={t("body")} />
 
@@ -20,7 +20,7 @@ export function ScienceProgression() {
             return (
               <li
                 key={step.name}
-                className="relative rounded-card border border-navy/10 bg-white p-6"
+                className="relative rounded-card border border-navy/10 bg-paper p-6"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="font-board text-sm font-semibold text-sky-ink">

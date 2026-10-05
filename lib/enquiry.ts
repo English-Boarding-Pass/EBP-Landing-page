@@ -2,6 +2,7 @@
 
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { isValidEmail, isValidPhone } from "@/lib/validation";
 import { addContact, isResendConfigured, sendEmail } from "@/lib/resend";
 import {
   enquiryConfirmationEmail,
@@ -38,10 +39,6 @@ export type CorporateState =
       values: CorporateValues;
     };
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// Loose on purpose: people type Sri Lankan numbers as 07x, +947x, with spaces or dashes.
-const PHONE_RE = /^\+?[\d\s-]{9,16}$/;
-
 const LEVELS = ["unsure", "beginner", "intermediate", "advanced", "mixed"];
 
 function field(formData: FormData, key: string) {
@@ -68,8 +65,8 @@ function contactValues(formData: FormData): ContactValues {
 
 function contactError(values: ContactValues): ContactError | null {
   if (values.name.length < 2) return "invalidName";
-  if (!EMAIL_RE.test(values.email)) return "invalidEmail";
-  if (!PHONE_RE.test(values.phone)) return "invalidPhone";
+  if (!isValidEmail(values.email)) return "invalidEmail";
+  if (!isValidPhone(values.phone)) return "invalidPhone";
   return null;
 }
 

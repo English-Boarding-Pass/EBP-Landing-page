@@ -46,7 +46,7 @@ export default async function CorporatesPage({
 
       <CorporatePillars />
 
-      <section id="enquiry" className="bg-white py-20 sm:py-28">
+      <section id="enquiry" className="bg-white py-16 sm:py-28">
         <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <SectionHeading
             title={t("form.title")}

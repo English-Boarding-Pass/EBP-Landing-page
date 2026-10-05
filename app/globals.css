@@ -1,19 +1,28 @@
 @import "tailwindcss";
 
 /*
-  EBP brand tokens — sourced from "EBP - Brand Guidelines.pdf".
+  EBP brand tokens: sourced from "EBP - Brand Guidelines.pdf".
   Keep hex values in sync with that document; do not introduce new brand
   colors here without updating the guideline first.
 */
 :root {
-  --color-brand-navy: #0b1956; /* Deep Navy — main brand color, typography */
-  --color-brand-slate: #26344d; /* Slate Navy — secondary text / supporting elements */
-  --color-brand-sky: #9cccf6; /* Sky Blue — primary accent, text on dark UI */
-  --color-brand-ice: #eaf5fc; /* Ice Blue — light backgrounds */
-  --color-brand-ivory: #f8f3ea; /* Warm Ivory — neutral backgrounds */
+  --color-brand-navy: #0b1956; /* Deep Navy: main brand color, typography */
+  --color-brand-slate: #26344d; /* Slate Navy: secondary text / supporting elements */
+  --color-brand-sky: #9cccf6; /* Sky Blue: primary accent, text on dark UI */
+  --color-brand-ice: #eaf5fc; /* Ice Blue: light backgrounds */
+  --color-brand-ivory: #f8f3ea; /* Warm Ivory: neutral backgrounds */
 
   /*
-    Sky Blue reads at ~1.7:1 on white — well under WCAG AA. This is a
+    Card, popup and form-control surfaces. White, so the page stays inside
+    the brand palette. Change this one value to retint every surface.
+  */
+  --color-brand-paper: #ffffff;
+
+  /* The departure board's screen: a notch darker than Deep Navy. */
+  --color-brand-board: #060d33;
+
+  /*
+    Sky Blue reads at ~1.7:1 on white: well under WCAG AA. This is a
     darker working shade of the same hue for text, links, and icon
     strokes on light backgrounds (6.1:1 on white, 5.5:1 on Ivory). The
     literal brand swatch stays reserved for dark UI, large decorative use,
@@ -25,6 +34,7 @@
     Accent red, added in the Oct 2026 content brief as a small nod to
     "British" English. Not in the brand guideline yet, so this one value is
     provisional: change it here and everything follows. Use it sparingly.
+    TODO: confirm the final shade with the brand owner and update the guideline.
     It passes AA as text on white and Ivory (5.1:1, 4.6:1) and 3:1 as a
     non-text mark on Navy; don't set it as text on Navy or Ice.
   */
@@ -48,6 +58,11 @@
   --color-ice: var(--color-brand-ice);
   --color-ivory: var(--color-brand-ivory);
   --color-red: var(--color-brand-red);
+  --color-paper: var(--color-brand-paper);
+  --color-board: var(--color-brand-board);
+
+  /* Popups and the departure board float above the page. */
+  --shadow-float: 0 24px 64px -24px rgb(0 0 0 / 0.6);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -59,7 +74,7 @@
 
 @media (prefers-color-scheme: dark) {
   /*
-    Phase 1 ships a single light theme by design (see brand guidelines —
+    Phase 1 ships a single light theme by design (see brand guidelines:
     Deep Navy/Warm Ivory read as a light, editorial palette). Force
     color-scheme so form controls and scrollbars don't mismatch a user's
     OS dark mode.
@@ -98,9 +113,34 @@ h4 {
   letter-spacing: normal;
 }
 
-/* Anchor links land below the sticky header instead of underneath it. */
+/*
+  Sinhala and Tamil stack vowel signs above and below the line, so they need
+  about 10 to 15 percent more line height than Latin text (body copy 1.625 in
+  Latin becomes 1.8, tight 1.05 to 1.1 headings become 1.35). Unlayered on
+  purpose, like the rule above, so it beats Tailwind's leading utilities.
+*/
+:lang(si) :is(p, li, summary, label, td, th, figcaption, blockquote),
+:lang(ta) :is(p, li, summary, label, td, th, figcaption, blockquote) {
+  line-height: 1.8;
+}
+
+:lang(si) :is(h1, h2, h3, h4),
+:lang(ta) :is(h1, h2, h3, h4) {
+  line-height: 1.35;
+}
+
+/*
+  Anchor links land below the floating header instead of underneath it. On
+  phones the header is taller: the language switch sits in a second row.
+*/
 section[id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 9rem;
+}
+
+@media (min-width: 640px) {
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
 }
 
 /* Keep the page behind an open popup from scrolling. */

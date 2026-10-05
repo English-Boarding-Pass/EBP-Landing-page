@@ -5,14 +5,20 @@ import {
   useActionState,
   useCallback,
   useContext,
+  useEffect,
   useRef,
   useState,
   type ReactNode,
 } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Mail, User, Phone, CheckCircle, Xmark } from "iconoir-react";
+import { Mail, User, CheckCircle, Xmark } from "iconoir-react";
 import { Button } from "@/components/ui/button";
-import { Field, Honeypot, TextAreaField } from "@/components/ui/form-field";
+import {
+  Field,
+  Honeypot,
+  PhoneField,
+  TextAreaField,
+} from "@/components/ui/form-field";
 import { sendContact, type ContactState } from "@/lib/enquiry";
 
 const ContactContext = createContext<(() => void) | null>(null);
@@ -63,16 +69,27 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
     { status: "idle" },
   );
 
+  const formRef = useRef<HTMLFormElement>(null);
+
   const values = state.status === "error" ? state.values : undefined;
   const error = state.status === "error" ? state.error : undefined;
 
+  // After a failed submit, jump to the field that needs fixing.
+  useEffect(() => {
+    if (state.status === "error") {
+      formRef.current
+        ?.querySelector<HTMLElement>('[aria-invalid="true"]')
+        ?.focus();
+    }
+  }, [state]);
+
   return (
-    <div className="relative max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-card bg-white shadow-[0_24px_64px_-24px_rgba(0,0,0,0.6)]">
+    <div className="relative max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-card bg-paper shadow-float">
       <button
         type="button"
         onClick={onClose}
         aria-label={t("close")}
-        className="absolute top-3 right-3 inline-flex size-9 items-center justify-center rounded-full text-slate/60 hover:bg-ice hover:text-navy"
+        className="absolute top-2 right-2 inline-flex size-11 items-center justify-center rounded-full text-slate/60 hover:bg-ice hover:text-navy"
       >
         <Xmark className="size-5" aria-hidden />
       </button>
@@ -104,6 +121,7 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
         </div>
       ) : (
         <form
+          ref={formRef}
           action={action}
           className="flex flex-col gap-4 px-6 pt-8 pb-6 sm:px-8"
         >
@@ -140,19 +158,18 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
             type="email"
             inputMode="email"
             autoComplete="email"
+            invalidMessage={t("errors.email")}
             defaultValue={values?.email}
             error={error === "invalidEmail" ? t("errors.email") : undefined}
           />
 
-          <Field
+          <PhoneField
             form="contact"
             id="phone"
             label={t("phoneLabel")}
             hint={t("phoneHint")}
-            icon={<Phone className="size-4" />}
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel"
+            countryLabel={t("countryCodeLabel")}
+            invalidMessage={t("errors.phone")}
             defaultValue={values?.phone}
             error={error === "invalidPhone" ? t("errors.phone") : undefined}
           />

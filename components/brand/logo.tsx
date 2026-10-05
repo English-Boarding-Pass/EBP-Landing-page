@@ -1,11 +1,11 @@
 import { clsx } from "clsx";
 
 type LogoProps = {
-  /** "inverted" is for dark (navy) backgrounds — hero, footer. */
+  /** "inverted" is for dark (navy) backgrounds: hero, footer. */
   variant?: "default" | "inverted";
   size?: "sm" | "md" | "lg";
   showTagline?: boolean;
-  /** Extra classes on the tagline — e.g. hiding it on small screens. */
+  /** Extra classes on the tagline: e.g. hiding it on small screens. */
   taglineClassName?: string;
   className?: string;
 };
@@ -20,7 +20,7 @@ const sizeMap = {
  * Typographic reconstruction of the EBP wordmark per the brand guidelines
  * (no vector logo file was supplied). "English" in Deep Navy, "Boarding
  * Pass" in Sky Blue, both Manrope ExtraBold, with the tagline in DM Sans
- * and a fading gradient bar beneath — matching the guideline's logomark
+ * and a fading gradient bar beneath: matching the guideline's logomark
  * spec exactly. If an official logo file is produced later, swap this
  * component's markup for an <Image> and keep the same props contract.
  */
@@ -36,7 +36,10 @@ export function Logo({
 
   return (
     // The wordmark is English in every locale; lang keeps its letter-spacing.
-    <div lang="en" className={clsx("inline-flex flex-col", className)}>
+    <div
+      lang="en"
+      className={clsx("inline-flex flex-col whitespace-nowrap", className)}
+    >
       <span
         className={clsx(
           "font-display leading-[0.95] font-extrabold tracking-tight",
