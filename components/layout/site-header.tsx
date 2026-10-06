@@ -91,7 +91,7 @@ export function SiteHeader() {
       >
         <div
           id="site-nav"
-          className="nav-glass pointer-events-auto relative rounded-[1.75rem] sm:rounded-full"
+          className="nav-glass pointer-events-auto relative rounded-[2.25rem] sm:rounded-full"
         >
           {/* Tall enough for the full logo lockup, and padded away from the pill's curved ends so nothing looks clipped. */}
           <div
@@ -160,7 +160,7 @@ export function SiteHeader() {
           <div
             id="mobile-nav"
             className={clsx(
-              "nav-glass nav-glass-sheet pointer-events-auto mt-2 flex flex-col gap-1 rounded-[1.75rem] p-3",
+              "nav-glass nav-glass-sheet pointer-events-auto mt-2 flex flex-col gap-1 rounded-[2.25rem] p-4",
               inlineNav.hide,
             )}
           >
