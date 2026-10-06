@@ -1,7 +1,5 @@
 import { useTranslations } from "next-intl";
-import { NavArrowRight } from "iconoir-react";
 import { Container } from "@/components/ui/container";
-import { Link } from "@/i18n/navigation";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TeacherCard, type Teacher } from "@/components/sections/teacher-card";
 
@@ -38,16 +36,7 @@ export function Teachers() {
             />
           ))}
         </div>
-        <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <p className="max-w-xl text-xs text-slate/70">{t("sampleNote")}</p>
-          <Link
-            href="/teachers"
-            className="inline-flex min-h-11 items-center gap-1.5 self-start rounded-full text-sm font-semibold whitespace-nowrap text-sky-ink underline underline-offset-4 hover:text-navy focus-visible:ring-2 focus-visible:ring-navy focus-visible:outline-none"
-          >
-            {t("all")}
-            <NavArrowRight className="size-4" aria-hidden />
-          </Link>
-        </div>
+        <p className="mt-8 max-w-xl text-xs text-slate/70">{t("sampleNote")}</p>
       </Container>
     </section>
   );

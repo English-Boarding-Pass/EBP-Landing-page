@@ -9,10 +9,6 @@
     "science": {
       "title": "The science behind English | English Boarding Pass",
       "description": "The four skills of English, how they are measured on the CEFR scale, and the order we build them in class."
-    },
-    "teachers": {
-      "title": "Our teachers | English Boarding Pass",
-      "description": "The full directory of English Boarding Pass teachers is coming soon."
     }
   },
   "nav": {
@@ -142,7 +138,6 @@
         ]
       }
     ],
-    "all": "Meet all teachers",
     "more": "Read more",
     "testimonialsTitle": "What students say",
     "close": "Close",
@@ -248,15 +243,6 @@
     "testMarkLabel": "Your test mark out of 25",
     "testMarkHint": "From the free Cambridge English test.",
     "testLink": "Test your English now"
-  },
-  "teachersPage": {
-    "eyebrow": "Our teachers",
-    "title": "Meet all our teachers",
-    "subtitle": "The full teacher directory is coming soon.",
-    "soonTitle": "Coming soon",
-    "soonBody": "We are adding every teacher, with photos and student feedback. Until then, see three sample profiles on the home page, or tell us what you need and we will match you with the right teacher.",
-    "seeSample": "See sample teachers",
-    "ask": "Ask us to match you"
   },
   "corporates": {
     "eyebrow": "For corporates",
