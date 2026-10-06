@@ -17,7 +17,7 @@ export function Faq() {
   const items = t.raw("items") as FaqItem[];
 
   return (
-    <section id="faq" className="bg-paper py-16 sm:py-28">
+    <section id="faq" className="bg-paper pt-10 pb-14 sm:pt-12 sm:pb-24">
       <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         {/* The WhatsApp button answers the subtitle and gives the column some weight. */}
         <div className="lg:sticky lg:top-28 lg:self-start">

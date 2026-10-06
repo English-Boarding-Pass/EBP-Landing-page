@@ -6,7 +6,7 @@ export function FinalCta() {
   const t = useTranslations("finalCta");
 
   return (
-    <section className="relative overflow-hidden bg-navy py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-navy py-16 sm:py-20">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(156,204,246,0.16),transparent_55%)]"

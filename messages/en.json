@@ -4,7 +4,7 @@
     "description": "Learn to use English with confidence. Experienced Sri Lankan teachers, taught in the language you already think in. For individual students and companies.",
     "corporates": {
       "title": "English for your team | English Boarding Pass",
-      "description": "Tailor-made English courses for companies in Sri Lanka, built around your team's job roles, with evaluations before and after."
+      "description": "Tailored English courses for companies in Sri Lanka, built around your team's job roles, with evaluations before and after."
     },
     "science": {
       "title": "The science behind English | English Boarding Pass",
@@ -23,7 +23,7 @@
   "hero": {
     "title": "English that takes you places.",
     "subtitle": "Want to use English with confidence? Learn with experienced Sri Lankan teachers, taught in the language you already think in.",
-    "audience": "We teach individual students and build tailor-made courses for companies.",
+    "audience": "We teach individual students and build tailored courses for companies.",
     "cta": "Get in touch",
     "ctaSecondary": "For corporates",
     "skills": ["Listening", "Reading", "Writing", "Speaking"],
@@ -67,7 +67,7 @@
       "title": "Courses built around your team",
       "points": [
         {
-          "title": "Tailor-made courses",
+          "title": "Tailored courses",
           "description": "Designed around your batch size and the job your people do."
         },
         {
@@ -75,7 +75,7 @@
           "description": "Examples and activities come from your team's daily work."
         },
         {
-          "title": "Pre- and post-evaluations",
+          "title": "Evaluations before and after",
           "description": "We assess your team before and after, so you can see the progress."
         }
       ],
@@ -90,7 +90,7 @@
         "name": "Ms. Ruwanthi Fernando",
         "experience": "12 years of experience",
         "specialism": "Spoken English for school leavers and working adults",
-        "line": "Conversation-led classes in Colombo and Kandy.",
+        "line": "Classes built around conversation in Colombo and Kandy.",
         "longBio": "Ruwanthi has taught spoken English for 12 years, to school leavers and working adults in Colombo and Kandy. Her classes are built on conversation. She keeps the teaching short, gets everyone talking, and explains in Sinhala whenever a point needs it.",
         "testimonials": [
           {
@@ -161,7 +161,7 @@
         "answer": "Fees are tailored, so we agree them with you directly.",
         "points": [
           "Individuals: we recommend a course based on your batch size, language needs and current level, then discuss the fee with you one to one.",
-          "Corporates: the fee is part of your tailor-made package, based on the number of teachers, hours and students."
+          "Corporates: the fee is part of your tailored package, based on the number of teachers, hours and students."
         ]
       },
       {
@@ -248,11 +248,11 @@
   "corporates": {
     "eyebrow": "For corporates",
     "title": "English built around your team's work.",
-    "subtitle": "Our teachers train your staff on tailor-made courses, using the language of the job they do every day.",
+    "subtitle": "Our teachers train your staff on tailored courses, using the language of the job they do every day.",
     "cta": "Talk to us",
     "pillars": [
       {
-        "title": "Tailor-made courses",
+        "title": "Tailored courses",
         "description": "No two teams are the same. We design each course around your batch size, the job roles in the room and where your people are today."
       },
       {
@@ -260,7 +260,7 @@
         "description": "A team that sells gems learns with examples about gems. Restaurant staff practise food, drinks and taking orders. Your team learns English they can use the next day."
       },
       {
-        "title": "Pre- and post-evaluations",
+        "title": "Evaluations before and after",
         "description": "We assess every learner before the course starts and again at the end, so you can see exactly how far your team has come."
       }
     ],
@@ -357,11 +357,11 @@
       "steps": [
         {
           "name": "Pronunciation",
-          "description": "Fine-tuning the way you already speak English."
+          "description": "Refining the way you already speak English."
         },
         {
           "name": "Spelling",
-          "description": "Fine-tuning the way you already write English."
+          "description": "Refining the way you already write English."
         },
         {
           "name": "Vocabulary",
@@ -384,7 +384,7 @@
       {
         "heading": "Who we are",
         "paragraphs": [
-          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers live online English classes for individual students and tailor-made courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
+          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers live online English classes for individual students and tailored courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
         ]
       },
       {

@@ -18,7 +18,7 @@ export function Teachers() {
   };
 
   return (
-    <section id="teachers" className="bg-paper py-16 sm:py-28">
+    <section id="teachers" className="bg-paper pt-14 pb-10 sm:pt-24 sm:pb-12">
       <Container>
         <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 

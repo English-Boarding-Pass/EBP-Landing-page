@@ -59,7 +59,7 @@ export function HowItWorks() {
   const t = useTranslations("howItWorks");
 
   return (
-    <section id="how-it-works" className="bg-ivory py-16 sm:py-28">
+    <section id="how-it-works" className="bg-ivory py-14 sm:py-24">
       <Container>
         <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 

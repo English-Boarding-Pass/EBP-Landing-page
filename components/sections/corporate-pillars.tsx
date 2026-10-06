@@ -21,7 +21,7 @@ export function CorporatePillars() {
   const pillars = t.raw("pillars") as Pillar[];
 
   return (
-    <section className="bg-ivory py-16 sm:py-28">
+    <section className="bg-ivory py-14 sm:py-24">
       <Container className="space-y-16 sm:space-y-24">
         {pillars.map((pillar, i) => {
           const Illustration = illustrations[i];
