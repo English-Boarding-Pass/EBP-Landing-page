@@ -73,6 +73,7 @@ export function HowItWorks() {
                 <div className="flex flex-wrap gap-3">
                   <ContactButton
                     source="students_card"
+                    direct
                     variant="primary"
                     size="md"
                   >

@@ -6,6 +6,7 @@ import { readConsent } from "@/lib/consent";
 export type AnalyticsEvent =
   | { name: "get_in_touch_click"; source: string }
   | { name: "test_english_click"; source: string }
+  | { name: "contact_choice"; audience: "individual" | "corporate" }
   | { name: "contact_submitted"; hasTestMark: boolean }
   | { name: "corporate_enquiry_submitted" };
 

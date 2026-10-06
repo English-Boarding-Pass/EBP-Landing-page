@@ -243,7 +243,19 @@
     },
     "testMarkLabel": "Your test mark out of 25",
     "testMarkHint": "From the free Cambridge English test.",
-    "testLink": "Test your English now"
+    "testLink": "Test your English now",
+    "choose": {
+      "subtitle": "Who are you getting in touch for?",
+      "individual": {
+        "title": "I'm an individual",
+        "description": "Fill in a short form and we'll contact you."
+      },
+      "corporate": {
+        "title": "I'm with a company",
+        "description": "Go to our corporate page and send an enquiry for your team."
+      },
+      "back": "Back"
+    }
   },
   "corporates": {
     "eyebrow": "For corporates",
