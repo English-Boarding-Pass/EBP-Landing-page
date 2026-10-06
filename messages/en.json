@@ -193,7 +193,8 @@
     },
     "legal": {
       "privacy": "Privacy notice",
-      "rights": "All rights reserved."
+      "rights": "All rights reserved.",
+      "cookies": "Cookie policy"
     },
     "social": {
       "label": "Follow us",
@@ -463,9 +464,53 @@
   },
   "consent": {
     "title": "Cookie consent",
-    "body": "We'd like to use cookies and similar tools to count which pages and buttons are used, so we can improve the site. It is anonymous, with no ads and no personal details. Accept or reject, it is your choice.",
-    "accept": "Accept",
-    "reject": "Reject",
+    "body": "We use cookies to improve your experience and measure site usage.",
+    "policyLink": "Read our cookie policy",
+    "essential": "Essential only",
+    "accept": "Accept all",
     "settings": "Cookie settings"
+  },
+  "cookiePolicy": {
+    "title": "Cookie Policy",
+    "subtitle": "Last updated 06/10/2026",
+    "close": "Close",
+    "sections": [
+      {
+        "heading": "What are cookies",
+        "paragraphs": [
+          "Cookies are small files that a website saves on your device. We also use similar tools that do the same job, such as your browser's local storage."
+        ]
+      },
+      {
+        "heading": "The cookies we use",
+        "items": [
+          "Essential: we remember the language you choose (a cookie called NEXT_LOCALE, kept until you close your browser) and the choice you make on our cookie banner (kept in your browser's local storage). The site needs these to work as you expect, so they are always on.",
+          "Analytics, only if you choose Accept all: an anonymous count of which pages and buttons are used, such as how many people press Get in touch. It never includes your name, email, phone number or test mark."
+        ],
+        "closing": "We do not use advertising cookies, and we do not track you across other websites."
+      },
+      {
+        "heading": "Who provides analytics",
+        "paragraphs": [
+          "Our analytics runs on Vercel Analytics, from our website hosting provider. It does not use cookies to identify you."
+        ]
+      },
+      {
+        "heading": "Your choices",
+        "paragraphs": [
+          "Choose Essential only and we record nothing about your visit. Choose Accept all and we record the anonymous counts above. You can change your mind at any time with Cookie settings at the bottom of any page. You can also block or delete cookies in your browser settings, but then the site may forget your language."
+        ]
+      },
+      {
+        "heading": "Changes to this policy",
+        "paragraphs": [
+          "If we change this policy, we will update the date at the top of this page."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paragraphs": ["Questions about cookies? Email {email}."]
+      }
+    ]
   }
 }

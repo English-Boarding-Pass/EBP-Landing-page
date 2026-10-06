@@ -32,8 +32,12 @@ function withEmail(text: string) {
  * inside the footer popup now and on a /privacy page later (the page adds its
  * own heading from the same `privacy.title` and `privacy.subtitle` strings).
  */
-export function PrivacyNotice() {
-  const t = useTranslations("privacy");
+export function PrivacyNotice({
+  namespace = "privacy",
+}: {
+  namespace?: "privacy" | "cookiePolicy";
+}) {
+  const t = useTranslations(namespace);
   const sections = t.raw("sections") as Section[];
 
   return (
