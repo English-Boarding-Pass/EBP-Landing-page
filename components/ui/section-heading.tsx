@@ -24,13 +24,6 @@ export function SectionHeading({
         className,
       )}
     >
-      <span
-        aria-hidden
-        className={clsx(
-          "mb-4 block h-1 w-10 rounded-full bg-red",
-          align === "center" && "mx-auto",
-        )}
-      />
       {eyebrow ? (
         <p
           className={clsx(

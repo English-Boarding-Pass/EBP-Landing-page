@@ -17,10 +17,6 @@ export function PageHero({
     <section className="bg-navy pt-20 pb-16 sm:pt-28 sm:pb-24">
       <Container>
         <div className="max-w-3xl">
-          <span
-            aria-hidden
-            className="mb-5 block h-1 w-10 rounded-full bg-red"
-          />
           <p className="font-board text-xs font-semibold tracking-[0.25em] text-sky uppercase">
             {eyebrow}
           </p>
