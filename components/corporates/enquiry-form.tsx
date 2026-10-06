@@ -11,6 +11,7 @@ import {
   SelectField,
   TextAreaField,
 } from "@/components/ui/form-field";
+import { trackEvent } from "@/lib/analytics";
 import { sendCorporateEnquiry, type CorporateState } from "@/lib/enquiry";
 
 const LEVELS = [
@@ -44,6 +45,12 @@ export function EnquiryForm() {
         ?.focus();
     }
   }, [state]);
+
+  useEffect(() => {
+    if (state.status === "success") {
+      trackEvent({ name: "corporate_enquiry_submitted" });
+    }
+  }, [state.status]);
 
   if (state.status === "success") {
     return (

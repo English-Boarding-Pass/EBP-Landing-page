@@ -4,34 +4,29 @@
     "description": "Learn to use English with confidence. Experienced Sri Lankan teachers, taught in the language you already think in. For individual students and companies.",
     "corporates": {
       "title": "English for your team | English Boarding Pass",
-      "description": "Tailor-made English courses for companies in Sri Lanka, built around your team's job roles, with evaluations before and after."
+      "description": "Tailored English courses for companies in Sri Lanka, built around your team's job roles, with evaluations before and after."
     },
     "science": {
       "title": "The science behind English | English Boarding Pass",
       "description": "The four skills of English, how they are measured on the CEFR scale, and the order we build them in class."
-    },
-    "teachers": {
-      "title": "Our teachers | English Boarding Pass",
-      "description": "The full directory of English Boarding Pass teachers is coming soon."
     }
   },
   "nav": {
     "howItWorks": "How it works",
-    "programmes": "Programmes",
     "corporates": "For corporates",
     "science": "The science",
     "teachers": "Teachers",
     "faq": "FAQ",
-    "cta": "Chat on WhatsApp",
+    "cta": "Get in touch",
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "title": "Find your voice in English.",
+    "title": "English that takes you places.",
     "subtitle": "Want to use English with confidence? Learn with experienced Sri Lankan teachers, taught in the language you already think in.",
-    "audience": "We teach individual students and build tailor-made courses for companies.",
-    "cta": "Book a class",
+    "audience": "We teach individual students and build tailored courses for companies.",
+    "cta": "Get in touch",
     "ctaSecondary": "For corporates",
-    "skills": ["Speaking", "Listening", "Reading", "Writing"],
+    "skills": ["Listening", "Reading", "Writing", "Speaking"],
     "board": {
       "label": "DEPARTURES",
       "gate": "GATE",
@@ -62,14 +57,17 @@
           "description": "Less teaching, more using the language. Most of the class time is yours."
         }
       ],
-      "cta": "Find the right class"
+      "cta": "Get in touch",
+      "testCta": "Test your English now",
+      "opensNewTab": "opens in a new tab",
+      "testNote": "A free Cambridge English test. 25 questions, and you get your result on the spot. Send us your mark when you get in touch."
     },
     "corporates": {
       "label": "For corporates",
       "title": "Courses built around your team",
       "points": [
         {
-          "title": "Tailor-made courses",
+          "title": "Tailored courses",
           "description": "Designed around your batch size and the job your people do."
         },
         {
@@ -77,31 +75,12 @@
           "description": "Examples and activities come from your team's daily work."
         },
         {
-          "title": "Pre- and post-evaluations",
+          "title": "Evaluations before and after",
           "description": "We assess your team before and after, so you can see the progress."
         }
       ],
       "cta": "Find out more"
     }
-  },
-  "programmes": {
-    "title": "Programmes",
-    "subtitle": "Three ways to learn with us. We agree the fee with you directly.",
-    "items": [
-      {
-        "name": "[Programme 1 name]",
-        "description": "[Short description]"
-      },
-      {
-        "name": "[Programme 2 name]",
-        "description": "[Short description]"
-      },
-      {
-        "name": "[Programme 3 name]",
-        "description": "[Short description]"
-      }
-    ],
-    "cta": "Ask about fees"
   },
   "teachers": {
     "title": "Meet your teachers",
@@ -111,7 +90,7 @@
         "name": "Ms. Ruwanthi Fernando",
         "experience": "12 years of experience",
         "specialism": "Spoken English for school leavers and working adults",
-        "line": "Conversation-led classes in Colombo and Kandy.",
+        "line": "Classes built around conversation in Colombo and Kandy.",
         "longBio": "Ruwanthi has taught spoken English for 12 years, to school leavers and working adults in Colombo and Kandy. Her classes are built on conversation. She keeps the teaching short, gets everyone talking, and explains in Sinhala whenever a point needs it.",
         "testimonials": [
           {
@@ -159,7 +138,6 @@
         ]
       }
     ],
-    "all": "Meet all teachers",
     "more": "Read more",
     "testimonialsTitle": "What students say",
     "close": "Close",
@@ -183,9 +161,8 @@
         "answer": "Fees are tailored, so we agree them with you directly.",
         "points": [
           "Individuals: we recommend a course based on your batch size, language needs and current level, then discuss the fee with you one to one.",
-          "Corporates: the fee is part of your tailor-made package, based on the number of teachers, hours and students."
-        ],
-        "link": "See our programmes"
+          "Corporates: the fee is part of your tailored package, based on the number of teachers, hours and students."
+        ]
       },
       {
         "question": "Is there a certificate at the end?",
@@ -200,7 +177,7 @@
   "finalCta": {
     "title": "Ready for takeoff?",
     "subtitle": "Tell us what you need and we'll find the right class for you.",
-    "cta": "Start the conversation"
+    "cta": "Get in touch"
   },
   "footer": {
     "description": "English classes for Sri Lankan students and companies, taught by experienced Sri Lankan teachers.",
@@ -216,7 +193,8 @@
     },
     "legal": {
       "privacy": "Privacy notice",
-      "rights": "All rights reserved."
+      "rights": "All rights reserved.",
+      "cookies": "Cookie policy"
     },
     "social": {
       "label": "Follow us",
@@ -246,7 +224,8 @@
       "name": "Please enter your name.",
       "email": "Please enter a valid email address.",
       "phone": "Please enter a valid phone number using digits only, e.g. 77 123 4567.",
-      "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp."
+      "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp.",
+      "testMark": "Please enter a whole number from 0 to 25."
     },
     "email": {
       "subject": "English Boarding Pass: we've got your details",
@@ -261,25 +240,31 @@
       "replyHint": "Questions? Just reply to this email. A real person will answer.",
       "signoff": "See you on board,",
       "footer": "You're receiving this because you sent your details to English Boarding Pass."
+    },
+    "testMarkLabel": "Your test mark out of 25",
+    "testMarkHint": "From the free Cambridge English test.",
+    "testLink": "Test your English now",
+    "choose": {
+      "subtitle": "Who are you getting in touch for?",
+      "individual": {
+        "title": "I'm an individual",
+        "description": "Fill in a short form and we'll contact you."
+      },
+      "corporate": {
+        "title": "I'm with a company",
+        "description": "Go to our corporate page and send an enquiry for your team."
+      },
+      "back": "Back"
     }
-  },
-  "teachersPage": {
-    "eyebrow": "Our teachers",
-    "title": "Meet all our teachers",
-    "subtitle": "The full teacher directory is coming soon.",
-    "soonTitle": "Coming soon",
-    "soonBody": "We are adding every teacher, with photos and student feedback. Until then, see three sample profiles on the home page, or tell us what you need and we will match you with the right teacher.",
-    "seeSample": "See sample teachers",
-    "ask": "Ask us to match you"
   },
   "corporates": {
     "eyebrow": "For corporates",
     "title": "English built around your team's work.",
-    "subtitle": "Our teachers train your staff on tailor-made courses, using the language of the job they do every day.",
+    "subtitle": "Our teachers train your staff on tailored courses, using the language of the job they do every day.",
     "cta": "Talk to us",
     "pillars": [
       {
-        "title": "Tailor-made courses",
+        "title": "Tailored courses",
         "description": "No two teams are the same. We design each course around your batch size, the job roles in the room and where your people are today."
       },
       {
@@ -287,7 +272,7 @@
         "description": "A team that sells gems learns with examples about gems. Restaurant staff practise food, drinks and taking orders. Your team learns English they can use the next day."
       },
       {
-        "title": "Pre- and post-evaluations",
+        "title": "Evaluations before and after",
         "description": "We assess every learner before the course starts and again at the end, so you can see exactly how far your team has come."
       }
     ],
@@ -344,7 +329,7 @@
     },
     "cefr": {
       "title": "How it is measured",
-      "body": "The CEFR, the Common European Framework of Reference, is the global scale for language ability. It has six levels, from A1 to C2. IELTS, PTE, TOEFL and the Cambridge English exams all map to it.",
+      "body": "The CEFR, the Common European Framework of Reference, is the global scale for language ability. It has six levels, from A1 to C2. IELTS, PTE, TOEFL, the Oxford Test of English and the Cambridge English exams all map to it.",
       "levels": [
         {
           "code": "A1",
@@ -384,11 +369,11 @@
       "steps": [
         {
           "name": "Pronunciation",
-          "description": "Fine-tuning the way you already speak English."
+          "description": "Refining the way you already speak English."
         },
         {
           "name": "Spelling",
-          "description": "Fine-tuning the way you already write English."
+          "description": "Refining the way you already write English."
         },
         {
           "name": "Vocabulary",
@@ -411,7 +396,7 @@
       {
         "heading": "Who we are",
         "paragraphs": [
-          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers live online English classes for individual students and tailor-made courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
+          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers live online English classes for individual students and tailored courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
         ]
       },
       {
@@ -419,7 +404,8 @@
         "items": [
           "Contact details you give us: your name, phone or WhatsApp number and email address.",
           "Enquiry details: for company enquiries, your company name, number of staff, job roles and current English level, if you choose to share them.",
-          "Messages you send us, including through WhatsApp or email."
+          "Messages you send us, including through WhatsApp or email.",
+          "Anonymous usage data: which pages and buttons are used, collected with cookies or similar tools only if you accept. It holds no personal details."
         ]
       },
       {
@@ -487,5 +473,56 @@
         ]
       }
     ]
+  },
+  "consent": {
+    "title": "Cookie consent",
+    "body": "We use cookies to improve your experience and measure site usage.",
+    "policyLink": "Read our cookie policy",
+    "essential": "Essential only",
+    "accept": "Accept all"
+  },
+  "cookiePolicy": {
+    "title": "Cookie Policy",
+    "subtitle": "Last updated 06/10/2026",
+    "close": "Close",
+    "sections": [
+      {
+        "heading": "What are cookies",
+        "paragraphs": [
+          "Cookies are small files that a website saves on your device. We also use similar tools that do the same job, such as your browser's local storage."
+        ]
+      },
+      {
+        "heading": "The cookies we use",
+        "items": [
+          "Essential: we remember the language you choose (a cookie called NEXT_LOCALE, kept until you close your browser) and the choice you make on our cookie banner (kept in your browser's local storage). The site needs these to work as you expect, so they are always on.",
+          "Analytics, only if you choose Accept all: an anonymous count of which pages and buttons are used, such as how many people press Get in touch. It never includes your name, email, phone number or test mark."
+        ],
+        "closing": "We do not use advertising cookies, and we do not track you across other websites."
+      },
+      {
+        "heading": "Who provides analytics",
+        "paragraphs": [
+          "Our analytics runs on Vercel Analytics, from our website hosting provider. It does not use cookies to identify you."
+        ]
+      },
+      {
+        "heading": "Your choices",
+        "paragraphs": [
+          "Choose Essential only and we record nothing about your visit. Choose Accept all and we record the anonymous counts above. You can change your mind at any time with the button at the end of this policy. You can also block or delete cookies in your browser settings, but then the site may forget your language."
+        ]
+      },
+      {
+        "heading": "Changes to this policy",
+        "paragraphs": [
+          "If we change this policy, we will update the date at the top of this page."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paragraphs": ["Questions about cookies? Email {email}."]
+      }
+    ],
+    "changeChoice": "Change my cookie choice"
   }
 }

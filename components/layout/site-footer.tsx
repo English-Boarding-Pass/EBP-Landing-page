@@ -2,6 +2,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Facebook, Instagram, Linkedin, Mail, Whatsapp } from "iconoir-react";
 import { Logo } from "@/components/brand/logo";
 import { Container } from "@/components/ui/container";
+import { CookiePolicyButton } from "@/components/layout/cookie-policy-button";
 import { PrivacyButton } from "@/components/layout/privacy-button";
 import { Link } from "@/i18n/navigation";
 import { socialLinks, type SocialKey } from "@/lib/links";
@@ -84,9 +85,6 @@ export function SiteFooter() {
             <a href={`/${locale}#how-it-works`} className={linkClasses}>
               {tNav("howItWorks")}
             </a>
-            <a href={`/${locale}#programmes`} className={linkClasses}>
-              {tNav("programmes")}
-            </a>
             <Link href="/corporates" className={linkClasses}>
               {tNav("corporates")}
             </Link>
@@ -108,7 +106,10 @@ export function SiteFooter() {
           <p>
             © {year} English Boarding Pass. {t("legal.rights")}
           </p>
-          <PrivacyButton className={linkClasses} />
+          <div className="flex flex-wrap items-center justify-center gap-x-5 sm:justify-end">
+            <CookiePolicyButton className={linkClasses} />
+            <PrivacyButton className={linkClasses} />
+          </div>
         </div>
       </Container>
     </footer>

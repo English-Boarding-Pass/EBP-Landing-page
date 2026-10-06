@@ -20,7 +20,7 @@ export function ScienceCefr() {
   const levels = t.raw("levels") as Level[];
 
   return (
-    <section className="bg-paper py-16 sm:py-28">
+    <section className="bg-paper py-14 sm:py-24">
       <Container>
         <SectionHeading
           eyebrow="02"

@@ -3,6 +3,8 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import { OpenNewWindow } from "iconoir-react";
+import { TestEnglishButton } from "@/components/analytics/test-english-button";
 import { ContactButton } from "@/components/contact/contact-dialog";
 
 type Point = { title: string; description: string };
@@ -57,7 +59,7 @@ export function HowItWorks() {
   const t = useTranslations("howItWorks");
 
   return (
-    <section id="how-it-works" className="bg-ivory py-16 sm:py-28">
+    <section id="how-it-works" className="bg-ivory py-14 sm:py-24">
       <Container>
         <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
@@ -67,9 +69,30 @@ export function HowItWorks() {
             title={t("students.title")}
             points={t.raw("students.points") as Point[]}
             action={
-              <ContactButton variant="primary" size="md">
-                {t("students.cta")}
-              </ContactButton>
+              <>
+                <div className="flex flex-wrap gap-3">
+                  <ContactButton
+                    source="students_card"
+                    direct
+                    variant="primary"
+                    size="md"
+                  >
+                    {t("students.cta")}
+                  </ContactButton>
+                  <TestEnglishButton
+                    source="students_card"
+                    variant="secondary"
+                    size="md"
+                    aria-label={`${t("students.testCta")} (${t("students.opensNewTab")})`}
+                  >
+                    {t("students.testCta")}
+                    <OpenNewWindow className="size-4" aria-hidden />
+                  </TestEnglishButton>
+                </div>
+                <p className="mt-3 max-w-md text-xs leading-relaxed text-slate">
+                  {t("students.testNote")}
+                </p>
+              </>
             }
           />
           <Pillar

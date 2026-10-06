@@ -15,3 +15,7 @@ export const socialLinks = [
 ] as const;
 
 export type SocialKey = (typeof socialLinks)[number]["key"];
+
+// Free Cambridge English placement-style test: 25 questions, result on the spot.
+export const cambridgeTestUrl =
+  "https://www.cambridgeenglish.org/test-your-english/general-english/";

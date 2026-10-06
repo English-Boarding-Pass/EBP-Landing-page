@@ -3,17 +3,15 @@
 import { useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { useLocale, useTranslations } from "next-intl";
-import { Menu, Whatsapp, Xmark } from "iconoir-react";
+import { Menu, Xmark } from "iconoir-react";
 import { Logo } from "@/components/brand/logo";
-import { Button } from "@/components/ui/button";
+import { ContactButton } from "@/components/contact/contact-dialog";
 import { LanguageSwitch } from "@/components/layout/language-switch";
 import { Link } from "@/i18n/navigation";
-import { whatsappUrl } from "@/lib/site";
 
 // `page` items are their own routes; `section` items are anchors on the home page.
 const navItems = [
   { key: "howItWorks", section: "how-it-works" },
-  { key: "programmes", section: "programmes" },
   { key: "corporates", page: "/corporates" },
   { key: "science", page: "/science" },
   { key: "teachers", section: "teachers" },
@@ -95,12 +93,8 @@ export function SiteHeader() {
           id="site-nav"
           className="nav-glass pointer-events-auto relative rounded-[1.75rem] sm:rounded-full"
         >
-          {/*
-            Tall enough for the full logo lockup (wordmark, tagline and bar)
-            with room to spare, and padded away from the pill's curved ends
-            so nothing looks clipped.
-          */}
-          <div className="flex min-h-16 items-center justify-between gap-4 py-2.5 pr-2 pl-5 sm:min-h-20 sm:py-3 sm:pl-9">
+          {/* Tall enough for the full logo lockup, and padded away from the pill's curved ends so nothing looks clipped. */}
+          <div className="flex min-h-16 items-center justify-between gap-4 py-2.5 pr-2 pl-5 sm:min-h-20 sm:py-3 sm:pr-3 sm:pl-9">
             <Link
               href="/"
               aria-label="English Boarding Pass, home"
@@ -115,25 +109,20 @@ export function SiteHeader() {
 
             <nav
               aria-label="Primary"
-              className={clsx("hidden items-center gap-4", inlineNav.show)}
+              className={clsx("hidden items-center gap-5", inlineNav.show)}
             >
               {renderLinks(desktopLink)}
             </nav>
 
             <div className="flex shrink-0 items-center gap-3">
-              {/*
-                The language choice has to be on screen from the first second:
-                much of the audience can't read the English nav. From `sm` up
-                it sits in the bar; on phones it gets its own row below.
-              */}
+              {/* Much of the audience can't read the English nav, so the language choice is always on screen: in the bar from sm up, in its own row on phones. */}
               <div className="hidden sm:block">
                 <LanguageSwitch tone="white" />
               </div>
               <div className={clsx("hidden", inlineNav.block)}>
-                <Button href={whatsappUrl} variant="accent" size="md">
-                  <Whatsapp className="size-4" aria-hidden />
+                <ContactButton source="header" variant="accent" size="md">
                   {t("cta")}
-                </Button>
+                </ContactButton>
               </div>
               <button
                 type="button"
@@ -170,16 +159,15 @@ export function SiteHeader() {
           >
             {renderLinks(mobileLink, () => setOpen(false))}
             <div className="mt-2 px-1 pb-1">
-              <Button
-                href={whatsappUrl}
+              <ContactButton
+                source="mobile_menu"
                 variant="accent"
                 size="md"
                 className="w-full"
                 onClick={() => setOpen(false)}
               >
-                <Whatsapp className="size-4" aria-hidden />
                 {t("cta")}
-              </Button>
+              </ContactButton>
             </div>
           </div>
         ) : null}

@@ -11,7 +11,7 @@ export function Hero() {
   const skills = t.raw("skills") as string[];
 
   return (
-    <section id="top" className="bg-navy pt-44 pb-20 sm:pt-40 sm:pb-28">
+    <section id="top" className="bg-navy pt-44 pb-16 sm:pt-40 sm:pb-24">
       <Container className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div>
           <h1 className="font-display text-[clamp(2.25rem,1.2rem+4.5vw,3.75rem)] leading-[1.05] font-extrabold tracking-tight text-white">
@@ -32,6 +32,7 @@ export function Hero() {
           */}
           <div className="mt-9 flex flex-col gap-3 min-[480px]:flex-row min-[480px]:flex-wrap min-[480px]:items-center">
             <ContactButton
+              source="hero"
               variant="accent"
               size="lg"
               className="w-full border border-transparent min-[480px]:w-auto"
@@ -62,11 +63,9 @@ export function Hero() {
               flight: t("board.columns.flight"),
               skill: t("board.columns.skill"),
             }}
-            // Speaking leads the list: live spoken English is what we teach.
             rows={skills.map((skill, i) => ({
               code: `EBP 0${i + 1}`,
               skill,
-              featured: i === 0,
             }))}
             destination={t("board.destination")}
             destinationValue={t("board.destinationValue")}

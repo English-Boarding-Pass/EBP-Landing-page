@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Consent } from "@/components/analytics/consent";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -49,6 +50,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir="ltr"
+      data-scroll-behavior="smooth"
       className={fontVariables}
       suppressHydrationWarning
     >
@@ -60,6 +62,7 @@ export default async function LocaleLayout({
             {children}
             <SiteFooter />
           </ContactProvider>
+          <Consent />
         </NextIntlClientProvider>
       </body>
     </html>

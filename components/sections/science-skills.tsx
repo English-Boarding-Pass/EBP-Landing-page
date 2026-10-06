@@ -14,7 +14,7 @@ export function ScienceSkills() {
   const items = t.raw("items") as Skill[];
 
   return (
-    <section className="bg-ivory py-16 sm:py-28">
+    <section className="bg-ivory py-14 sm:py-24">
       <Container>
         <SectionHeading eyebrow="01" title={t("title")} subtitle={t("body")} />
 

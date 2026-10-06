@@ -2,7 +2,7 @@
 
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { isValidEmail, isValidPhone } from "@/lib/validation";
+import { isValidEmail, isValidPhone, isValidTestMark } from "@/lib/validation";
 import { addContact, isResendConfigured, sendEmail } from "@/lib/resend";
 import {
   enquiryConfirmationEmail,
@@ -13,10 +13,13 @@ export type ContactValues = {
   name: string;
   email: string;
   phone: string;
+  /** Optional mark out of 25 from the free Cambridge English test. */
+  testMark: string;
   message: string;
 };
 
-type ContactError = "invalidName" | "invalidEmail" | "invalidPhone" | "generic";
+type ContactError =
+  "invalidName" | "invalidEmail" | "invalidPhone" | "invalidMark" | "generic";
 
 export type ContactState =
   | { status: "idle" }
@@ -59,6 +62,7 @@ function contactValues(formData: FormData): ContactValues {
     name: field(formData, "name").slice(0, 120),
     email: field(formData, "email").toLowerCase().slice(0, 254),
     phone: field(formData, "phone").slice(0, 20),
+    testMark: field(formData, "testMark").slice(0, 3),
     message: field(formData, "message").slice(0, 2000),
   };
 }
@@ -67,6 +71,8 @@ function contactError(values: ContactValues): ContactError | null {
   if (values.name.length < 2) return "invalidName";
   if (!isValidEmail(values.email)) return "invalidEmail";
   if (!isValidPhone(values.phone)) return "invalidPhone";
+  if (values.testMark && !isValidTestMark(values.testMark))
+    return "invalidMark";
   return null;
 }
 
@@ -196,6 +202,7 @@ export async function sendContact(
       ["Name", values.name],
       ["Email", values.email],
       ["Phone", values.phone],
+      ["Test mark (out of 25)", values.testMark],
       ["Message", values.message],
     ],
   });

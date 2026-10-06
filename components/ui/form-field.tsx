@@ -23,7 +23,7 @@ type FieldProps = {
   form: string;
   id: string;
   label: string;
-  hint?: string;
+  hint?: ReactNode;
   error?: string;
   required?: boolean;
   /** Shown beside the label of a field that isn't required. */
@@ -69,7 +69,7 @@ function FieldShell({
   );
 }
 
-function describedBy(inputId: string, error?: string, hint?: string) {
+function describedBy(inputId: string, error?: string, hint?: ReactNode) {
   const ids = [error && `${inputId}-error`, hint && `${inputId}-hint`].filter(
     Boolean,
   );
@@ -84,6 +84,7 @@ export function Field({
   autoComplete,
   inputMode,
   min,
+  max,
   required = true,
   defaultValue,
   invalidMessage,
@@ -94,6 +95,7 @@ export function Field({
   autoComplete?: string;
   inputMode?: "tel" | "email" | "numeric";
   min?: number;
+  max?: number;
   /** Replaces the browser's default message when the value is invalid. */
   invalidMessage?: string;
 }) {
@@ -118,6 +120,7 @@ export function Field({
           autoComplete={autoComplete}
           inputMode={inputMode}
           min={min}
+          max={max}
           pattern={isEmail ? EMAIL_PATTERN : undefined}
           maxLength={isEmail ? EMAIL_MAX : undefined}
           defaultValue={defaultValue}
