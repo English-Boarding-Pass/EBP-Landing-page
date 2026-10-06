@@ -11,3 +11,5 @@ All three files must share an identical key structure. `npm run check:i18n` chec
 Teacher profiles (`teachers.items`) are sample data in all three files until the real teachers send a photo, a short bio (20 words at most), a longer bio (about 50 words) and two student testimonials each. Testimonials must be about something that happened in the classroom.
 
 Copy that was taken off the site in the rework is saved in `docs/removed-copy/`.
+
+TODO translate (6 Oct 2026): these keys hold the English text in `si.json` and `ta.json` as a placeholder, so the UI never shows a missing key. Replace them in the translation pass: the whole `privacy` block, `teachers.readMoreAbout`, and `footer.social.linkedin`, `footer.social.facebook` and `footer.social.instagram`. JSON has no comments, so the TODO lives here.

@@ -53,7 +53,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
         aria-labelledby="contact-title"
         // Click on the backdrop (the dialog element itself, outside the panel) closes it.
         onClick={(e) => e.target === e.currentTarget && close()}
-        className="m-auto w-[calc(100%-2rem)] max-w-md overflow-visible bg-transparent p-0 backdrop:bg-navy/70 backdrop:backdrop-blur-sm"
+        className="m-auto w-[calc(100%-2rem)] max-w-md overflow-visible bg-transparent p-0 backdrop:bg-navy/70"
       >
         <ContactPanel key={formKey} onClose={close} />
       </dialog>

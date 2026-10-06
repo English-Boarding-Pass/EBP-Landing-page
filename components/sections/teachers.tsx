@@ -24,14 +24,17 @@ export function Teachers() {
       <Container>
         <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
-        <div className="mt-12 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((teacher, i) => (
             <TeacherCard
               key={teacher.name}
               teacher={teacher}
               photo={photos[i]}
               index={i}
-              labels={labels}
+              labels={{
+                ...labels,
+                moreAbout: t("readMoreAbout", { name: teacher.name }),
+              }}
             />
           ))}
         </div>

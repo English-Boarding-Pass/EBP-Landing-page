@@ -44,7 +44,7 @@ export function LanguageSwitch({
                   ? "bg-white text-navy"
                   : "bg-navy text-white"
                 : tone === "white"
-                  ? "text-white/70 hover:text-white focus-visible:ring-white"
+                  ? "text-white hover:bg-white/10 focus-visible:ring-white"
                   : "text-slate hover:text-navy focus-visible:ring-navy",
             )}
           >

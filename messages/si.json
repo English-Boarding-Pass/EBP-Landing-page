@@ -163,7 +163,8 @@
     "more": "තව කියවන්න",
     "testimonialsTitle": "සිසුන් කියන දේ",
     "close": "වහන්න",
-    "sampleNote": "මේවා ආදර්ශ පැතිකඩ. ඇත්තම ගුරුවරු, ෆොටෝස් සහ සිසුන්ගේ අදහස් ඉක්මනින් එකතු කරනවා."
+    "sampleNote": "මේවා ආදර්ශ පැතිකඩ. ඇත්තම ගුරුවරු, ෆොටෝස් සහ සිසුන්ගේ අදහස් ඉක්මනින් එකතු කරනවා.",
+    "readMoreAbout": "Read more about {name}"
   },
   "faq": {
     "title": "ප්‍රශ්නවලට උත්තර",
@@ -219,10 +220,9 @@
     },
     "social": {
       "label": "අපිව Follow කරන්න",
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "tiktok": "TikTok",
-      "youtube": "YouTube"
+      "linkedin": "English Boarding Pass on LinkedIn",
+      "facebook": "English Boarding Pass on Facebook",
+      "instagram": "English Boarding Pass on Instagram"
     }
   },
   "contact": {
@@ -402,5 +402,90 @@
       "lastLabel": "අන්තිම අවධානය",
       "note": "ගොඩක් අය හිතන්නේ ඉගෙන ගන්න තියෙන්නේ ග්‍රැමර් විතරයි කියලා. එහෙම නෑ. ග්‍රැමර් රීති එකක්වත් නොදැන වුණත් ඔයාට ආත්ම විශ්වාසයෙන් ඉංග්‍රීසි පාවිච්චි කරන්න පුළුවන්."
     }
+  },
+  "privacy": {
+    "title": "Privacy Notice",
+    "subtitle": "Last updated 06/10/2026",
+    "close": "Close",
+    "sections": [
+      {
+        "heading": "Who we are",
+        "paragraphs": [
+          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers live online English classes for individual students and tailor-made courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
+        ]
+      },
+      {
+        "heading": "What we collect",
+        "items": [
+          "Contact details you give us: your name, phone or WhatsApp number and email address.",
+          "Enquiry details: for company enquiries, your company name, number of staff, job roles and current English level, if you choose to share them.",
+          "Messages you send us, including through WhatsApp or email."
+        ]
+      },
+      {
+        "heading": "How we use it",
+        "items": [
+          "To reply to your enquiry and help you find the right class or course.",
+          "To arrange classes and send you class details.",
+          "To improve this website and our teaching.",
+          "To meet legal or accounting requirements when payments are introduced."
+        ],
+        "closing": "We only ask for what we need, and we use it only for these purposes."
+      },
+      {
+        "heading": "Who we share it with",
+        "paragraphs": [
+          "We never sell your information. We share it only with the people and services that help us run EBP, such as our teachers (so they can prepare your class), our website hosting and email providers, and payment providers when online payment becomes available. They may only use it to provide their service to us."
+        ]
+      },
+      {
+        "heading": "WhatsApp",
+        "paragraphs": [
+          "If you contact us on WhatsApp, your messages are also handled by WhatsApp under its own privacy policy."
+        ]
+      },
+      {
+        "heading": "How long we keep it",
+        "paragraphs": [
+          "We keep your information only as long as we need it for the reasons above, then we delete or anonymise it. You can ask us to delete it sooner at any time."
+        ]
+      },
+      {
+        "heading": "Your rights",
+        "paragraphs": [
+          "In line with Sri Lanka's Personal Data Protection Act, No. 9 of 2022, you can ask to see the information we hold about you, correct it, withdraw your consent, or ask us to delete it. To do any of these, email us at {email} and we will reply as soon as we can."
+        ]
+      },
+      {
+        "heading": "Keeping it safe",
+        "paragraphs": [
+          "We use reasonable technical and organisational measures to protect your information. No online service can promise perfect security, so please avoid sending sensitive details such as passwords or bank card numbers through forms or chat."
+        ]
+      },
+      {
+        "heading": "Cookies",
+        "paragraphs": [
+          "We do not use tracking or advertising cookies on this website at this time. The site only stores one small cookie that remembers the language you chose, so it opens in the same language next time."
+        ]
+      },
+      {
+        "heading": "Young people",
+        "paragraphs": [
+          "Our classes are designed for school leavers and adults. If you are under 18, please ask a parent or guardian before sharing your details with us."
+        ]
+      },
+      {
+        "heading": "Changes to this notice",
+        "paragraphs": [
+          "If we change this notice, we will update the date at the top of this page."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paragraphs": [
+          "Questions about your privacy? Email {email} or message us on WhatsApp."
+        ]
+      }
+    ]
   }
 }

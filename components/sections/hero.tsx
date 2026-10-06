@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { NavArrowRight } from "iconoir-react";
 import { Container } from "@/components/ui/container";
-import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
 import { ContactButton } from "@/components/contact/contact-dialog";
 import { DepartureBoard } from "@/components/boarding-pass/departure-board";
 
@@ -25,26 +25,28 @@ export function Hero() {
           </p>
 
           {/*
-            Always a vertical stack, on every breakpoint and every locale.
-            Sinhala/Tamil CTA labels run noticeably longer than English, so
-            letting this flip between a row and a wrapped stack depending on
-            whether the pair fits made the hero visibly reflow when the
-            language switched. A fixed structure keeps the page feeling the
-            same shape across languages. It grows a little taller for
-            longer translations, but it doesn't rearrange itself.
+            Two buttons of one size, side by side from 480px up (whole buttons
+            wrap, labels never do: Button is nowrap). Below 480px they stack
+            full width, primary first. The accent button carries a clear
+            border so both are the same height.
           */}
-          <div className="mt-9 flex flex-col items-start gap-2">
-            <ContactButton variant="accent" size="lg">
+          <div className="mt-9 flex flex-col gap-3 min-[480px]:flex-row min-[480px]:flex-wrap min-[480px]:items-center">
+            <ContactButton
+              variant="accent"
+              size="lg"
+              className="w-full border border-transparent min-[480px]:w-auto"
+            >
               {t("cta")}
             </ContactButton>
-            {/* A quiet text link: the hero belongs to individual learners. */}
-            <Link
+            <Button
               href="/corporates"
-              className="inline-flex min-h-11 items-center gap-1.5 rounded-full text-sm font-medium text-white/80 underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+              variant="outline-inverted"
+              size="lg"
+              className="w-full min-[480px]:w-auto"
             >
               {t("ctaSecondary")}
               <NavArrowRight className="size-4" aria-hidden />
-            </Link>
+            </Button>
           </div>
         </div>
 

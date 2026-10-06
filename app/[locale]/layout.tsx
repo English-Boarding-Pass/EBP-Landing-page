@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { fontVariables } from "@/lib/fonts";
 import { SiteHeader } from "@/components/layout/site-header";
+import { NavScrollState } from "@/components/layout/nav-scroll-state";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ContactProvider } from "@/components/contact/contact-dialog";
 import "../globals.css";
@@ -51,9 +52,10 @@ export default async function LocaleLayout({
       className={fontVariables}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-ivory font-body text-navy antialiased">
+      <body className="min-h-dvh bg-ivory font-body text-navy antialiased">
         <NextIntlClientProvider>
           <ContactProvider>
+            <NavScrollState />
             <SiteHeader />
             {children}
             <SiteFooter />

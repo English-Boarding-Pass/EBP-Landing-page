@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { useLocale, useTranslations } from "next-intl";
 import { Menu, Whatsapp, Xmark } from "iconoir-react";
@@ -25,6 +25,18 @@ export function SiteHeader() {
   const locale = useLocale();
   const [open, setOpen] = useState(false);
 
+  // Lock page scroll while the mobile menu is open. scrollbar-gutter: stable
+  // (global CSS) keeps the page from shifting when the scrollbar goes.
+  useEffect(() => {
+    if (!open) return;
+    const html = document.documentElement;
+    const previous = html.style.overflow;
+    html.style.overflow = "hidden";
+    return () => {
+      html.style.overflow = previous;
+    };
+  }, [open]);
+
   // Tamil labels run wide, so Tamil keeps the hamburger until 2xl. Written out
   // in full so Tailwind can see every class.
   const inlineNav =
@@ -33,7 +45,7 @@ export function SiteHeader() {
       : { show: "xl:flex", block: "xl:block", hide: "xl:hidden" };
 
   const desktopLink =
-    "inline-flex min-h-11 shrink-0 items-center font-body text-sm font-medium whitespace-nowrap text-white/80 transition-colors hover:text-white";
+    "inline-flex min-h-11 shrink-0 items-center font-body text-sm font-medium whitespace-nowrap text-white/85 transition-colors hover:text-white";
   const mobileLink =
     "rounded-lg px-3 py-2.5 font-body text-base font-medium text-white/85 hover:bg-white/5 hover:text-white";
 
@@ -66,7 +78,7 @@ export function SiteHeader() {
   return (
     // Zero-height sticky shell: the floating pill overlaps the top of the page
     // instead of pushing it down, so the first section runs right to the top.
-    <header className="pointer-events-none sticky top-0 z-50 h-0">
+    <header className="pointer-events-none sticky top-0 z-(--z-header) h-0">
       <a
         href="#main-content"
         className="pointer-events-auto sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:rounded-full focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-navy"
@@ -79,7 +91,10 @@ export function SiteHeader() {
           locale === "ta" && "2xl:max-w-[88rem]",
         )}
       >
-        <div className="pointer-events-auto relative rounded-[1.75rem] border border-white/10 bg-board/95 shadow-float backdrop-blur sm:rounded-full">
+        <div
+          id="site-nav"
+          className="nav-glass pointer-events-auto relative rounded-[1.75rem] sm:rounded-full"
+        >
           {/*
             Tall enough for the full logo lockup (wordmark, tagline and bar)
             with room to spare, and padded away from the pill's curved ends
@@ -149,7 +164,7 @@ export function SiteHeader() {
           <div
             id="mobile-nav"
             className={clsx(
-              "pointer-events-auto mt-2 flex flex-col gap-1 rounded-[1.75rem] border border-white/10 bg-board p-3 shadow-float",
+              "nav-glass nav-glass-sheet pointer-events-auto mt-2 flex flex-col gap-1 rounded-[1.75rem] p-3",
               inlineNav.hide,
             )}
           >

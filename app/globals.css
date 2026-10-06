@@ -22,6 +22,14 @@
   --color-brand-board: #060d33;
 
   /*
+    Stacking order. Keep every layer here so nothing invents its own number.
+    The popup sits in the browser's top layer and ignores these, but it keeps
+    a named value for the day it is not.
+  */
+  --z-header: 50;
+  --z-modal: 100;
+
+  /*
     Sky Blue reads at ~1.7:1 on white: well under WCAG AA. This is a
     darker working shade of the same hue for text, links, and icon
     strokes on light backgrounds (6.1:1 on white, 5.5:1 on Ivory). The
@@ -130,20 +138,206 @@ h4 {
 }
 
 /*
-  Anchor links land below the floating header instead of underneath it. On
-  phones the header is taller: the language switch sits in a second row.
+  Scrolling. Native scrolling only: no scroll library, no scroll listeners.
+  Smooth anchor jumps are for people who allow motion. scroll-padding-top is
+  the floating header's height plus 16px (the header is taller on phones, where
+  the language switch sits in a second row), so anchor jumps and find-in-page
+  never tuck a heading under it. It replaces a per-section scroll-margin: the
+  two would add up. scrollbar-gutter keeps the page from shifting sideways when
+  a popup locks the scroll.
 */
-section[id] {
-  scroll-margin-top: 9rem;
+html {
+  scroll-padding-top: 9.5rem;
+  scrollbar-gutter: stable;
 }
 
 @media (min-width: 640px) {
-  section[id] {
-    scroll-margin-top: 6rem;
+  html {
+    scroll-padding-top: 6.75rem;
   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Removes the tap delay on touch devices. */
+a,
+button,
+summary,
+label,
+select,
+input,
+textarea {
+  touch-action: manipulation;
 }
 
 /* Keep the page behind an open popup from scrolling. */
 html:has(dialog[open]) {
   overflow: hidden;
+}
+
+/*
+  The shared popup (components/ui/modal.tsx): a native <dialog>, centered on
+  desktop and a bottom sheet below 640px. It enters with a short fade and rise
+  (opacity and translate only, 200ms, ease-out) and has no motion at all for
+  people who ask for reduced motion. The dialog sits in the browser's top
+  layer, so --z-modal only matters if it is ever rendered outside it.
+*/
+.modal {
+  --modal-rise: 0.75rem;
+  width: calc(100% - 2rem);
+  max-width: var(--modal-max, 28rem);
+  max-height: 85dvh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 1.5rem;
+  background: var(--color-brand-paper);
+  color: var(--color-brand-navy);
+  box-shadow: var(--shadow-float);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  z-index: var(--z-modal);
+
+  opacity: 0;
+  translate: 0 var(--modal-rise);
+  transition-property: opacity, translate, display, overlay;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  transition-behavior: allow-discrete;
+}
+
+.modal[open] {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  translate: 0 0;
+}
+
+@starting-style {
+  .modal[open] {
+    opacity: 0;
+    translate: 0 var(--modal-rise);
+  }
+}
+
+.modal::backdrop {
+  background: color-mix(in srgb, var(--color-brand-navy) 60%, transparent);
+  opacity: 0;
+  transition-property: opacity, display, overlay;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  transition-behavior: allow-discrete;
+}
+
+.modal[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .modal[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .modal {
+    --modal-rise: 2rem;
+    width: 100%;
+    max-width: none;
+    margin: auto 0 0;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal,
+  .modal::backdrop {
+    transition: none;
+    translate: 0 0;
+  }
+}
+
+/*
+  The floating nav pill (and the mobile menu under it): a web glassmorphism
+  approximation, not an Apple Liquid Glass implementation. Deep navy at 74%
+  with a backdrop blur, so content passing underneath stays faintly visible.
+  Worst case is the pill over pure white: white text is about 5.8:1 there and
+  the nav links (white at 85%) about 5.7:1, both above AA. Do not drop the
+  alpha below 70%.
+
+  The blur itself is never transitioned (expensive, can flicker). Only the
+  border and shadow change, via data-scrolled, set by NavScrollState.
+*/
+.nav-glass {
+  --glass-bg: rgb(11 25 86 / 0.74);
+  --glass-border: rgb(255 255 255 / 0.14);
+  --glass-shadow: 0 10px 30px rgb(11 25 86 / 0.22);
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 rgb(255 255 255 / 0.12);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  transition:
+    border-color 200ms ease-out,
+    box-shadow 200ms ease-out;
+}
+
+@media (min-width: 768px) {
+  .nav-glass {
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+  }
+}
+
+/* The mobile menu carries tap targets and longer text, so it is more opaque. */
+.nav-glass-sheet {
+  --glass-bg: rgb(11 25 86 / 0.9);
+}
+
+/* Once the page has scrolled, the pill separates from what passes under it. */
+.nav-glass[data-scrolled="true"] {
+  --glass-border: rgb(255 255 255 / 0.2);
+  --glass-shadow: 0 14px 36px rgb(11 25 86 / 0.3);
+}
+
+/* No backdrop-filter support: near-solid navy, no blur. */
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .nav-glass,
+  .nav-glass-sheet {
+    --glass-bg: rgb(11 25 86 / 0.96);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .nav-glass,
+  .nav-glass-sheet {
+    --glass-bg: rgb(11 25 86 / 0.96);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .nav-glass,
+  .nav-glass-sheet,
+  .nav-glass[data-scrolled="true"] {
+    --glass-bg: rgb(11 25 86 / 1);
+    --glass-border: rgb(255 255 255 / 0.6);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-glass {
+    transition: none;
+  }
 }

@@ -21,7 +21,7 @@ const variants: Record<Variant, string> = {
     "bg-navy text-white hover:bg-slate focus-visible:ring-navy focus-visible:ring-offset-ivory",
   // Dark-background contexts (hero, footer): sky fill reads clearly on navy.
   accent:
-    "bg-sky text-navy hover:bg-white focus-visible:ring-white focus-visible:ring-offset-navy",
+    "bg-sky text-navy hover:bg-white focus-visible:ring-sky focus-visible:ring-offset-navy",
   secondary:
     "border border-navy/15 bg-paper text-navy hover:border-navy/30 hover:bg-ice " +
     "focus-visible:ring-navy focus-visible:ring-offset-ivory",
@@ -30,7 +30,7 @@ const variants: Record<Variant, string> = {
   // Dark-background contexts where a filled button would be too heavy
   // (paired next to an accent CTA, e.g. the hero's secondary action).
   "outline-inverted":
-    "border border-white/25 text-white hover:bg-white/10 focus-visible:ring-white focus-visible:ring-offset-navy",
+    "border border-sky text-ivory hover:bg-white/10 focus-visible:ring-sky focus-visible:ring-offset-navy",
 };
 
 const sizes: Record<Size, string> = {
