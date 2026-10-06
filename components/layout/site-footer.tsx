@@ -84,9 +84,6 @@ export function SiteFooter() {
             <a href={`/${locale}#how-it-works`} className={linkClasses}>
               {tNav("howItWorks")}
             </a>
-            <a href={`/${locale}#programmes`} className={linkClasses}>
-              {tNav("programmes")}
-            </a>
             <Link href="/corporates" className={linkClasses}>
               {tNav("corporates")}
             </Link>

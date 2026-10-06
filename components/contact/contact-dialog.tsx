@@ -19,6 +19,7 @@ import {
   PhoneField,
   TextAreaField,
 } from "@/components/ui/form-field";
+import { cambridgeTestUrl } from "@/lib/links";
 import { sendContact, type ContactState } from "@/lib/enquiry";
 
 const ContactContext = createContext<(() => void) | null>(null);
@@ -172,6 +173,33 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
             invalidMessage={t("errors.phone")}
             defaultValue={values?.phone}
             error={error === "invalidPhone" ? t("errors.phone") : undefined}
+          />
+
+          <Field
+            form="contact"
+            id="testMark"
+            label={t("testMarkLabel")}
+            type="number"
+            inputMode="numeric"
+            min={0}
+            max={25}
+            required={false}
+            optionalLabel={t("optional")}
+            hint={
+              <>
+                {t("testMarkHint")}{" "}
+                <a
+                  href={cambridgeTestUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-sky-ink underline underline-offset-2 hover:text-navy"
+                >
+                  {t("testLink")}
+                </a>
+              </>
+            }
+            defaultValue={values?.testMark}
+            error={error === "invalidMark" ? t("errors.testMark") : undefined}
           />
 
           <TextAreaField

@@ -87,3 +87,8 @@ export function isValidPhone(phone: string) {
   if (!COUNTRIES.some((c) => c.dial === dial)) return false;
   return isValidNationalNumber(dial, national);
 }
+
+/** A whole-number mark from 0 to 25, as scored by the free Cambridge English test. */
+export function isValidTestMark(mark: string) {
+  return /^\d{1,2}$/.test(mark) && Number(mark) <= 25;
+}

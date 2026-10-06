@@ -17,6 +17,7 @@ What was removed, by key in those files:
 - `howItWorks.steps`: the three-step version with "5 months" and "40 classes".
 - `faq.items`: the "What if I miss a class?", "live or recorded" and instalment-payment answers.
 - `waitlist`: the waitlist form and its confirmation email.
+- `programmes`: the Programmes section (placeholder cards and "Ask about fees"), removed in the Oct 2026 review. Last commit with it: `b13bb74` (`git show b13bb74:components/sections/programmes.tsx`, copy in `messages/*.json` under `programmes`).
 
 The components that rendered them (`pricing.tsx`, `testimonials.tsx`, `routes-section.tsx`, `route-card.tsx`, `barcode.tsx`, `perforation.tsx`, the waitlist dialog and its email) are in git history. The last commit that has them is `06d015a`:
 

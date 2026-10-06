@@ -17,7 +17,6 @@
   },
   "nav": {
     "howItWorks": "How it works",
-    "programmes": "Programmes",
     "corporates": "For corporates",
     "science": "The science",
     "teachers": "Teachers",
@@ -62,7 +61,10 @@
           "description": "Less teaching, more using the language. Most of the class time is yours."
         }
       ],
-      "cta": "Find the right class"
+      "cta": "Find the right class",
+      "testCta": "Test your English now",
+      "opensNewTab": "opens in a new tab",
+      "testNote": "A free Cambridge English test. 25 questions, and you get your result on the spot. Send us your mark when you get in touch."
     },
     "corporates": {
       "label": "For corporates",
@@ -83,25 +85,6 @@
       ],
       "cta": "Find out more"
     }
-  },
-  "programmes": {
-    "title": "Programmes",
-    "subtitle": "Three ways to learn with us. We agree the fee with you directly.",
-    "items": [
-      {
-        "name": "[Programme 1 name]",
-        "description": "[Short description]"
-      },
-      {
-        "name": "[Programme 2 name]",
-        "description": "[Short description]"
-      },
-      {
-        "name": "[Programme 3 name]",
-        "description": "[Short description]"
-      }
-    ],
-    "cta": "Ask about fees"
   },
   "teachers": {
     "title": "Meet your teachers",
@@ -184,8 +167,7 @@
         "points": [
           "Individuals: we recommend a course based on your batch size, language needs and current level, then discuss the fee with you one to one.",
           "Corporates: the fee is part of your tailor-made package, based on the number of teachers, hours and students."
-        ],
-        "link": "See our programmes"
+        ]
       },
       {
         "question": "Is there a certificate at the end?",
@@ -246,7 +228,8 @@
       "name": "Please enter your name.",
       "email": "Please enter a valid email address.",
       "phone": "Please enter a valid phone number using digits only, e.g. 77 123 4567.",
-      "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp."
+      "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp.",
+      "testMark": "Please enter a whole number from 0 to 25."
     },
     "email": {
       "subject": "English Boarding Pass: we've got your details",
@@ -261,7 +244,10 @@
       "replyHint": "Questions? Just reply to this email. A real person will answer.",
       "signoff": "See you on board,",
       "footer": "You're receiving this because you sent your details to English Boarding Pass."
-    }
+    },
+    "testMarkLabel": "Your test mark out of 25",
+    "testMarkHint": "From the free Cambridge English test.",
+    "testLink": "Test your English now"
   },
   "teachersPage": {
     "eyebrow": "Our teachers",

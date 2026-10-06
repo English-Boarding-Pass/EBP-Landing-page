@@ -13,7 +13,6 @@ import { Link } from "@/i18n/navigation";
 // `page` items are their own routes; `section` items are anchors on the home page.
 const navItems = [
   { key: "howItWorks", section: "how-it-works" },
-  { key: "programmes", section: "programmes" },
   { key: "corporates", page: "/corporates" },
   { key: "science", page: "/science" },
   { key: "teachers", section: "teachers" },

@@ -3,6 +3,8 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import { OpenNewWindow } from "iconoir-react";
+import { cambridgeTestUrl } from "@/lib/links";
 import { ContactButton } from "@/components/contact/contact-dialog";
 
 type Point = { title: string; description: string };
@@ -67,9 +69,25 @@ export function HowItWorks() {
             title={t("students.title")}
             points={t.raw("students.points") as Point[]}
             action={
-              <ContactButton variant="primary" size="md">
-                {t("students.cta")}
-              </ContactButton>
+              <>
+                <div className="flex flex-wrap gap-3">
+                  <ContactButton variant="primary" size="md">
+                    {t("students.cta")}
+                  </ContactButton>
+                  <Button
+                    href={cambridgeTestUrl}
+                    variant="secondary"
+                    size="md"
+                    aria-label={`${t("students.testCta")} (${t("students.opensNewTab")})`}
+                  >
+                    {t("students.testCta")}
+                    <OpenNewWindow className="size-4" aria-hidden />
+                  </Button>
+                </div>
+                <p className="mt-3 max-w-md text-xs leading-relaxed text-slate">
+                  {t("students.testNote")}
+                </p>
+              </>
             }
           />
           <Pillar
