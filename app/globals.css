@@ -272,7 +272,7 @@ html:has(dialog[open]) {
   border and shadow change, via data-scrolled, set by NavScrollState.
 */
 .nav-glass {
-  --glass-bg: rgb(11 25 86 / 0.74);
+  --glass-bg: rgb(11 25 86 / 0.9);
   --glass-border: rgb(255 255 255 / 0.14);
   --glass-shadow: 0 10px 30px rgb(11 25 86 / 0.22);
   background-color: var(--glass-bg);
@@ -296,7 +296,7 @@ html:has(dialog[open]) {
 
 /* The mobile menu carries tap targets and longer text, so it is more opaque. */
 .nav-glass-sheet {
-  --glass-bg: rgb(11 25 86 / 0.9);
+  --glass-bg: rgb(11 25 86 / 0.96);
 }
 
 /* Once the page has scrolled, the pill separates from what passes under it. */
