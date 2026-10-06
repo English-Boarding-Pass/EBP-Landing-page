@@ -85,16 +85,23 @@ export function SiteHeader() {
       </a>
       <div
         className={clsx(
-          "mx-auto max-w-7xl px-3 pt-3 sm:px-5",
-          locale === "ta" && "2xl:max-w-[88rem]",
+          "mx-auto max-w-[82rem] px-2 pt-3 sm:px-4",
+          locale === "ta" && "2xl:max-w-[96rem]",
         )}
       >
         <div
           id="site-nav"
-          className="nav-glass pointer-events-auto relative rounded-[1.75rem] sm:rounded-full"
+          className="nav-glass pointer-events-auto relative rounded-[2.25rem] sm:rounded-full"
         >
           {/* Tall enough for the full logo lockup, and padded away from the pill's curved ends so nothing looks clipped. */}
-          <div className="flex min-h-16 items-center justify-between gap-4 py-2.5 pr-2 pl-5 sm:min-h-20 sm:py-3 sm:pr-3 sm:pl-9">
+          <div
+            className={clsx(
+              // The pill reaches further out, but its content keeps its old
+              // width and stays centred, so the logo and button don't move.
+              "mx-auto flex min-h-16 w-full max-w-[77.5rem] items-center justify-between gap-4 py-2.5 pr-2 pl-5 sm:min-h-20 sm:py-3 sm:pr-3 sm:pl-9",
+              locale === "ta" && "2xl:max-w-[85.5rem]",
+            )}
+          >
             <Link
               href="/"
               aria-label="English Boarding Pass, home"
@@ -153,7 +160,7 @@ export function SiteHeader() {
           <div
             id="mobile-nav"
             className={clsx(
-              "nav-glass nav-glass-sheet pointer-events-auto mt-2 flex flex-col gap-1 rounded-[1.75rem] p-3",
+              "nav-glass nav-glass-sheet pointer-events-auto mt-2 flex flex-col gap-1 rounded-[2.25rem] p-4",
               inlineNav.hide,
             )}
           >
