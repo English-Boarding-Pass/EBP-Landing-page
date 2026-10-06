@@ -392,7 +392,7 @@
           "Contact details you give us: your name, phone or WhatsApp number and email address.",
           "Enquiry details: for company enquiries, your company name, number of staff, job roles and current English level, if you choose to share them.",
           "Messages you send us, including through WhatsApp or email.",
-          "Anonymous usage data: which pages and buttons are used, collected only if you accept. It holds no personal details."
+          "Anonymous usage data: which pages and buttons are used, collected with cookies or similar tools only if you accept. It holds no personal details."
         ]
       },
       {
@@ -462,10 +462,10 @@
     ]
   },
   "consent": {
-    "title": "Privacy choices",
-    "body": "We'd like to count which pages and buttons are used, so we can improve the site. It is anonymous, with no ads and no personal details. Accept or reject, it is your choice.",
+    "title": "Cookie consent",
+    "body": "We'd like to use cookies and similar tools to count which pages and buttons are used, so we can improve the site. It is anonymous, with no ads and no personal details. Accept or reject, it is your choice.",
     "accept": "Accept",
     "reject": "Reject",
-    "settings": "Privacy choices"
+    "settings": "Cookie settings"
   }
 }
