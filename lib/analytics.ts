@@ -1,4 +1,5 @@
 import { track } from "@vercel/analytics";
+import { readConsent } from "@/lib/consent";
 
 // Every event the site reports. Anonymous and cookieless: never put a name,
 // email, phone number or test mark in the properties.
@@ -10,6 +11,8 @@ export type AnalyticsEvent =
 
 export function trackEvent(event: AnalyticsEvent) {
   const { name, ...props } = event;
+  // Nothing is recorded unless the visitor accepted.
+  if (readConsent() !== "accepted") return;
   try {
     track(name, props);
   } catch {
