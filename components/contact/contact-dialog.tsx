@@ -20,6 +20,7 @@ import {
   TextAreaField,
 } from "@/components/ui/form-field";
 import { cambridgeTestUrl } from "@/lib/links";
+import { trackEvent } from "@/lib/analytics";
 import { sendContact, type ContactState } from "@/lib/enquiry";
 
 const ContactContext = createContext<(() => void) | null>(null);
@@ -71,9 +72,20 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
   );
 
   const formRef = useRef<HTMLFormElement>(null);
+  // The mark is read on submit only to record whether one was given; its value is never sent anywhere.
+  const hadMarkRef = useRef(false);
 
   const values = state.status === "error" ? state.values : undefined;
   const error = state.status === "error" ? state.error : undefined;
+
+  useEffect(() => {
+    if (state.status === "success") {
+      trackEvent({
+        name: "contact_submitted",
+        hasTestMark: hadMarkRef.current,
+      });
+    }
+  }, [state.status]);
 
   // After a failed submit, jump to the field that needs fixing.
   useEffect(() => {
@@ -124,6 +136,10 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
         <form
           ref={formRef}
           action={action}
+          onSubmit={(e) => {
+            const mark = new FormData(e.currentTarget).get("testMark");
+            hadMarkRef.current = typeof mark === "string" && mark.trim() !== "";
+          }}
           className="flex flex-col gap-4 px-6 pt-8 pb-6 sm:px-8"
         >
           <div className="pr-8">
@@ -192,6 +208,12 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
                   href={cambridgeTestUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent({
+                      name: "test_english_click",
+                      source: "contact_form",
+                    })
+                  }
                   className="font-medium text-sky-ink underline underline-offset-2 hover:text-navy"
                 >
                   {t("testLink")}
@@ -240,9 +262,12 @@ function ContactPanel({ onClose }: { onClose: () => void }) {
 /** A button that opens the contact dialog instead of navigating. */
 export function ContactButton({
   children,
+  source,
   ...buttonProps
 }: {
   children: ReactNode;
+  /** Where on the site the button sits, for analytics. */
+  source: string;
   variant?: "primary" | "accent";
   size?: "md" | "lg";
   className?: string;
@@ -256,6 +281,7 @@ export function ContactButton({
       {...buttonProps}
       onClick={() => {
         buttonProps.onClick?.();
+        trackEvent({ name: "get_in_touch_click", source });
         open();
       }}
     >

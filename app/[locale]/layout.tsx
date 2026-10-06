@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
             <SiteFooter />
           </ContactProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

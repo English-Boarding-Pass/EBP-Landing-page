@@ -391,7 +391,8 @@
         "items": [
           "Contact details you give us: your name, phone or WhatsApp number and email address.",
           "Enquiry details: for company enquiries, your company name, number of staff, job roles and current English level, if you choose to share them.",
-          "Messages you send us, including through WhatsApp or email."
+          "Messages you send us, including through WhatsApp or email.",
+          "Anonymous usage data: which pages and buttons are used. It uses no cookies and holds no personal details."
         ]
       },
       {

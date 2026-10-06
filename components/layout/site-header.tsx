@@ -104,7 +104,7 @@ export function SiteHeader() {
             <LanguageSwitch tone="white" />
           </div>
           <div className={clsx("hidden", inlineNav.block)}>
-            <ContactButton variant="accent" size="md">
+            <ContactButton source="header" variant="accent" size="md">
               {t("cta")}
             </ContactButton>
           </div>
@@ -141,6 +141,7 @@ export function SiteHeader() {
             {renderLinks(mobileLink, () => setOpen(false))}
             <div className="mt-3 px-3">
               <ContactButton
+                source="mobile_menu"
                 variant="accent"
                 size="md"
                 className="w-full"

@@ -14,6 +14,10 @@ export function Hero() {
     <section id="top" className="bg-navy pt-20 pb-20 sm:pt-28 sm:pb-28">
       <Container className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div>
+          <span
+            aria-hidden
+            className="mb-5 block h-1 w-10 rounded-full bg-red"
+          />
           <h1 className="font-display text-[clamp(2.25rem,1.2rem+4.5vw,3.75rem)] leading-[1.05] font-extrabold tracking-tight text-white">
             {t("title")}
           </h1>
@@ -32,6 +36,7 @@ export function Hero() {
           */}
           <div className="mt-9 flex flex-col gap-3 min-[480px]:flex-row min-[480px]:flex-wrap min-[480px]:items-center">
             <ContactButton
+              source="hero"
               variant="accent"
               size="lg"
               className="w-full border border-transparent min-[480px]:w-auto"

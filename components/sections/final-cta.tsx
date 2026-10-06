@@ -16,7 +16,7 @@ export function FinalCta() {
           {t("title")}
         </h2>
         <p className="max-w-md text-base text-white/75">{t("subtitle")}</p>
-        <ContactButton variant="accent" size="lg">
+        <ContactButton source="final_cta" variant="accent" size="lg">
           {t("cta")}
         </ContactButton>
       </Container>
