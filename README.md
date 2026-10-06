@@ -20,19 +20,38 @@ npm run dev      # http://localhost:3000
 | `npm run format`     | Format everything with Prettier                          |
 | `npm run check:i18n` | Check `en.json`, `si.json` and `ta.json` share every key |
 
-## Waitlist (Resend)
+## Pages
 
-Until the class platform is built, every "Join the waitlist" button opens a popup form on the same page ([components/waitlist/waitlist-dialog.tsx](components/waitlist/waitlist-dialog.tsx)) asking for name, email, phone number and route (Sinhala → English or Tamil → English). The route buttons pre-select their route. The server action in [lib/waitlist.ts](lib/waitlist.ts):
+| Route                  | What it is                                                                         |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| `/[locale]`            | Home: hero, how it works (students and corporates), teachers, FAQ                  |
+| `/[locale]/corporates` | Corporate landing page with its own enquiry form. QR codes and proposals link here |
+| `/[locale]/science`    | "The science behind English": the four skills, the CEFR scale, the progression     |
+
+All copy lives in `messages/*.json`. Sections removed in the October 2026 content rework (pricing, course cards, placeholder testimonials) are saved in [docs/removed-copy/](docs/removed-copy/).
+
+Teacher profiles are sample data for now. To add a real teacher, edit `teachers.items` in each `messages/*.json`, put the photo in `public/teachers/` and list its path in the `photos` array in [components/sections/teachers.tsx](components/sections/teachers.tsx).
+
+The WhatsApp number and contact email in [lib/site.ts](lib/site.ts) are placeholders.
+
+## Enquiry forms (Resend)
+
+There are two forms, both handled by server actions in [lib/enquiry.ts](lib/enquiry.ts):
+
+- **Get in touch**: every "Get in touch" button opens a popup ([components/contact/contact-dialog.tsx](components/contact/contact-dialog.tsx)) asking for name, email and phone number, with an optional message.
+- **Corporate enquiry**: the form on the corporate page ([components/corporates/enquiry-form.tsx](components/corporates/enquiry-form.tsx)). Name, company, email and phone are required; number of learners, current level, job role and message are optional.
+
+Each submission:
 
 1. saves the person as a [Resend](https://resend.com) contact (into `RESEND_AUDIENCE_ID` if set),
 2. emails them a confirmation in the language they used on the site,
-3. emails `WAITLIST_NOTIFY_EMAIL` with their details (name, email, phone, route), if set.
+3. emails `WAITLIST_NOTIFY_EMAIL` with everything they entered, if set. (The variable keeps its old name so existing deployments carry on working.)
 
-A signup only shows an error when both step 1 and step 3 failed, so a key with "Sending access" only still works: signups then reach the inbox but not the contact list.
+A submission only shows an error when both step 1 and step 3 failed, so a key with "Sending access" only still works: enquiries then reach the inbox but not the contact list.
 
-The confirmation email's design lives in [lib/emails/waitlist-confirmation.ts](lib/emails/waitlist-confirmation.ts) and its text in the `waitlist.email` keys of `messages/*.json`. Until a domain is verified at [resend.com/domains](https://resend.com/domains), Resend's test sender can only deliver to the Resend account's own address, so in practice only the admin email (step 3) arrives; step 2 fails and is logged.
+The confirmation email's design lives in [lib/emails/enquiry-confirmation.ts](lib/emails/enquiry-confirmation.ts) and its text in the `contact.email` keys of `messages/*.json`. Until a domain is verified at [resend.com/domains](https://resend.com/domains), Resend's test sender can only deliver to the Resend account's own address, so in practice only the team email (step 3) arrives; step 2 fails and is logged.
 
-Copy [.env.example](.env.example) to `.env.local` and fill it in; on Vercel, add the same variables under **Settings → Environment Variables**. Without `RESEND_API_KEY`, the form still works locally (signups are only logged to the terminal) but shows an error in production.
+Copy [.env.example](.env.example) to `.env.local` and fill it in; on Vercel, add the same variables under **Settings → Environment Variables**. Without `RESEND_API_KEY`, the forms still work locally (enquiries are only logged to the terminal) but show an error in production.
 
 ## Deploying
 

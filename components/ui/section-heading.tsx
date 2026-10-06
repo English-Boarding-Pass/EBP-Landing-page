@@ -36,7 +36,7 @@ export function SectionHeading({
       ) : null}
       <h2
         className={clsx(
-          "mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl",
+          "mt-3 font-display text-[clamp(1.875rem,1.4rem+2vw,2.25rem)] font-extrabold tracking-tight",
           tone === "white" ? "text-white" : "text-navy",
         )}
       >

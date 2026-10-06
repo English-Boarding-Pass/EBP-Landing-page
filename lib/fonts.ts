@@ -6,7 +6,7 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 
-// Primary typeface — H1/H2 only, per brand guidelines.
+// Primary typeface: H1/H2 only, per brand guidelines.
 export const manrope = Manrope({
   subsets: ["latin"],
   weight: ["700", "800"],
@@ -14,7 +14,7 @@ export const manrope = Manrope({
   display: "swap",
 });
 
-// Secondary typeface — logo, body, buttons & tagline.
+// Secondary typeface: logo, body, buttons & tagline.
 export const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -41,7 +41,7 @@ export const notoSansTamil = Noto_Sans_Tamil({
   display: "swap",
 });
 
-// Not part of the brand guidelines' two typefaces — used narrowly for the
+// Not part of the brand guidelines' two typefaces: used narrowly for the
 // boarding-pass motif's flight-board details (dates, seat counts, route
 // codes), never for body copy.
 export const jetBrainsMono = JetBrains_Mono({

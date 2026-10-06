@@ -1,15 +1,10 @@
 import { setRequestLocale } from "next-intl/server";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
 import { Hero } from "@/components/sections/hero";
 import { HowItWorks } from "@/components/sections/how-it-works";
-import { RoutesSection } from "@/components/sections/routes-section";
-import { Pricing } from "@/components/sections/pricing";
-import { Testimonials } from "@/components/sections/testimonials";
+import { Programmes } from "@/components/sections/programmes";
 import { Teachers } from "@/components/sections/teachers";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
-import { WaitlistProvider } from "@/components/waitlist/waitlist-dialog";
 
 export default async function HomePage({
   params,
@@ -20,19 +15,13 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <WaitlistProvider>
-      <SiteHeader />
-      <main id="main-content">
-        <Hero />
-        <RoutesSection />
-        <HowItWorks />
-        <Pricing />
-        <Testimonials />
-        <Teachers />
-        <Faq />
-        <FinalCta />
-      </main>
-      <SiteFooter />
-    </WaitlistProvider>
+    <main id="main-content">
+      <Hero />
+      <HowItWorks />
+      <Teachers />
+      <Programmes />
+      <Faq />
+      <FinalCta />
+    </main>
   );
 }
