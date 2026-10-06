@@ -26,7 +26,7 @@
     "audience": "We teach individual students and build tailor-made courses for companies.",
     "cta": "Get in touch",
     "ctaSecondary": "For corporates",
-    "skills": ["Speaking", "Listening", "Reading", "Writing"],
+    "skills": ["Listening", "Reading", "Writing", "Speaking"],
     "board": {
       "label": "DEPARTURES",
       "gate": "GATE",
@@ -57,7 +57,7 @@
           "description": "Less teaching, more using the language. Most of the class time is yours."
         }
       ],
-      "cta": "Find the right class",
+      "cta": "Get in touch",
       "testCta": "Test your English now",
       "opensNewTab": "opens in a new tab",
       "testNote": "A free Cambridge English test. 25 questions, and you get your result on the spot. Send us your mark when you get in touch."

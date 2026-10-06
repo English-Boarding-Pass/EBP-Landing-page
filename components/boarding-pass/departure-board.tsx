@@ -1,8 +1,6 @@
 export type DepartureRow = {
   code: string;
   skill: string;
-  /** The row we want eyes on; the rest recede. */
-  featured?: boolean;
 };
 
 /**
@@ -70,28 +68,10 @@ export function DepartureBoard({
           {rows.map((row) => (
             <tr
               key={row.code}
-              className={
-                row.featured
-                  ? "border-t border-sky/40 bg-white/10 text-sky"
-                  : "border-t border-white/10 text-white/70"
-              }
+              className="border-t border-white/10 text-white/70"
             >
-              <td
-                className={
-                  row.featured
-                    ? "rounded-l-lg py-5 pl-3 text-base font-semibold sm:text-lg"
-                    : "py-3 text-white/60"
-                }
-              >
-                {row.code}
-              </td>
-              <td
-                className={
-                  row.featured
-                    ? "rounded-r-lg py-5 pr-3 text-right text-base font-bold uppercase sm:text-lg"
-                    : "py-3 text-right font-medium uppercase"
-                }
-              >
+              <td className="py-3 text-white/60">{row.code}</td>
+              <td className="py-3 text-right font-medium uppercase">
                 {row.skill}
               </td>
             </tr>

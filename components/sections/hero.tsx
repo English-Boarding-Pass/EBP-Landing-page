@@ -62,11 +62,9 @@ export function Hero() {
               flight: t("board.columns.flight"),
               skill: t("board.columns.skill"),
             }}
-            // Speaking leads the list: live spoken English is what we teach.
             rows={skills.map((skill, i) => ({
               code: `EBP 0${i + 1}`,
               skill,
-              featured: i === 0,
             }))}
             destination={t("board.destination")}
             destinationValue={t("board.destinationValue")}
