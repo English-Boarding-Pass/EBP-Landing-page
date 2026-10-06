@@ -85,7 +85,7 @@ export function SiteHeader() {
       </a>
       <div
         className={clsx(
-          "mx-auto max-w-[88rem] px-2 pt-3 sm:px-4",
+          "mx-auto max-w-[82rem] px-2 pt-3 sm:px-4",
           locale === "ta" && "2xl:max-w-[96rem]",
         )}
       >
