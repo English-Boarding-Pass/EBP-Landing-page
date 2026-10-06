@@ -94,7 +94,14 @@ export function SiteHeader() {
           className="nav-glass pointer-events-auto relative rounded-[1.75rem] sm:rounded-full"
         >
           {/* Tall enough for the full logo lockup, and padded away from the pill's curved ends so nothing looks clipped. */}
-          <div className="flex min-h-16 items-center justify-between gap-4 py-2.5 pr-2 pl-5 sm:min-h-20 sm:py-3 sm:pr-3 sm:pl-9">
+          <div
+            className={clsx(
+              // The pill reaches further out, but its content keeps its old
+              // width and stays centred, so the logo and button don't move.
+              "mx-auto flex min-h-16 w-full max-w-[77.5rem] items-center justify-between gap-4 py-2.5 pr-2 pl-5 sm:min-h-20 sm:py-3 sm:pr-3 sm:pl-9",
+              locale === "ta" && "2xl:max-w-[85.5rem]",
+            )}
+          >
             <Link
               href="/"
               aria-label="English Boarding Pass, home"
