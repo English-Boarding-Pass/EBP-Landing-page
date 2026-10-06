@@ -22,14 +22,14 @@
     "science": "The science",
     "teachers": "Teachers",
     "faq": "FAQ",
-    "cta": "Chat on WhatsApp",
+    "cta": "Get in touch",
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "title": "Find your voice in English.",
+    "title": "English that takes you places.",
     "subtitle": "Want to use English with confidence? Learn with experienced Sri Lankan teachers, taught in the language you already think in.",
     "audience": "We teach individual students and build tailor-made courses for companies.",
-    "cta": "Book a class",
+    "cta": "Get in touch",
     "ctaSecondary": "For corporates",
     "skills": ["Speaking", "Listening", "Reading", "Writing"],
     "board": {
@@ -344,7 +344,7 @@
     },
     "cefr": {
       "title": "How it is measured",
-      "body": "The CEFR, the Common European Framework of Reference, is the global scale for language ability. It has six levels, from A1 to C2. IELTS, PTE, TOEFL and the Cambridge English exams all map to it.",
+      "body": "The CEFR, the Common European Framework of Reference, is the global scale for language ability. It has six levels, from A1 to C2. IELTS, PTE, TOEFL, the Oxford Test of English and the Cambridge English exams all map to it.",
       "levels": [
         {
           "code": "A1",
