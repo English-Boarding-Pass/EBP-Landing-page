@@ -2,7 +2,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { Facebook, Instagram, Linkedin, Mail, Whatsapp } from "iconoir-react";
 import { Logo } from "@/components/brand/logo";
 import { Container } from "@/components/ui/container";
-import { ConsentSettingsButton } from "@/components/analytics/consent";
 import { CookiePolicyButton } from "@/components/layout/cookie-policy-button";
 import { PrivacyButton } from "@/components/layout/privacy-button";
 import { Link } from "@/i18n/navigation";
@@ -108,7 +107,6 @@ export function SiteFooter() {
             © {year} English Boarding Pass. {t("legal.rights")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 sm:justify-end">
-            <ConsentSettingsButton className={linkClasses} />
             <CookiePolicyButton className={linkClasses} />
             <PrivacyButton className={linkClasses} />
           </div>

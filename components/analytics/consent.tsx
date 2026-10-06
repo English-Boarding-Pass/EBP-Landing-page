@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { CookiePolicyModal } from "@/components/layout/cookie-policy-modal";
-import { resetConsent, setConsent, useConsent } from "@/lib/consent";
+import { setConsent, useConsent } from "@/lib/consent";
 
 /**
  * Loads analytics only after the visitor accepts, and shows the
@@ -79,15 +79,5 @@ export function Consent() {
         </section>
       ) : null}
     </>
-  );
-}
-
-/** Footer button that reopens the banner so a choice can be changed. */
-export function ConsentSettingsButton({ className }: { className?: string }) {
-  const t = useTranslations("consent");
-  return (
-    <button type="button" onClick={resetConsent} className={className}>
-      {t("settings")}
-    </button>
   );
 }

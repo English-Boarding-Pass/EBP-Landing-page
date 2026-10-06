@@ -467,8 +467,7 @@
     "body": "We use cookies to improve your experience and measure site usage.",
     "policyLink": "Read our cookie policy",
     "essential": "Essential only",
-    "accept": "Accept all",
-    "settings": "Cookie settings"
+    "accept": "Accept all"
   },
   "cookiePolicy": {
     "title": "Cookie Policy",
@@ -498,7 +497,7 @@
       {
         "heading": "Your choices",
         "paragraphs": [
-          "Choose Essential only and we record nothing about your visit. Choose Accept all and we record the anonymous counts above. You can change your mind at any time with Cookie settings at the bottom of any page. You can also block or delete cookies in your browser settings, but then the site may forget your language."
+          "Choose Essential only and we record nothing about your visit. Choose Accept all and we record the anonymous counts above. You can change your mind at any time with the button at the end of this policy. You can also block or delete cookies in your browser settings, but then the site may forget your language."
         ]
       },
       {
@@ -511,6 +510,7 @@
         "heading": "Contact",
         "paragraphs": ["Questions about cookies? Email {email}."]
       }
-    ]
+    ],
+    "changeChoice": "Change my cookie choice"
   }
 }
