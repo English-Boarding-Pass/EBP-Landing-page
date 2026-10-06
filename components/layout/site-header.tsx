@@ -5,7 +5,6 @@ import { clsx } from "clsx";
 import { useLocale, useTranslations } from "next-intl";
 import { Menu, Xmark } from "iconoir-react";
 import { Logo } from "@/components/brand/logo";
-import { Container } from "@/components/ui/container";
 import { ContactButton } from "@/components/contact/contact-dialog";
 import { LanguageSwitch } from "@/components/layout/language-switch";
 import { Link } from "@/i18n/navigation";
@@ -44,7 +43,7 @@ export function SiteHeader() {
       : { show: "xl:flex", block: "xl:block", hide: "xl:hidden" };
 
   const desktopLink =
-    "shrink-0 font-body text-sm font-medium whitespace-nowrap text-white/80 transition-colors hover:text-white";
+    "inline-flex min-h-11 shrink-0 items-center font-body text-sm font-medium whitespace-nowrap text-white/85 transition-colors hover:text-white";
   const mobileLink =
     "rounded-lg px-3 py-2.5 font-body text-base font-medium text-white/85 hover:bg-white/5 hover:text-white";
 
@@ -75,71 +74,91 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-(--z-header) border-b border-navy/10 bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/90">
+    // Zero-height sticky shell: the floating pill overlaps the top of the page
+    // instead of pushing it down, so the first section runs right to the top.
+    <header className="pointer-events-none sticky top-0 z-(--z-header) h-0">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-navy"
+        className="pointer-events-auto sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:rounded-full focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-navy"
       >
         {t("skipToContent")}
       </a>
-      <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
-        <Link href="/" aria-label="English Boarding Pass, home">
-          <Logo
-            variant="inverted"
-            size="sm"
-            taglineClassName="hidden sm:block"
-          />
-        </Link>
-
-        <nav
-          aria-label="Primary"
-          className={clsx("hidden items-center gap-5", inlineNav.show)}
+      <div
+        className={clsx(
+          "mx-auto max-w-7xl px-3 pt-3 sm:px-5",
+          locale === "ta" && "2xl:max-w-[88rem]",
+        )}
+      >
+        <div
+          id="site-nav"
+          className="nav-glass pointer-events-auto relative rounded-[1.75rem] sm:rounded-full"
         >
-          {renderLinks(desktopLink)}
-        </nav>
+          {/* Tall enough for the full logo lockup, and padded away from the pill's curved ends so nothing looks clipped. */}
+          <div className="flex min-h-16 items-center justify-between gap-4 py-2.5 pr-2 pl-5 sm:min-h-20 sm:py-3 sm:pr-3 sm:pl-9">
+            <Link
+              href="/"
+              aria-label="English Boarding Pass, home"
+              className="shrink-0"
+            >
+              <Logo
+                variant="inverted"
+                size="sm"
+                taglineClassName="hidden sm:block"
+              />
+            </Link>
 
-        <div className="flex shrink-0 items-center gap-3">
-          {/* Much of the audience can't read the English nav, so the language choice is always on screen: in the bar from sm up, in its own row on phones. */}
-          <div className="hidden sm:block">
+            <nav
+              aria-label="Primary"
+              className={clsx("hidden items-center gap-5", inlineNav.show)}
+            >
+              {renderLinks(desktopLink)}
+            </nav>
+
+            <div className="flex shrink-0 items-center gap-3">
+              {/* Much of the audience can't read the English nav, so the language choice is always on screen: in the bar from sm up, in its own row on phones. */}
+              <div className="hidden sm:block">
+                <LanguageSwitch tone="white" />
+              </div>
+              <div className={clsx("hidden", inlineNav.block)}>
+                <ContactButton source="header" variant="accent" size="md">
+                  {t("cta")}
+                </ContactButton>
+              </div>
+              <button
+                type="button"
+                className={
+                  "inline-flex size-11 shrink-0 items-center justify-center rounded-full text-white hover:bg-white/10 " +
+                  inlineNav.hide
+                }
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-expanded={open}
+                aria-controls="mobile-nav"
+                onClick={() => setOpen((v) => !v)}
+              >
+                {open ? (
+                  <Xmark className="size-6" aria-hidden />
+                ) : (
+                  <Menu className="size-6" aria-hidden />
+                )}
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-center border-t border-white/10 py-2 sm:hidden">
             <LanguageSwitch tone="white" />
           </div>
-          <div className={clsx("hidden", inlineNav.block)}>
-            <ContactButton source="header" variant="accent" size="md">
-              {t("cta")}
-            </ContactButton>
-          </div>
-          <button
-            type="button"
-            className={
-              "inline-flex size-10 shrink-0 items-center justify-center rounded-full text-white " +
-              inlineNav.hide
-            }
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? (
-              <Xmark className="size-6" aria-hidden />
-            ) : (
-              <Menu className="size-6" aria-hidden />
-            )}
-          </button>
         </div>
-      </Container>
 
-      <div className="flex justify-center border-t border-white/10 py-2 sm:hidden">
-        <LanguageSwitch tone="white" />
-      </div>
-
-      {open ? (
-        <div
-          id="mobile-nav"
-          className={clsx("border-t border-white/10 bg-navy", inlineNav.hide)}
-        >
-          <Container className="flex flex-col gap-1 py-4">
+        {open ? (
+          <div
+            id="mobile-nav"
+            className={clsx(
+              "nav-glass nav-glass-sheet pointer-events-auto mt-2 flex flex-col gap-1 rounded-[1.75rem] p-3",
+              inlineNav.hide,
+            )}
+          >
             {renderLinks(mobileLink, () => setOpen(false))}
-            <div className="mt-3 px-3">
+            <div className="mt-2 px-1 pb-1">
               <ContactButton
                 source="mobile_menu"
                 variant="accent"
@@ -150,9 +169,9 @@ export function SiteHeader() {
                 {t("cta")}
               </ContactButton>
             </div>
-          </Container>
-        </div>
-      ) : null}
+          </div>
+        ) : null}
+      </div>
     </header>
   );
 }
