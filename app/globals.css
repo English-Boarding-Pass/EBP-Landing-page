@@ -140,13 +140,14 @@ h4 {
 /*
   Scrolling. Native scrolling only: no scroll library, no scroll listeners.
   Smooth anchor jumps are for people who allow motion. scroll-padding-top is
-  the floating header's height plus 16px (taller on phones, where the language switch sits in a second row), so anchor jumps and find-in-page
+  the floating header's height plus 16px (the header is a little shorter on
+  phones), so anchor jumps and find-in-page
   never tuck a heading under it. It replaces a per-section scroll-margin: the
   two would add up. scrollbar-gutter keeps the page from shifting sideways when
   a popup locks the scroll.
 */
 html {
-  scroll-padding-top: 9.5rem;
+  scroll-padding-top: 5.75rem;
   scrollbar-gutter: stable;
 }
 
