@@ -18,7 +18,10 @@
     "teachers": "ගුරුවරු",
     "faq": "ප්‍රශ්න සහ උත්තර",
     "cta": "අපිට කතා කරන්න",
-    "skipToContent": "කෙළින්ම ප්‍රධාන කොටසට යන්න"
+    "skipToContent": "කෙළින්ම ප්‍රධාන කොටසට යන්න",
+    "language": "භාෂාව",
+    "primary": "ප්‍රධාන මෙනුව",
+    "home": "මුල් පිටුව"
   },
   "hero": {
     "title": "ඔයාව ඉස්සරහට ගෙනියන ඉංග්‍රීසි.",
@@ -225,6 +228,7 @@
       "email": "හරි ඊමේල් ලිපිනයක් දාන්න.",
       "phone": "හරි ෆෝන් නම්බරයක් දාන්න, ඉලක්කම් විතරක්. උදා: 77 123 4567.",
       "generic": "අපේ පැත්තෙන් මොකක් හරි වැරදුණා. ආයෙත් ට්‍රයි කරන්න, නැත්නම් WhatsApp එකෙන් අපිට මැසේජ් එකක් දාන්න.",
+      "rateLimited": "ඔයා පොඩි වෙලාවකට විමසීම් කීපයක්ම එව්වා. විනාඩි කීපයකින් ආයෙත් ට්‍රයි කරන්න.",
       "testMark": "0 ඉඳන් 25 අතර සම්පූර්ණ ඉලක්කමක් දාන්න."
     },
     "email": {
@@ -390,13 +394,13 @@
   },
   "privacy": {
     "title": "Privacy Notice",
-    "subtitle": "Last updated 06/10/2026",
+    "subtitle": "Last updated 08/10/2026",
     "close": "Close",
     "sections": [
       {
         "heading": "Who we are",
         "paragraphs": [
-          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers live online English classes for individual students and tailored courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
+          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers English classes for individual students and tailored courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
         ]
       },
       {
@@ -451,7 +455,7 @@
       {
         "heading": "Cookies",
         "paragraphs": [
-          "We do not use tracking or advertising cookies on this website at this time. The site only stores one small cookie that remembers the language you chose, so it opens in the same language next time."
+          "We do not use advertising cookies, and we do not track you across other websites. The site remembers the language you chose and your choice on the cookie banner. If you choose Accept all on that banner, we also count anonymously which pages and buttons are used. Our Cookie Policy, linked at the bottom of every page, explains this in full."
         ]
       },
       {
@@ -524,5 +528,11 @@
       }
     ],
     "changeChoice": "මගේ cookie තේරීම වෙනස් කරන්න"
+  },
+  "notFound": {
+    "eyebrow": "පිටුව හමු වුණේ නෑ",
+    "title": "ඒ පිටුව හොයාගන්න බැහැ.",
+    "body": "ලින්ක් එක පරණ එකක් වෙන්න පුළුවන්, නැත්නම් වැරදියට ටයිප් වෙලා වෙන්න පුළුවන්.",
+    "cta": "මුල් පිටුවට යන්න"
   }
 }

@@ -170,9 +170,9 @@ export function EnquiryForm() {
         defaultValue={values?.message}
       />
 
-      {error === "generic" ? (
+      {error === "generic" || error === "rateLimited" ? (
         <p role="alert" className="text-xs text-red-600">
-          {tContact("errors.generic")}
+          {tContact(`errors.${error}`)}
         </p>
       ) : null}
 

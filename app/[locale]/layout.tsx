@@ -5,6 +5,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { fontVariables } from "@/lib/fonts";
+import { SITE_URL } from "@/lib/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { NavScrollState } from "@/components/layout/nav-scroll-state";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -23,7 +24,10 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
 
+  // Pages add their own canonical address, language links and share tags
+  // (lib/seo.ts); these are the fallbacks, e.g. for the not-found page.
   return {
+    metadataBase: new URL(SITE_URL),
     title: t("title"),
     description: t("description"),
   };

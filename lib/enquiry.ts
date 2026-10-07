@@ -1,13 +1,19 @@
 "use server";
 
+import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { allowAttempt } from "@/lib/rate-limit";
 import { isValidEmail, isValidPhone, isValidTestMark } from "@/lib/validation";
 import { addContact, isResendConfigured, sendEmail } from "@/lib/resend";
 import {
   enquiryConfirmationEmail,
   type EnquiryEmailField,
 } from "@/lib/emails/enquiry-confirmation";
+import {
+  enquiryNotificationEmail,
+  type EnquiryDetail,
+} from "@/lib/emails/enquiry-notification";
 
 export type ContactValues = {
   name: string;
@@ -19,7 +25,12 @@ export type ContactValues = {
 };
 
 type ContactError =
-  "invalidName" | "invalidEmail" | "invalidPhone" | "invalidMark" | "generic";
+  | "invalidName"
+  | "invalidEmail"
+  | "invalidPhone"
+  | "invalidMark"
+  | "rateLimited"
+  | "generic";
 
 export type ContactState =
   | { status: "idle" }
@@ -44,17 +55,23 @@ export type CorporateState =
 
 const LEVELS = ["unsure", "beginner", "intermediate", "advanced", "mixed"];
 
+// How the team's email names things the forms store as short codes.
+const LEVEL_LABELS: Record<string, string> = {
+  unsure: "Not sure yet",
+  beginner: "Beginner",
+  intermediate: "Intermediate",
+  advanced: "Advanced",
+  mixed: "Mixed levels",
+};
+const LANGUAGE_LABELS: Record<string, string> = {
+  en: "English",
+  si: "Sinhala",
+  ta: "Tamil",
+};
+
 function field(formData: FormData, key: string) {
   const value = formData.get(key);
   return typeof value === "string" ? value.trim() : "";
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
 }
 
 function contactValues(formData: FormData): ContactValues {
@@ -83,6 +100,34 @@ function isBot(formData: FormData) {
   return Boolean(field(formData, "ebp_hp_field"));
 }
 
+const MINUTE = 60 * 1000;
+
+/**
+ * Whether this enquiry is within the limits: 5 per visitor in 10 minutes
+ * (roomy enough for an office sharing one address) and 3 per email address
+ * in an hour. Only enquiries that passed validation are counted, so fixing a
+ * typo never uses up an attempt. See lib/rate-limit.ts for what the limiter
+ * can and can't promise.
+ */
+async function withinLimits(email: string) {
+  const requestHeaders = await headers();
+  // Vercel sets x-forwarded-for itself, so a visitor can't fake it there.
+  const visitor =
+    requestHeaders.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    requestHeaders.get("x-real-ip") ||
+    "unknown";
+
+  const visitorOk = allowAttempt(`visitor:${visitor}`, {
+    limit: 5,
+    windowMs: 10 * MINUTE,
+  });
+  const emailOk = allowAttempt(`email:${email}`, {
+    limit: 3,
+    windowMs: 60 * MINUTE,
+  });
+  return visitorOk && emailOk;
+}
+
 /**
  * Saves the person as a Resend contact, emails them a confirmation in their
  * language, and emails the team the details. Returns false only when the
@@ -91,14 +136,15 @@ function isBot(formData: FormData) {
 async function deliver({
   formData,
   values,
-  notifySubject,
-  notifyRows,
+  kind,
+  details,
   company,
 }: {
   formData: FormData;
   values: ContactValues;
-  notifySubject: string;
-  notifyRows: [string, string][];
+  kind: "individual" | "corporate";
+  /** Form answers for the team's email, beyond name, email, phone and message. */
+  details: EnquiryDetail[];
   company?: string;
 }): Promise<boolean> {
   if (!isResendConfigured()) {
@@ -155,17 +201,19 @@ async function deliver({
 
   let notification: ReturnType<typeof sendEmail> | undefined;
   if (notify) {
-    const rows = notifyRows.filter(([, value]) => value);
     notification = sendEmail({
       to: notify.split(",").map((s) => s.trim()),
-      subject: notifySubject,
-      text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
-      html: `<table>${rows
-        .map(
-          ([k, v]) =>
-            `<tr><td><strong>${k}</strong></td><td>${escapeHtml(v)}</td></tr>`,
-        )
-        .join("")}</table>`,
+      ...enquiryNotificationEmail({
+        kind,
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        company,
+        details,
+        message: values.message,
+        language: LANGUAGE_LABELS[locale] ?? locale,
+        receivedAt: new Date(),
+      }),
       replyTo: values.email,
     });
   }
@@ -193,17 +241,20 @@ export async function sendContact(
 
   const error = contactError(values);
   if (error) return { status: "error", error, values };
+  if (!(await withinLimits(values.email))) {
+    return { status: "error", error: "rateLimited", values };
+  }
 
   const delivered = await deliver({
     formData,
     values,
-    notifySubject: `New enquiry: ${values.name}`,
-    notifyRows: [
-      ["Name", values.name],
-      ["Email", values.email],
-      ["Phone", values.phone],
-      ["Test mark (out of 25)", values.testMark],
-      ["Message", values.message],
+    kind: "individual",
+    details: [
+      {
+        label: "Cambridge test mark",
+        value: values.testMark ? `${values.testMark} / 25` : "",
+        highlight: true,
+      },
     ],
   });
 
@@ -236,21 +287,19 @@ export async function sendCorporateEnquiry(
   if (values.company.length < 2) {
     return { status: "error", error: "invalidCompany", values };
   }
+  if (!(await withinLimits(values.email))) {
+    return { status: "error", error: "rateLimited", values };
+  }
 
   const delivered = await deliver({
     formData,
     values,
     company: values.company,
-    notifySubject: `New corporate enquiry: ${values.company}`,
-    notifyRows: [
-      ["Company", values.company],
-      ["Name", values.name],
-      ["Email", values.email],
-      ["Phone", values.phone],
-      ["Learners", values.learners],
-      ["Current level", values.level],
-      ["Job role or team", values.role],
-      ["Message", values.message],
+    kind: "corporate",
+    details: [
+      { label: "Number of learners", value: values.learners },
+      { label: "Current level", value: LEVEL_LABELS[values.level] ?? "" },
+      { label: "Job role or team", value: values.role },
     ],
   });
 

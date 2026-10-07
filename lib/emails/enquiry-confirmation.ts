@@ -1,17 +1,17 @@
-// Boarding-pass styled confirmation email. Email clients ignore <style>
-// blocks and modern CSS unevenly, so this is table layout with inline
-// styles only. Colours mirror the brand tokens in app/globals.css.
+// Boarding-pass styled confirmation email, sent to the person who filled in
+// a form. The team's copy of the enquiry is in enquiry-notification.ts.
 
-const NAVY = "#0b1956";
-const SLATE = "#26344d";
-const SKY = "#9cccf6";
-const SKY_INK = "#2563a8";
-const ICE = "#eaf5fc";
-const IVORY = "#f8f3ea";
-
-const SANS =
-  "'DM Sans','Segoe UI',Roboto,Helvetica,Arial,'Noto Sans Sinhala','Iskoola Pota','Noto Sans Tamil','Latha',sans-serif";
-const MONO = "'JetBrains Mono',Menlo,Consolas,'Courier New',monospace";
+import {
+  ICE,
+  IVORY,
+  MONO,
+  NAVY,
+  SANS,
+  SKY,
+  SKY_INK,
+  SLATE,
+  esc,
+} from "./theme";
 
 export type EnquiryEmailCopy = {
   subject: string;
@@ -30,14 +30,6 @@ export type EnquiryEmailField = {
   value: string;
   highlight?: boolean;
 };
-
-function esc(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-}
 
 function passField({ label, value, highlight }: EnquiryEmailField) {
   return `
