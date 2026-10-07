@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -15,10 +16,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.corporates" });
 
-  return {
+  return pageMetadata({
+    locale,
+    path: "/corporates",
     title: t("title"),
     description: t("description"),
-  };
+  });
 }
 
 // The page that QR codes and business proposals link straight to, so it has

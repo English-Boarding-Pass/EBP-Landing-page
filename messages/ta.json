@@ -18,7 +18,10 @@
     "teachers": "ஆசிரியர்கள்",
     "faq": "கேள்வி பதில்",
     "cta": "தொடர்பு கொள்ளுங்க",
-    "skipToContent": "உள்ளடக்கத்திற்கு செல்"
+    "skipToContent": "உள்ளடக்கத்திற்கு செல்",
+    "language": "மொழி",
+    "primary": "முதன்மை மெனு",
+    "home": "முதல் பக்கம்"
   },
   "hero": {
     "title": "உங்களை முன்னுக்கு கூட்டும் ஆங்கிலம்.",
@@ -390,13 +393,13 @@
   },
   "privacy": {
     "title": "Privacy Notice",
-    "subtitle": "Last updated 06/10/2026",
+    "subtitle": "Last updated 08/10/2026",
     "close": "Close",
     "sections": [
       {
         "heading": "Who we are",
         "paragraphs": [
-          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers live online English classes for individual students and tailored courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
+          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers English classes for individual students and tailored courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
         ]
       },
       {
@@ -451,7 +454,7 @@
       {
         "heading": "Cookies",
         "paragraphs": [
-          "We do not use tracking or advertising cookies on this website at this time. The site only stores one small cookie that remembers the language you chose, so it opens in the same language next time."
+          "We do not use advertising cookies, and we do not track you across other websites. The site remembers the language you chose and your choice on the cookie banner. If you choose Accept all on that banner, we also count anonymously which pages and buttons are used. Our Cookie Policy, linked at the bottom of every page, explains this in full."
         ]
       },
       {
@@ -526,5 +529,11 @@
       }
     ],
     "changeChoice": "என் குக்கீஸ் தேர்வ மாத்துங்க"
+  },
+  "notFound": {
+    "eyebrow": "பக்கம் கிடைக்கல",
+    "title": "அந்தப் பக்கத்த கண்டுபிடிக்க முடியல.",
+    "body": "லிங்க் பழையதா இருக்கலாம், இல்லன்னா தப்பா டைப் ஆகியிருக்கலாம்.",
+    "cta": "முதல் பக்கத்துக்கு போங்க"
   }
 }
