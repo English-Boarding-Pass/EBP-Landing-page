@@ -319,9 +319,9 @@ function ContactPanel({
             defaultValue={values?.message}
           />
 
-          {error === "generic" ? (
+          {error === "generic" || error === "rateLimited" ? (
             <p role="alert" className="text-xs text-red-600">
-              {t("errors.generic")}
+              {t(`errors.${error}`)}
             </p>
           ) : null}
 

@@ -1,7 +1,9 @@
 "use server";
 
+import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { allowAttempt } from "@/lib/rate-limit";
 import { isValidEmail, isValidPhone, isValidTestMark } from "@/lib/validation";
 import { addContact, isResendConfigured, sendEmail } from "@/lib/resend";
 import {
@@ -23,7 +25,12 @@ export type ContactValues = {
 };
 
 type ContactError =
-  "invalidName" | "invalidEmail" | "invalidPhone" | "invalidMark" | "generic";
+  | "invalidName"
+  | "invalidEmail"
+  | "invalidPhone"
+  | "invalidMark"
+  | "rateLimited"
+  | "generic";
 
 export type ContactState =
   | { status: "idle" }
@@ -91,6 +98,34 @@ function contactError(values: ContactValues): ContactError | null {
 // silently dropped.
 function isBot(formData: FormData) {
   return Boolean(field(formData, "ebp_hp_field"));
+}
+
+const MINUTE = 60 * 1000;
+
+/**
+ * Whether this enquiry is within the limits: 5 per visitor in 10 minutes
+ * (roomy enough for an office sharing one address) and 3 per email address
+ * in an hour. Only enquiries that passed validation are counted, so fixing a
+ * typo never uses up an attempt. See lib/rate-limit.ts for what the limiter
+ * can and can't promise.
+ */
+async function withinLimits(email: string) {
+  const requestHeaders = await headers();
+  // Vercel sets x-forwarded-for itself, so a visitor can't fake it there.
+  const visitor =
+    requestHeaders.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    requestHeaders.get("x-real-ip") ||
+    "unknown";
+
+  const visitorOk = allowAttempt(`visitor:${visitor}`, {
+    limit: 5,
+    windowMs: 10 * MINUTE,
+  });
+  const emailOk = allowAttempt(`email:${email}`, {
+    limit: 3,
+    windowMs: 60 * MINUTE,
+  });
+  return visitorOk && emailOk;
 }
 
 /**
@@ -206,6 +241,9 @@ export async function sendContact(
 
   const error = contactError(values);
   if (error) return { status: "error", error, values };
+  if (!(await withinLimits(values.email))) {
+    return { status: "error", error: "rateLimited", values };
+  }
 
   const delivered = await deliver({
     formData,
@@ -248,6 +286,9 @@ export async function sendCorporateEnquiry(
   if (error) return { status: "error", error, values };
   if (values.company.length < 2) {
     return { status: "error", error: "invalidCompany", values };
+  }
+  if (!(await withinLimits(values.email))) {
+    return { status: "error", error: "rateLimited", values };
   }
 
   const delivered = await deliver({

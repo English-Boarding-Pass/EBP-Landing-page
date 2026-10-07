@@ -228,6 +228,7 @@
       "email": "Please enter a valid email address.",
       "phone": "Please enter a valid phone number using digits only, e.g. 77 123 4567.",
       "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp.",
+      "rateLimited": "You've sent a few enquiries in a short time. Please wait a few minutes and try again.",
       "testMark": "Please enter a whole number from 0 to 25."
     },
     "email": {

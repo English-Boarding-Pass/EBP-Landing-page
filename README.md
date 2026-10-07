@@ -49,6 +49,8 @@ Each submission:
 
 A submission only shows an error when both step 1 and step 3 failed, so a key with "Sending access" only still works: enquiries then reach the inbox but not the contact list.
 
+Both forms are rate limited: 5 enquiries per visitor in 10 minutes and 3 per email address in an hour, after which the form asks the person to wait. The limiter ([lib/rate-limit.ts](lib/rate-limit.ts)) keeps its counts in memory, so it needs no database but only counts within one running server; that file explains the trade-off and how to swap in a shared store if abuse ever shows up. A hidden honeypot field catches simple bots before any of this.
+
 The confirmation email's design lives in [lib/emails/enquiry-confirmation.ts](lib/emails/enquiry-confirmation.ts) and its text in the `contact.email` keys of `messages/*.json`. Until a domain is verified at [resend.com/domains](https://resend.com/domains), Resend's test sender can only deliver to the Resend account's own address, so in practice only the team email (step 3) arrives; step 2 fails and is logged.
 
 Copy [.env.example](.env.example) to `.env.local` and fill it in; on Vercel, add the same variables under **Settings → Environment Variables**. Without `RESEND_API_KEY`, the forms still work locally (enquiries are only logged to the terminal) but show an error in production.
