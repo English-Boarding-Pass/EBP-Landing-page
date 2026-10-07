@@ -8,6 +8,10 @@ import {
   enquiryConfirmationEmail,
   type EnquiryEmailField,
 } from "@/lib/emails/enquiry-confirmation";
+import {
+  enquiryNotificationEmail,
+  type EnquiryDetail,
+} from "@/lib/emails/enquiry-notification";
 
 export type ContactValues = {
   name: string;
@@ -44,17 +48,23 @@ export type CorporateState =
 
 const LEVELS = ["unsure", "beginner", "intermediate", "advanced", "mixed"];
 
+// How the team's email names things the forms store as short codes.
+const LEVEL_LABELS: Record<string, string> = {
+  unsure: "Not sure yet",
+  beginner: "Beginner",
+  intermediate: "Intermediate",
+  advanced: "Advanced",
+  mixed: "Mixed levels",
+};
+const LANGUAGE_LABELS: Record<string, string> = {
+  en: "English",
+  si: "Sinhala",
+  ta: "Tamil",
+};
+
 function field(formData: FormData, key: string) {
   const value = formData.get(key);
   return typeof value === "string" ? value.trim() : "";
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
 }
 
 function contactValues(formData: FormData): ContactValues {
@@ -91,14 +101,15 @@ function isBot(formData: FormData) {
 async function deliver({
   formData,
   values,
-  notifySubject,
-  notifyRows,
+  kind,
+  details,
   company,
 }: {
   formData: FormData;
   values: ContactValues;
-  notifySubject: string;
-  notifyRows: [string, string][];
+  kind: "individual" | "corporate";
+  /** Form answers for the team's email, beyond name, email, phone and message. */
+  details: EnquiryDetail[];
   company?: string;
 }): Promise<boolean> {
   if (!isResendConfigured()) {
@@ -155,17 +166,19 @@ async function deliver({
 
   let notification: ReturnType<typeof sendEmail> | undefined;
   if (notify) {
-    const rows = notifyRows.filter(([, value]) => value);
     notification = sendEmail({
       to: notify.split(",").map((s) => s.trim()),
-      subject: notifySubject,
-      text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
-      html: `<table>${rows
-        .map(
-          ([k, v]) =>
-            `<tr><td><strong>${k}</strong></td><td>${escapeHtml(v)}</td></tr>`,
-        )
-        .join("")}</table>`,
+      ...enquiryNotificationEmail({
+        kind,
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        company,
+        details,
+        message: values.message,
+        language: LANGUAGE_LABELS[locale] ?? locale,
+        receivedAt: new Date(),
+      }),
       replyTo: values.email,
     });
   }
@@ -197,13 +210,13 @@ export async function sendContact(
   const delivered = await deliver({
     formData,
     values,
-    notifySubject: `New enquiry: ${values.name}`,
-    notifyRows: [
-      ["Name", values.name],
-      ["Email", values.email],
-      ["Phone", values.phone],
-      ["Test mark (out of 25)", values.testMark],
-      ["Message", values.message],
+    kind: "individual",
+    details: [
+      {
+        label: "Cambridge test mark",
+        value: values.testMark ? `${values.testMark} / 25` : "",
+        highlight: true,
+      },
     ],
   });
 
@@ -241,16 +254,11 @@ export async function sendCorporateEnquiry(
     formData,
     values,
     company: values.company,
-    notifySubject: `New corporate enquiry: ${values.company}`,
-    notifyRows: [
-      ["Company", values.company],
-      ["Name", values.name],
-      ["Email", values.email],
-      ["Phone", values.phone],
-      ["Learners", values.learners],
-      ["Current level", values.level],
-      ["Job role or team", values.role],
-      ["Message", values.message],
+    kind: "corporate",
+    details: [
+      { label: "Number of learners", value: values.learners },
+      { label: "Current level", value: LEVEL_LABELS[values.level] ?? "" },
+      { label: "Job role or team", value: values.role },
     ],
   });
 
