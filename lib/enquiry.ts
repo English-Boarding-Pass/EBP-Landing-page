@@ -3,7 +3,7 @@
 import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { allowAttempt } from "@/lib/rate-limit";
+import { allowAttempts } from "@/lib/rate-limit";
 import { isValidEmail, isValidPhone, isValidTestMark } from "@/lib/validation";
 import { addContact, isResendConfigured, sendEmail } from "@/lib/resend";
 import {
@@ -117,15 +117,10 @@ async function withinLimits(email: string) {
     requestHeaders.get("x-real-ip") ||
     "unknown";
 
-  const visitorOk = allowAttempt(`visitor:${visitor}`, {
-    limit: 5,
-    windowMs: 10 * MINUTE,
-  });
-  const emailOk = allowAttempt(`email:${email}`, {
-    limit: 3,
-    windowMs: 60 * MINUTE,
-  });
-  return visitorOk && emailOk;
+  return allowAttempts([
+    { key: `visitor:${visitor}`, limit: 5, windowMs: 10 * MINUTE },
+    { key: `email:${email}`, limit: 3, windowMs: 60 * MINUTE },
+  ]);
 }
 
 /**
