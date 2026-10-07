@@ -15,27 +15,30 @@ const HOUR = 60 * 60 * 1000;
 // Timestamps of recent submissions, per key.
 const hits = new Map<string, number[]>();
 
+type Limit = { key: string; limit: number; windowMs: number };
+
 /**
- * Records one attempt for `key` and says whether it is allowed: true while
- * the key has made fewer than `limit` attempts in the last `windowMs`.
- * Refused attempts are not recorded, so waiting always works.
+ * Records one attempt against every limit and says whether it is allowed:
+ * true only while each key has made fewer than its `limit` attempts in its
+ * last `windowMs`. Nothing is recorded unless every limit passes, so a
+ * refused attempt never uses up another key's allowance and waiting always
+ * works.
  */
-export function allowAttempt(
-  key: string,
-  { limit, windowMs }: { limit: number; windowMs: number },
-) {
+export function allowAttempts(limits: Limit[]) {
   const now = Date.now();
-  const recent = (hits.get(key) ?? []).filter((time) => now - time < windowMs);
 
-  if (recent.length >= limit) {
-    hits.set(key, recent);
-    return false;
-  }
+  const recents = limits.map(({ key, windowMs }) =>
+    (hits.get(key) ?? []).filter((time) => now - time < windowMs),
+  );
+  const allowed = limits.every(({ limit }, i) => recents[i].length < limit);
 
-  recent.push(now);
-  hits.set(key, recent);
+  limits.forEach(({ key }, i) => {
+    if (allowed) recents[i].push(now);
+    hits.set(key, recents[i]);
+  });
+
   if (hits.size > 5000) forgetOldKeys(now);
-  return true;
+  return allowed;
 }
 
 // Keeps the Map from growing without end on a long-lived server. No window
