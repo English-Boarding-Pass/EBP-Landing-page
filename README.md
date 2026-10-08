@@ -30,7 +30,7 @@ npm run dev      # http://localhost:3000
 
 All copy lives in `messages/*.json`. Sections removed in the October 2026 content rework (pricing, course cards, placeholder testimonials) are saved in [docs/removed-copy/](docs/removed-copy/).
 
-Teacher profiles are sample data for now. To add a real teacher, edit `teachers.items` in each `messages/*.json`, put the photo in `public/teachers/` and list its path in the `photos` array in [components/sections/teachers.tsx](components/sections/teachers.tsx).
+Teacher profiles live in `teachers.items` in each `messages/*.json`: a name, a bio of about 30 words and a few student reviews. To add a teacher, add an item to each file, put the photo in `public/teachers/` and list its path in the `photos` array in [components/sections/teachers.tsx](components/sections/teachers.tsx), in the same order.
 
 The WhatsApp number and contact email in [lib/site.ts](lib/site.ts) are placeholders.
 
