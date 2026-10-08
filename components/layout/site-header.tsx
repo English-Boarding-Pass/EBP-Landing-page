@@ -74,9 +74,11 @@ export function SiteHeader() {
   }
 
   return (
-    // Zero-height sticky shell: the floating pill overlaps the top of the page
+    // Zero-height shell: the floating pill overlaps the top of the page
     // instead of pushing it down, so the first section runs right to the top.
-    <header className="pointer-events-none sticky top-0 z-(--z-header) h-0">
+    // From sm up it is sticky and follows the page. On phones it stays at the
+    // top of the page and scrolls away, so it never covers the small screen.
+    <header className="pointer-events-none absolute inset-x-0 top-0 z-(--z-header) h-0 sm:sticky">
       <a
         href="#main-content"
         className="pointer-events-auto sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:rounded-full focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-navy"
