@@ -91,14 +91,14 @@ export function SiteHeader() {
       >
         <div
           id="site-nav"
-          className="nav-glass pointer-events-auto relative rounded-full"
+          className="nav-glass pointer-events-auto relative rounded-[2.25rem] sm:rounded-full"
         >
           {/* Tall enough for the full logo lockup, and padded away from the pill's curved ends so nothing looks clipped. */}
           <div
             className={clsx(
               // The pill reaches further out, but its content keeps its old
               // width and stays centred, so the logo and button don't move.
-              "mx-auto flex min-h-16 w-full max-w-[77.5rem] items-center justify-between gap-2 py-2.5 pr-2 pl-3 min-[360px]:pl-4 sm:min-h-20 sm:gap-4 sm:py-3 sm:pr-3 sm:pl-9",
+              "mx-auto flex min-h-16 w-full max-w-[77.5rem] items-center justify-between gap-4 py-2.5 pr-2 pl-5 sm:min-h-20 sm:py-3 sm:pr-3 sm:pl-9",
               locale === "ta" && "2xl:max-w-[85.5rem]",
             )}
           >
@@ -119,11 +119,8 @@ export function SiteHeader() {
               {renderLinks(desktopLink)}
             </nav>
 
-            <div className="flex shrink-0 items-center gap-1 sm:gap-3">
-              {/* Much of the audience can't read the English nav, so the language choice is always on screen, in the bar itself: short labels on phones, full names from sm up. */}
-              <div className="sm:hidden">
-                <LanguageSwitch tone="white" compact />
-              </div>
+            <div className="flex shrink-0 items-center gap-3">
+              {/* Much of the audience can't read the English nav, so the language choice is always on screen: in the bar from sm up, in its own row on phones. */}
               <div className="hidden sm:block">
                 <LanguageSwitch tone="white" />
               </div>
@@ -150,6 +147,10 @@ export function SiteHeader() {
                 )}
               </button>
             </div>
+          </div>
+
+          <div className="flex justify-center border-t border-white/10 py-2 sm:hidden">
+            <LanguageSwitch tone="white" />
           </div>
         </div>
 

@@ -7,12 +7,9 @@ import { locales, localeLabels } from "@/i18n/routing";
 
 export function LanguageSwitch({
   tone = "navy",
-  compact = false,
   className,
 }: {
   tone?: "navy" | "white";
-  /** Short labels and tighter buttons, for the phone header. */
-  compact?: boolean;
   className?: string;
 }) {
   const t = useTranslations("nav");
@@ -42,10 +39,7 @@ export function LanguageSwitch({
             aria-label={localeLabels[code].native}
             onClick={() => router.replace(pathname, { locale: code })}
             className={clsx(
-              "rounded-full text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none",
-              compact
-                ? "min-h-10 px-1.5 min-[360px]:min-w-9 min-[360px]:px-2"
-                : "min-h-11 px-3",
+              "min-h-11 rounded-full px-3 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none",
               active
                 ? tone === "white"
                   ? "bg-white text-navy"
@@ -55,7 +49,7 @@ export function LanguageSwitch({
                   : "text-slate hover:text-navy focus-visible:ring-navy",
             )}
           >
-            {compact ? localeLabels[code].compact : localeLabels[code].native}
+            {localeLabels[code].native}
           </button>
         );
       })}
