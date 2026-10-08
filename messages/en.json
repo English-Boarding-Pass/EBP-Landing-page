@@ -110,7 +110,11 @@
       }
     ],
     "testimonialsTitle": "What students say",
-    "moreSoon": "More teachers will be added soon."
+    "moreSoon": "More teachers will be added soon.",
+    "more": "Read reviews",
+    "close": "Close",
+    "readMoreAbout": "Read reviews for {name}",
+    "comingSoon": "Profile coming soon"
   },
   "faq": {
     "title": "Questions, answered",
