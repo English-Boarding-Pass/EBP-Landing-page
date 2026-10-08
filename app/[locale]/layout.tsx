@@ -9,6 +9,7 @@ import { SITE_URL } from "@/lib/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { NavScrollState } from "@/components/layout/nav-scroll-state";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { BackToTop } from "@/components/layout/back-to-top";
 import { ContactProvider } from "@/components/contact/contact-dialog";
 import "../globals.css";
 
@@ -65,6 +66,7 @@ export default async function LocaleLayout({
             <SiteHeader />
             {children}
             <SiteFooter />
+            <BackToTop />
           </ContactProvider>
           <Consent />
         </NextIntlClientProvider>
