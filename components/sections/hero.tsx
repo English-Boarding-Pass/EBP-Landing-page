@@ -51,8 +51,12 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Nudged past the container edge on wide screens; kept small at lg so it never clips. */}
-        <div className="flex justify-center lg:translate-x-4 lg:justify-end xl:translate-x-12">
+        {/*
+          Not shown on phones: there it would only sit below the buttons as
+          decoration. Nudged past the container edge on wide screens; kept
+          small at lg so it never clips.
+        */}
+        <div className="hidden justify-center sm:flex lg:translate-x-4 lg:justify-end xl:translate-x-12">
           <DepartureBoard
             label={t("board.label")}
             gate={t("board.gate")}
