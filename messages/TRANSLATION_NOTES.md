@@ -12,4 +12,6 @@ Teacher profiles (`teachers.items`) are sample data in all three files until the
 
 Copy that was taken off the site in the rework is saved in `docs/removed-copy/`.
 
-TODO translate (6 Oct 2026): these keys hold the English text in `si.json` and `ta.json` as a placeholder, so the UI never shows a missing key. Replace them in the translation pass: the whole `privacy` block, `teachers.readMoreAbout`, and `footer.social.linkedin`, `footer.social.facebook` and `footer.social.instagram`. JSON has no comments, so the TODO lives here.
+TODO translate (6 Oct 2026): these keys hold the English text in `ta.json` as a placeholder, so the UI never shows a missing key. Replace them in the translation pass: the whole `privacy` block, `teachers.readMoreAbout`, and `footer.social.linkedin`, `footer.social.facebook` and `footer.social.instagram`. JSON has no comments, so the TODO lives here.
+
+Sinhala (8 Oct 2026): the 8 Oct Sinhala review was applied to `si.json`. The `privacy` block is now a full Sinhala draft and the cookie policy was rewritten in the site's spoken register, using one spelling (නෑ, බෑ) throughout. The privacy notice cites the Personal Data Protection Act, so someone who can handle the legal wording should check it before launch.
