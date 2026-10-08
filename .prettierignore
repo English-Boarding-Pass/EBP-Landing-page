@@ -1,0 +1,10 @@
+.next/
+out/
+build/
+node_modules/
+package-lock.json
+next-env.d.ts
+.lighthouseci/
+.claude/
+.agents/
+skills-lock.json

@@ -1,0 +1,538 @@
+{
+  "meta": {
+    "title": "English Boarding Pass | ඔයාව ඉස්සරහට ගෙනියන ඉංග්‍රීසි",
+    "description": "ඉංග්‍රීසි විශ්වාසයෙන් පාවිච්චි කරන්න ඉගෙන ගන්න. ඔයා හිතන භාෂාවෙන්ම උගන්නන පළපුරුදු ලංකාවේ ටීචර්ලා. ඉගෙන ගන්න අයටත්, සමාගම්වලටත්.",
+    "corporates": {
+      "title": "ඔයාගේ ටීම් එකට ඉංග්‍රීසි | English Boarding Pass",
+      "description": "ලංකාවේ සමාගම්වලට ගැළපෙන්න හදන ඉංග්‍රීසි පාඨමාලා. ඔයාගේ ටීම් එකේ රස්සාවට ගැළපෙන භාෂාව, පටන් ගන්න කලිනුත් ඉවර වුණාමත් ටෙස්ට් එකක් එක්ක."
+    },
+    "science": {
+      "title": "ඉංග්‍රීසි භාෂාව පිටිපස්සේ තියෙන විද්‍යාව | English Boarding Pass",
+      "description": "ඉංග්‍රීසියේ කුසලතා හතර, CEFR පරිමාණයෙන් ඒවා මනින විදිය, පන්තියේදී අපි ඒවා හදන පිළිවෙළ."
+    }
+  },
+  "nav": {
+    "howItWorks": "වැඩ කරන විදිය",
+    "corporates": "සමාගම්වලට",
+    "science": "විද්‍යාව",
+    "teachers": "ගුරුවරු",
+    "faq": "ප්‍රශ්න සහ උත්තර",
+    "cta": "අපිට කතා කරන්න",
+    "skipToContent": "කෙළින්ම ප්‍රධාන කොටසට යන්න",
+    "language": "භාෂාව",
+    "primary": "ප්‍රධාන මෙනුව",
+    "home": "මුල් පිටුව"
+  },
+  "hero": {
+    "title": "ඔයාව ඉස්සරහට ගෙනියන ඉංග්‍රීසි.",
+    "subtitle": "ඉංග්‍රීසි විශ්වාසයෙන් පාවිච්චි කරන්න ඕනද? ඔයා හිතන භාෂාවෙන්ම, පළපුරුදු ලංකාවේ ටීචර්ලා එක්ක ඉගෙන ගන්න.",
+    "audience": "තනි තනිව ඉගෙන ගන්න අයටත් අපි උගන්නනවා. සමාගම්වලට ඒ ඒ සමාගමට ගැළපෙන්න පාඨමාලාත් හදලා දෙනවා.",
+    "cta": "අපිට කතා කරන්න",
+    "ctaSecondary": "සමාගම්වලට",
+    "skills": ["සවන් දීම", "කියවීම", "ලිවීම", "කතා කිරීම"],
+    "board": {
+      "label": "පිටත්වීම්",
+      "gate": "ගේට්ටුව",
+      "gateValue": "ENGLISH",
+      "status": "තත්ත්වය",
+      "statusValue": "නැඟීමට සූදානම්",
+      "columns": {
+        "flight": "ගුවන් ගමන",
+        "skill": "කුසලතාව"
+      },
+      "destination": "ගමනාන්තය",
+      "destinationValue": "ඉංග්‍රීසියෙන් හිතන එක"
+    }
+  },
+  "howItWorks": {
+    "title": "වැඩ කරන විදිය",
+    "subtitle": "අපිත් එක්ක ඉගෙන ගන්න විදි දෙකක් තියෙනවා.",
+    "students": {
+      "label": "ඉගෙන ගන්න අයට",
+      "title": "ඔයාගේ පන්තිය, ඔයාගේ කටහඬ",
+      "points": [
+        {
+          "title": "පළපුරුදු ටීචර් කෙනෙක් එක්ක සතියෙන් සතියට පන්ති",
+          "description": "හැම සතියෙම ටීචර්ව හම්බවෙලා, ටික ටික ඔයාගේ ඉංග්‍රීසිය හදාගන්නවා."
+        },
+        {
+          "title": "පන්තියේ තරුව ඔයා",
+          "description": "ටීචර් කියලා දෙන එක අඩුයි, ඔයා ඉංග්‍රීසි කතා කරන එක වැඩියි. පන්තියේ වෙලාවෙන් වැඩි කොටසක් ඔයාටයි."
+        }
+      ],
+      "cta": "අපිට කතා කරන්න",
+      "testCta": "ඔයාගේ ඉංග්‍රීසි ටෙස්ට් කරන්න",
+      "opensNewTab": "අලුත් ටැබ් එකක විවෘත වෙනවා",
+      "testNote": "නොමිලේ Cambridge English ටෙස්ට් එකක්. ප්‍රශ්න 25යි, ලකුණු එතනම දැනගන්න පුළුවන්. අපිට කතා කරද්දි ඔයාගේ ලකුණු අපිට කියන්න."
+    },
+    "corporates": {
+      "label": "සමාගම්වලට",
+      "title": "ඔයාගේ ටීම් එකට ගැළපෙන්න හදන පාඨමාලා",
+      "points": [
+        {
+          "title": "ඔයාගේ ටීම් එකට ගැළපෙන්න හදන පාඨමාලා",
+          "description": "කණ්ඩායමේ ප්‍රමාණයටයි, ඒ අය කරන රස්සාවටයි ගැළපෙන්න අපි හදනවා."
+        },
+        {
+          "title": "වැඩපොළේ පාවිච්චි වෙන ඉංග්‍රීසි",
+          "description": "උදාහරණ, ක්‍රියාකාරකම් ඔක්කොම ගන්නේ ඔයාගේ ටීම් එකේ දවසේ වැඩවලින්."
+        },
+        {
+          "title": "පටන් ගන්න කලිනුත්, ඉවර වුණාමත් ටෙස්ට් එකක්",
+          "description": "පාඨමාලාවට කලිනුත් පස්සෙත් අපි ටීම් එකේ මට්ටම බලනවා. එතකොට දියුණුව ඔයාටම පේනවා."
+        }
+      ],
+      "cta": "තව විස්තර"
+    }
+  },
+  "teachers": {
+    "title": "ඔයාගේ ටීචර්ලා හමුවෙන්න",
+    "subtitle": "ලංකාවේ තත්වය හොඳට තේරෙන, සිංහල දෙමළ කතා කරන අය හිර වෙන තැන් හරියටම දන්න පළපුරුදු ලංකාවේ ටීචර්ලා.",
+    "items": [
+      {
+        "name": "රුවන්ති ප්‍රනාන්දු මිය",
+        "experience": "අවුරුදු 12ක පළපුරුද්ද",
+        "specialism": "ස්කූල් ඉවර කරපු අයට සහ ජොබ් කරන අයට ස්පෝකන් ඉංග්‍රීසි",
+        "line": "කොළඹ සහ මහනුවර කතාබහ මුල් කරගත් පන්ති.",
+        "longBio": "රුවන්ති අවුරුදු 12ක් තිස්සේ කොළඹ සහ මහනුවර ස්කූල් ඉවර කරපු අයටත් ජොබ් කරන අයටත් ස්පෝකන් ඉංග්‍රීසි උගන්නලා තියෙනවා. එයාගේ පන්ති හැදිලා තියෙන්නේ කතාබහ වටේ. උගන්නන කොටස කෙටියෙන් තියලා හැමෝවම කතා කරවනවා. ඕන වෙලාවට සිංහලෙන් තේරුම් කරලා දෙනවා.",
+        "testimonials": [
+          {
+            "quote": "පන්තියේදී කතා කරන්න මට ගොඩක් අවස්ථා ලැබුණා.",
+            "name": "නිදර්ශන සිසුවෙක්"
+          },
+          {
+            "quote": "ටීචර් අපි හැමෝටම වෙන වෙනම අවධානය දෙනවා. ඒ නිසා අපිට අපි විදියටම ඉන්න පුළුවන්.",
+            "name": "නිදර්ශන සිසුවෙක්"
+          }
+        ]
+      },
+      {
+        "name": "කවින්දු පෙරේරා මයා",
+        "experience": "අවුරුදු 6ක පළපුරුද්ද",
+        "specialism": "ඉන්ටර්ව්ව් සහ ඔෆිස් ඉංග්‍රීසි",
+        "line": "ඊමේල්, මීටින්, ෆෝන් කෝල් ලේසියෙන් කරන්න පුළුවන් වෙනකම් පුරුදු කරනවා.",
+        "longBio": "කවින්දු සිසුන්ව ඉන්ටර්ව්ව්වලටයි පලවෙනි ජොබ් එකටයි සූදානම් කරනවා. ඊමේල්, මීටින්, ෆෝන් කෝල් වගේ ඔෆිස් එකේ ඇත්තටම වෙන දේවල් එයා පන්තියට ගේනවා. ඒවා ලේසියෙන් කරන්න පුළුවන් වෙනකම් සිසුන් පුරුදු වෙනවා. උදව් වෙන හැම වෙලාවකම සිංහලෙන් තේරුම් කරලා දෙනවා.",
+        "testimonials": [
+          {
+            "quote": "අපි පන්තියේදී ඇත්තම ඉන්ටර්ව්ව් ප්‍රශ්න පුරුදු වුණා. ඒ නිසා මගේ ඉන්ටර්ව්ව් එකේදී මම බය වුණේ නෑ.",
+            "name": "නිදර්ශන සිසුවෙක්"
+          },
+          {
+            "quote": "මම ලියපු හැම ඊමේල් එකක්ම සර් මාත් එක්ක එකින් එක බැලුවා.",
+            "name": "නිදර්ශන සිසුවෙක්"
+          }
+        ]
+      },
+      {
+        "name": "ප්‍රියතර්ෂිනි රාජ් මිය",
+        "experience": "අවුරුදු 8ක පළපුරුද්ද",
+        "specialism": "කතාබහේ ඉංග්‍රීසි",
+        "line": "ග්‍රැමර් එක්සර්සයිස්වලට වඩා ඇත්තම කතාබහට මුල් තැන, ඕන වෙලාවට දෙමළෙන් තේරුම් කරලා දෙනවා.",
+        "longBio": "ප්‍රියතර්ෂිනි අවුරුදු 8ක් තිස්සේ යාපනයේ සහ කොළඹ ඉංග්‍රීසි උගන්නලා තියෙනවා. එයා ග්‍රැමර් එක්සර්සයිස්වලට වඩා ඇත්තම කතාබහට මුල් තැන දෙනවා. සිසුවෙක්ට ඕන වෙලාවට දෙමළෙන් තේරුම් කරලා දෙනවා. එයාගේ සිසුන් හැම පන්තියකම දෙන්නා දෙන්නා විදියටත් පොඩි කණ්ඩායම් විදියටත් කතා කරනවා.",
+        "testimonials": [
+          {
+            "quote": "හැම පන්තියකම මම ජෝඩුවක් එක්ක කතා කළා. මුළු පන්තිය ඉස්සරහ කතා කරනවට වඩා ඒක ලේසියි.",
+            "name": "නිදර්ශන සිසුවෙක්"
+          },
+          {
+            "quote": "මට තේරුණේ නැති වෙලාවට ටීචර් දෙමළෙන් කියලා දුන්නා. ඊට පස්සේ ආයෙත් ඉංග්‍රීසියෙන් ට්‍රයි කරන්න දුන්නා.",
+            "name": "නිදර්ශන සිසුවෙක්"
+          }
+        ]
+      }
+    ],
+    "more": "තව කියවන්න",
+    "testimonialsTitle": "සිසුන් කියන දේ",
+    "close": "වහන්න",
+    "sampleNote": "මේවා නිදර්ශන විස්තර. ඇත්තම ටීචර්ලා, ෆොටෝ සහ සිසුන්ගේ අදහස් ඉක්මනින්ම එකතු කරනවා.",
+    "readMoreAbout": "{name} ගැන තව කියවන්න"
+  },
+  "faq": {
+    "title": "අහන්න ඕන දේවල්වලට උත්තර",
+    "subtitle": "ඔයා හොයන උත්තරේ මෙතන නැද්ද? WhatsApp එකෙන් අපිට මැසේජ් එකක් දාන්න.",
+    "items": [
+      {
+        "question": "පටන් ගන්න මට ඉංග්‍රීසි පොඩ්ඩක්වත් දැනගෙන ඉන්න ඕනද?",
+        "answer": "නෑ. ඕන වෙලාවට ටීචර් සිංහලෙන් හරි දෙමළෙන් හරි තේරුම් කරලා දෙනවා. ඒ නිසා දැන් ඉන්න තැනින්ම පටන් ගන්න පුළුවන්."
+      },
+      {
+        "question": "පන්ති ඔන්ලයින්ද, නැත්නම් ඇවිත් කරන ඒවාද?",
+        "answer": "දෙකම පුළුවන්. අපි වැඩ කරන්නේ ඔන්ලයින් සහ ඇවිත් කරන විදිය මිශ්‍ර කරලා. ඔයාට ඕන විදියට පන්ති ඔන්ලයින් හරි ඇවිත් හරි සකස් කරන්න පුළුවන්."
+      },
+      {
+        "question": "පාඨමාලා ගාස්තුව කීයද?",
+        "answer": "ගාස්තුව හැමෝටම එකම නෑ. ඒක අපි ඔයත් එක්ක කතා කරලා තීරණය කරනවා.",
+        "points": [
+          "තනි තනිව ඉගෙන ගන්න අයට: කණ්ඩායමේ ප්‍රමාණය, ඔයාට ඕන භාෂා දේවල් සහ දැන් මට්ටම බලලා අපි ගැළපෙන පාඨමාලාවක් කියනවා. ඊට පස්සේ ගාස්තුව ගැන ඔයත් එක්කම කතා කරනවා.",
+          "සමාගම්වලට: ගාස්තුව තීරණය වෙන්නේ ඔයාගේ සමාගමට හදන පැකේජ් එක අනුව. ටීචර්ලා ගාණ, පැය ගාණ, ඉගෙන ගන්න අය ගාණ බලලා."
+        ]
+      },
+      {
+        "question": "අන්තිමට සහතිකයක් දෙනවද?",
+        "answer": "ඔව්. ඒක ලබාගන්න පන්ති ඉවර කරලා, ඔයාගේ ඉංග්‍රීසි දියුණු වුණා කියලා පෙන්නන්න ඕන."
+      },
+      {
+        "question": "පන්තියේ කතා කරන්න බයයි නම් මොකද වෙන්නේ?",
+        "answer": "ඒක සාමාන්‍යයි, අපි ඉන්නේ ඒකටමයි. ටීචර් ඔයාව හෙමින් හෙමින් කතාබහට ගේනවා. වැරදීම් එන එක සාමාන්‍යයි, කවුරුත් ඒකට හිනා වෙන්නෙ නෑ."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "පිටත් වෙන්න සූදානම්ද?",
+    "subtitle": "ඔයාට මොනවද ඕන කියලා අපිට කියන්න. ඔයාට හරියන පන්තිය හොයාගන්න අපි උදව් කරනවා.",
+    "cta": "අපිට කතා කරන්න"
+  },
+  "footer": {
+    "description": "ලංකාවේ ඉගෙන ගන්න අයටයි සමාගම්වලටයි ඉංග්‍රීසි පන්ති, පළපුරුදු ලංකාවේ ටීචර්ලා උගන්නනවා.",
+    "columns": {
+      "explore": {
+        "title": "බලන්න"
+      },
+      "contact": {
+        "title": "අපිව හම්බවෙන්න",
+        "whatsapp": "WhatsApp එකෙන් කතා කරමු",
+        "email": "ඊමේල් එකක් දාන්න"
+      }
+    },
+    "legal": {
+      "privacy": "පෞද්ගලිකත්ව දැනුම්දීම",
+      "rights": "සියලුම හිමිකම් ඇවිරිණි.",
+      "cookies": "Cookie ප්‍රතිපත්තිය"
+    },
+    "social": {
+      "label": "අපිව Follow කරන්න",
+      "linkedin": "LinkedIn එකේ English Boarding Pass",
+      "facebook": "Facebook එකේ English Boarding Pass",
+      "instagram": "Instagram එකේ English Boarding Pass"
+    }
+  },
+  "contact": {
+    "title": "අපිට කතා කරන්න",
+    "subtitle": "ඔයාගේ විස්තර දාන්න. ඔයාට ඕන දේ ගැන කතා කරන්න අපි ඔයාට කතා කරනවා.",
+    "close": "වහන්න",
+    "nameLabel": "සම්පූර්ණ නම",
+    "emailLabel": "ඊමේල්",
+    "phoneLabel": "ෆෝන් නම්බරය",
+    "phoneHint": "මේ නම්බරයට අපි කෝල් එකක් හරි WhatsApp මැසේජ් එකක් හරි දාන්නම්.",
+    "countryCodeLabel": "රටේ කේතය",
+    "messageLabel": "අපෙන් මොන වගේ උදව්වක්ද ඕන?",
+    "optional": "අනිවාර්ය නෑ",
+    "submit": "මගේ විස්තර යවන්න",
+    "submitting": "යවනවා…",
+    "privacy": "ඔයාගේ විස්තර අපි පාවිච්චි කරන්නේ English Boarding Pass ගැන ඔයාට කතා කරන්න විතරයි.",
+    "successTitle": "ඔයාගේ විස්තර ලැබුණා.",
+    "successBody": "ස්තූතියි. අපේ කෙනෙක් ඉක්මනින්ම ඔයාට කතා කරයි.",
+    "done": "හරි",
+    "errors": {
+      "name": "ඔයාගේ නම දාන්න.",
+      "email": "හරි ඊමේල් ලිපිනයක් දාන්න.",
+      "phone": "හරි ෆෝන් නම්බරයක් දාන්න, ඉලක්කම් විතරක්. උදා: 77 123 4567.",
+      "generic": "අපේ පැත්තෙන් මොකක් හරි වැරදුණා. ආයෙත් ට්‍රයි කරන්න, නැත්නම් WhatsApp එකෙන් අපිට මැසේජ් එකක් දාන්න.",
+      "rateLimited": "ඔයා පොඩි වෙලාවකට විමසීම් කීපයක්ම එව්වා. විනාඩි කීපයකින් ආයෙත් ට්‍රයි කරන්න.",
+      "testMark": "0 ඉඳන් 25 අතර සම්පූර්ණ ඉලක්කමක් දාන්න."
+    },
+    "email": {
+      "subject": "English Boarding Pass: ඔයාගේ විස්තර ලැබුණා",
+      "preheader": "ස්තූතියි. අපි ඉක්මනින්ම ඔයාට කතා කරන්නම්.",
+      "eyebrow": "විස්තර ලැබුණා",
+      "heading": "ස්තූතියි, {name}.",
+      "body": "English Boarding Pass එකට කතා කළාට ස්තූතියි. ඔයාට ඕන දේ ගැන කතා කරන්න අපේ කෙනෙක් ඉක්මනින්ම ඔයාට කතා කරයි.",
+      "passenger": "මගියා",
+      "company": "සමාගම",
+      "status": "ස්ටේටස්",
+      "statusValue": "ලැබුණා",
+      "replyHint": "ප්‍රශ්න තියෙනවද? මේ ඊමේල් එකටම රිප්ලයි කරන්න. ඇත්තම කෙනෙක් උත්තර දෙනවා.",
+      "signoff": "ඉක්මනටම හම්බවෙමු,",
+      "footer": "ඔයා English Boarding Pass එකට විස්තර එවපු නිසා තමයි මේ ඊමේල් එක ආවේ."
+    },
+    "testMarkLabel": "ඔයාගේ ටෙස්ට් ලකුණු (25න්)",
+    "testMarkHint": "නොමිලේ Cambridge English ටෙස්ට් එකෙන්.",
+    "testLink": "ඔයාගේ ඉංග්‍රීසි ටෙස්ට් කරන්න",
+    "choose": {
+      "subtitle": "ඔයා කතා කරන්නේ කාගේ වෙනුවෙන්ද?",
+      "individual": {
+        "title": "මම තනි කෙනෙක්",
+        "description": "පොඩි ෆෝම් එකක් පුරවන්න, අපි ඔයාට කතා කරනවා."
+      },
+      "corporate": {
+        "title": "මම සමාගමක් වෙනුවෙන්",
+        "description": "අපේ සමාගම් පිටුවට ගිහින් ඔයාගේ ටීම් එක වෙනුවෙන් විමසුමක් එවන්න."
+      },
+      "back": "ආපසු"
+    }
+  },
+  "corporates": {
+    "eyebrow": "සමාගම්වලට",
+    "title": "ඔයාගේ ටීම් එකේ වැඩට ගැළපෙන ඉංග්‍රීසි.",
+    "subtitle": "අපේ ටීචර්ලා ඔයාගේ කාර්ය මණ්ඩලයට උගන්නන්නේ ඒ අය හැමදාම කරන රස්සාවේ භාෂාවෙන්, ඒ ටීම් එකටම හදපු පාඨමාලාවකින්.",
+    "cta": "අපිත් එක්ක කතා කරමු",
+    "pillars": [
+      {
+        "title": "ඔයාගේ ටීම් එකට ගැළපෙන්න හදන පාඨමාලා",
+        "description": "එක වගේ ටීම් දෙකක් නෑ. කණ්ඩායමේ ප්‍රමාණය, එතන ඉන්න අයගේ රස්සා, ඒ අය දැන් ඉන්න මට්ටම බලලා අපි හැම පාඨමාලාවක්ම හදනවා."
+      },
+      {
+        "title": "වැඩපොළේ පාවිච්චි වෙන ඉංග්‍රීසි",
+        "description": "මැණික් විකුණන ටීම් එකක් ඉගෙන ගන්නේ මැණික් ගැන උදාහරණවලින්. රෙස්ටුරන්ට් එකක වැඩ කරන අය කෑම, බීම, ඕඩර් ගන්න විදිය පුරුදු වෙනවා. ඔයාගේ ටීම් එකට පහුවදාම වැඩට ගන්න පුළුවන් ඉංග්‍රීසි තමයි ඉගෙන ගන්නේ."
+      },
+      {
+        "title": "පටන් ගන්න කලිනුත්, ඉවර වුණාමත් ටෙස්ට් එකක්",
+        "description": "පාඨමාලාව පටන් ගන්න කලින් සහ ඉවර වුණාම අපි හැමෝගේම මට්ටම බලනවා. ඒ නිසා ඔයාගේ ටීම් එක කොච්චර දුර ආවද කියලා හරියටම පේනවා."
+      }
+    ],
+    "form": {
+      "title": "ඔයාගේ ටීම් එක ගැන අපිට කියන්න",
+      "subtitle": "ඔයාට කතා කරන්න ඕන විස්තර දෙන්න, අපි ඔයාට කතා කරනවා. අනිත් ඒවා අනිවාර්ය නෑ, ඒත් අපිට සූදානම් වෙන්න ඒවා උදව් වෙනවා.",
+      "companyLabel": "සමාගම",
+      "learnersLabel": "ඉගෙන ගන්න අය ගාණ",
+      "levelLabel": "දැන් ඉන්න ඉංග්‍රීසි මට්ටම",
+      "levels": {
+        "unsure": "තාම හරියටම දන්නේ නෑ",
+        "beginner": "ආරම්භක",
+        "intermediate": "මධ්‍යම",
+        "advanced": "උසස්",
+        "mixed": "මට්ටම් කිහිපයක්"
+      },
+      "roleLabel": "රස්සාව හෝ ටීම් එක",
+      "roleHint": "උදා: වේටර්ලා, සේල්ස් ටීම් එක, කෝල් සෙන්ටර් ඒජන්ට්ලා.",
+      "messageLabel": "අපි දැනගන්න ඕන තව මොනවා හරි තියෙනවද?",
+      "submit": "විමසුම යවන්න",
+      "successTitle": "ස්තූතියි. ඔයාගේ විමසුම ලැබුණා.",
+      "successBody": "ඔයාගේ ටීම් එකේ පාඨමාලාව ගැන කතා කරන්න අපේ කෙනෙක් ඉක්මනින්ම ඔයාට කතා කරයි.",
+      "errors": {
+        "company": "සමාගමේ නම දාන්න."
+      }
+    }
+  },
+  "science": {
+    "eyebrow": "ඉංග්‍රීසි ඉගෙන ගන්නේ කොහොමද",
+    "title": "ඉංග්‍රීසි භාෂාව පිටිපස්සේ තියෙන විද්‍යාව",
+    "subtitle": "දියුණු කරගන්න ඕන මොනවද, ඒවා මනින්නේ කොහොමද, පන්තියේදී අපි ඒවා හදන්නේ කොහොමද.",
+    "skills": {
+      "title": "කුසලතා හතරක්",
+      "body": "ඕනම භාෂාවක වගේ ඉංග්‍රීසියටත් ප්‍රධාන කුසලතා හතරක් තියෙනවා.",
+      "items": [
+        {
+          "name": "සවන් දීම",
+          "description": "ඇහෙන දේ තේරුම් ගන්න එක."
+        },
+        {
+          "name": "කියවීම",
+          "description": "කියවන දේ තේරුම් ගන්න එක."
+        },
+        {
+          "name": "ලිවීම",
+          "description": "ඔයාගේ අදහස් ලියලා කියන එක."
+        },
+        {
+          "name": "කතා කිරීම",
+          "description": "කියන්න ඕන දේ කටින් කියන එක."
+        }
+      ],
+      "outcome": "මේ හතරම එකතු වුණාම ඔයාට ඉංග්‍රීසියෙන් හිතන්න පුළුවන් වෙනවා."
+    },
+    "cefr": {
+      "title": "ඒක මනින්නේ කොහොමද",
+      "body": "CEFR (Common European Framework of Reference) කියන්නේ භාෂා හැකියාව මනින්න ලෝකෙම පාවිච්චි කරන පරිමාණය. ඒකේ A1 ඉඳන් C2 වෙනකම් මට්ටම් හයක් තියෙනවා. IELTS, PTE, TOEFL, Oxford Test of English සහ Cambridge English විභාග ඔක්කොම මේකට ගැළපෙනවා.",
+      "levels": [
+        {
+          "code": "A1",
+          "name": "ආරම්භක",
+          "description": "සරල එදිනෙදා වචන, වාක්‍ය පාවිච්චි කරනවා."
+        },
+        {
+          "code": "A2",
+          "name": "මූලික",
+          "description": "කෙටි, සාමාන්‍ය කතාබහ කරගන්න පුළුවන්."
+        },
+        {
+          "code": "B1",
+          "name": "මධ්‍යම",
+          "description": "වැඩේදිත්, ඉගෙනීමේදිත්, ගමන් යද්දිත් එන ගොඩක් අවස්ථා හරි විදියට කරගන්න පුළුවන්."
+        },
+        {
+          "code": "B2",
+          "name": "ඉහළ මධ්‍යම",
+          "description": "ලේසියෙන් කතා කරනවා, අමාරු අදහස් වුණත් තේරුම් ගන්නවා."
+        },
+        {
+          "code": "C1",
+          "name": "උසස්",
+          "description": "වැඩටත් ඉගෙනීමටත් ඉංග්‍රීසිය නිදහසේ පාවිච්චි කරන්න පුළුවන්."
+        },
+        {
+          "code": "C2",
+          "name": "ප්‍රවීණ",
+          "description": "හැම දෙයක්ම වගේ තේරුම් ගන්නවා, කියන්න ඕන දේ හරියටම කියනවා."
+        }
+      ]
+    },
+    "progression": {
+      "title": "පන්තියේදී අපි ඒක හදන විදිය",
+      "body": "පන්තියේදී අපි හැම කුසලතාවක්ම හදන්නේ මේ පිළිවෙළට.",
+      "steps": [
+        {
+          "name": "උච්චාරණය",
+          "description": "ඔයා දැනටමත් කතා කරන ඉංග්‍රීසිය තව පොඩ්ඩක් හොඳට හදාගන්න එක."
+        },
+        {
+          "name": "අකුරු වින්‍යාසය",
+          "description": "ඔයා දැනටමත් ලියන ඉංග්‍රීසිය තව පොඩ්ඩක් හොඳට හදාගන්න එක."
+        },
+        {
+          "name": "වචන",
+          "description": "හැමදාම පාවිච්චි කරන්න පුළුවන්, ඔයාගේ ජීවිතයටයි වැඩටයි ගැළපෙන අලුත් වචන."
+        },
+        {
+          "name": "ව්‍යාකරණ",
+          "description": "භාෂාව පිටිපස්සේ තියෙන රටා. මේක එන්නේ අන්තිමට, ඉගෙනීමේ උච්චතම තැන විදියට."
+        }
+      ],
+      "lastLabel": "අන්තිමට",
+      "note": "ගොඩක් අය හිතන්නේ ඉගෙන ගන්න ඕන ග්‍රැමර් විතරයි කියලා. ඒක ඇත්ත නෙවෙයි. ග්‍රැමර් රීති එකක්වත් නොදැන ඉංග්‍රීසියෙන් විශ්වාසයෙන් කතා කරන්න පුළුවන්."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Notice",
+    "subtitle": "Last updated 08/10/2026",
+    "close": "Close",
+    "sections": [
+      {
+        "heading": "Who we are",
+        "paragraphs": [
+          "English Boarding Pass (\"EBP\", \"we\", \"us\") offers English classes for individual students and tailored courses for companies in Sri Lanka. This notice explains what personal information we collect on this website, why we collect it, and the choices you have."
+        ]
+      },
+      {
+        "heading": "What we collect",
+        "items": [
+          "Contact details you give us: your name, phone or WhatsApp number and email address.",
+          "Enquiry details: for company enquiries, your company name, number of staff, job roles and current English level, if you choose to share them.",
+          "Messages you send us, including through WhatsApp or email.",
+          "නිර්නාමික භාවිත දත්ත: කුමන පිටු සහ බොත්තම් භාවිත වෙනවාද කියලා, ඔයා පිළිගත්තොත් විතරයි cookies හෝ ඒ වගේ මෙවලම් වලින් එකතු කරන්නේ. පෞද්ගලික විස්තර තබාගන්නේ නැහැ."
+        ]
+      },
+      {
+        "heading": "How we use it",
+        "items": [
+          "To reply to your enquiry and help you find the right class or course.",
+          "To arrange classes and send you class details.",
+          "To improve this website and our teaching.",
+          "To meet legal or accounting requirements when payments are introduced."
+        ],
+        "closing": "We only ask for what we need, and we use it only for these purposes."
+      },
+      {
+        "heading": "Who we share it with",
+        "paragraphs": [
+          "We never sell your information. We share it only with the people and services that help us run EBP, such as our teachers (so they can prepare your class), our website hosting and email providers, and payment providers when online payment becomes available. They may only use it to provide their service to us."
+        ]
+      },
+      {
+        "heading": "WhatsApp",
+        "paragraphs": [
+          "If you contact us on WhatsApp, your messages are also handled by WhatsApp under its own privacy policy."
+        ]
+      },
+      {
+        "heading": "How long we keep it",
+        "paragraphs": [
+          "We keep your information only as long as we need it for the reasons above, then we delete or anonymise it. You can ask us to delete it sooner at any time."
+        ]
+      },
+      {
+        "heading": "Your rights",
+        "paragraphs": [
+          "In line with Sri Lanka's Personal Data Protection Act, No. 9 of 2022, you can ask to see the information we hold about you, correct it, withdraw your consent, or ask us to delete it. To do any of these, email us at {email} and we will reply as soon as we can."
+        ]
+      },
+      {
+        "heading": "Keeping it safe",
+        "paragraphs": [
+          "We use reasonable technical and organisational measures to protect your information. No online service can promise perfect security, so please avoid sending sensitive details such as passwords or bank card numbers through forms or chat."
+        ]
+      },
+      {
+        "heading": "Cookies",
+        "paragraphs": [
+          "We do not use advertising cookies, and we do not track you across other websites. The site remembers the language you chose and your choice on the cookie banner. If you choose Accept all on that banner, we also count anonymously which pages and buttons are used. Our Cookie Policy, linked at the bottom of every page, explains this in full."
+        ]
+      },
+      {
+        "heading": "Young people",
+        "paragraphs": [
+          "Our classes are designed for school leavers and adults. If you are under 18, please ask a parent or guardian before sharing your details with us."
+        ]
+      },
+      {
+        "heading": "Changes to this notice",
+        "paragraphs": [
+          "If we change this notice, we will update the date at the top of this page."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paragraphs": [
+          "Questions about your privacy? Email {email} or message us on WhatsApp."
+        ]
+      }
+    ]
+  },
+  "consent": {
+    "title": "Cookie අවසරය",
+    "body": "ඔයාගේ අත්දැකීම හොඳ කරන්නයි, අඩවිය කොච්චර පාවිච්චි වෙනවද බලන්නයි අපි cookies පාවිච්චි කරනවා.",
+    "policyLink": "අපේ cookie ප්‍රතිපත්තිය කියවන්න",
+    "essential": "අත්‍යවශ්‍ය ඒවා විතරයි",
+    "accept": "ඔක්කොම පිළිගන්නවා"
+  },
+  "cookiePolicy": {
+    "title": "Cookie ප්‍රතිපත්තිය",
+    "subtitle": "අවසන් වරට යාවත්කාලීන කළේ 06/10/2026",
+    "close": "වසන්න",
+    "sections": [
+      {
+        "heading": "Cookies කියන්නේ මොනවාද",
+        "paragraphs": [
+          "Cookies කියන්නේ වෙබ් අඩවියක් ඔයාගේ උපාංගයේ සුරකින කුඩා ෆයිල්. අපි බ්‍රවුසරයේ local storage වගේ ඒ හා සමාන වැඩේ කරන මෙවලම් ද භාවිත කරනවා."
+        ]
+      },
+      {
+        "heading": "අපි භාවිත කරන cookies",
+        "items": [
+          "අත්‍යවශ්‍ය: ඔයා තෝරන භාෂාව (NEXT_LOCALE නමින් cookie එකක්, බ්‍රවුසරය වහනකම් තියෙනවා) සහ cookie බැනරයේ ඔයා කරන තේරීම (බ්‍රවුසරයේ local storage එකේ) අපි මතක තියාගන්නවා. වෙබ් අඩවිය නිසි ලෙස වැඩ කරන්න මේවා අවශ්‍ය නිසා හැමවෙලේම ක්‍රියාත්මකයි.",
+          "විශ්ලේෂණ, ඔයා ‘සියල්ල පිළිගන්න’ තෝරපුවොත් විතරයි: කුමන පිටු සහ බොත්තම් භාවිත වෙනවාද කියන නිර්නාමික ගණනය, උදා: කී දෙනෙක් ‘අපිව සම්බන්ධ කරගන්න’ ඔබනවාද කියලා. ඔයාගේ නම, ඊමේල්, දුරකථන අංකය හෝ පරීක්ෂණ ලකුණු මේකට කවදාවත් ඇතුළත් වෙන්නේ නැහැ."
+        ],
+        "closing": "අපි දැන්වීම් cookies භාවිත කරන්නේ නැහැ, වෙනත් වෙබ් අඩවි හරහා ඔයාව ලුහුබඳින්නෙත් නැහැ."
+      },
+      {
+        "heading": "විශ්ලේෂණ සපයන්නේ කවුද",
+        "paragraphs": [
+          "අපේ විශ්ලේෂණ ක්‍රියාත්මක වෙන්නේ අපේ වෙබ් අඩවි සත්කාරක සපයන්නාගේ Vercel Analytics මගින්. ඔයාව හඳුනාගන්න ඒක cookies භාවිත කරන්නේ නැහැ."
+        ]
+      },
+      {
+        "heading": "ඔයාගේ තේරීම්",
+        "paragraphs": [
+          "‘අත්‍යවශ්‍ය ඒවා පමණයි’ තෝරපුවොත් ඔයාගේ සංචාරය ගැන අපි කිසිවක් සටහන් කරන්නේ නැහැ. ‘සියල්ල පිළිගන්න’ තෝරපුවොත් ඉහත නිර්නාමික ගණනය සටහන් කරනවා. මේ ප්‍රතිපත්තියේ අවසානයේ ඇති බොත්තම මගින් ඕනෑම වෙලාවක ඔයාගේ තීරණය වෙනස් කරන්න පුළුවන්. බ්‍රවුසර සැකසුම් වලින් cookies අවහිර කරන්න හෝ මකන්න පුළුවන්, ඒත් එවිට වෙබ් අඩවිය ඔයාගේ භාෂාව අමතක කරන්න පුළුවන්."
+        ]
+      },
+      {
+        "heading": "මෙම ප්‍රතිපත්තියේ වෙනස්කම්",
+        "paragraphs": [
+          "අපි මෙම ප්‍රතිපත්තිය වෙනස් කළොත්, මේ පිටුවේ ඉහළ ඇති දිනය යාවත්කාලීන කරනවා."
+        ]
+      },
+      {
+        "heading": "සම්බන්ධ වෙන්න",
+        "paragraphs": ["Cookies ගැන ප්‍රශ්න තියෙනවද? {email} වෙත ඊමේල් කරන්න."]
+      }
+    ],
+    "changeChoice": "මගේ cookie තේරීම වෙනස් කරන්න"
+  },
+  "notFound": {
+    "eyebrow": "පිටුව හමු වුණේ නෑ",
+    "title": "ඒ පිටුව හොයාගන්න බැහැ.",
+    "body": "ලින්ක් එක පරණ එකක් වෙන්න පුළුවන්, නැත්නම් වැරදියට ටයිප් වෙලා වෙන්න පුළුවන්.",
+    "cta": "මුල් පිටුවට යන්න"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "title": "English Boarding Pass — English That Takes You Places",
+    "description": "Live online English classes for Sri Lankan students. Learn from Sinhala or Tamil with experienced Sri Lankan teachers — 40 live classes, real conversation practice, a certificate at the end."
+  },
+  "nav": {
+    "howItWorks": "How it works",
+    "routes": "Courses",
+    "pricing": "Fees",
+    "teachers": "Teachers",
+    "faq": "FAQ",
+    "bookSeat": "Join the waitlist",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "eyebrow": "Live online English classes · Sri Lanka",
+    "title": "English that takes you places.",
+    "titleAccent": "places.",
+    "subtitle": "Want to speak English with confidence? Learn live, online, with experienced Sri Lankan teachers — taught in the language you already think in.",
+    "cta": "Join the waitlist",
+    "ctaSecondary": "See how it works",
+    "trustPoints": [
+      "Live Sri Lankan teachers",
+      "Small batches",
+      "You speak every class"
+    ],
+    "board": {
+      "label": "DEPARTURES",
+      "gate": "GATE",
+      "gateValue": "ENGLISH",
+      "status": "STATUS",
+      "statusValue": "BOARDING",
+      "columns": {
+        "route": "ROUTE",
+        "duration": "DURATION",
+        "classes": "CLASSES"
+      }
+    }
+  },
+  "routes": {
+    "title": "Choose your route",
+    "subtitle": "Two direct routes to confident spoken English. Pick the one that starts where you are — no levels to guess, no placement test.",
+    "sharedFactsLabel": "Every route includes",
+    "facts": {
+      "classes": "40 live classes",
+      "frequency": "2 classes a week",
+      "duration": "5 months",
+      "outcome": "Certificate + mock interview"
+    },
+    "seatsRemaining": "seats left",
+    "departsLabel": "Next cohort departs",
+    "cta": "Join the waitlist",
+    "sinhala": {
+      "code": "SIN → ENG",
+      "flagLabel": "සි",
+      "name": "Sinhala to English",
+      "departs": "6 October 2026",
+      "seats": 14
+    },
+    "tamil": {
+      "code": "TAM → ENG",
+      "flagLabel": "த",
+      "name": "Tamil to English",
+      "departs": "6 October 2026",
+      "seats": 11
+    }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "No passive watching. No guessing what to do next. Just a clear path from your first class to a certificate you earned.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Two live classes a week",
+        "description": "Real Sri Lankan teachers, live on screen — not pre-recorded videos. Twice a week, every week, for five months."
+      },
+      {
+        "number": "02",
+        "title": "You speak every class",
+        "description": "This isn't a lecture you watch. Every class is built around you talking — answering, practising, getting it wrong, and trying again."
+      },
+      {
+        "number": "03",
+        "title": "Finish 40 classes, get certified",
+        "description": "Complete all 40 classes and leave with a certificate and a mock interview, so you know exactly how far you've come."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Simple pricing, no surprises",
+    "subtitle": "One price for the full 5-month route. No hidden fees, no upsells.",
+    "regularLabel": "Regular price",
+    "regularPrice": "Rs 40,000",
+    "earlyBirdLabel": "Early-bird — first cohort only",
+    "earlyBirdPrice": "Rs 20,000",
+    "cta": "Join the waitlist",
+    "fine": "Covers all 40 live classes, class materials, and your certificate. Seats confirmed on payment."
+  },
+  "testimonials": {
+    "title": "Students who found their words",
+    "subtitle": "Real students, real progress. Photos and stories to follow as our first cohorts graduate.",
+    "items": [
+      {
+        "quote": "I used to freeze in interviews. After a few weeks of actually speaking every class, I stopped translating in my head and just answered.",
+        "name": "Nimasha P.",
+        "role": "Sinhala to English student"
+      },
+      {
+        "quote": "Having the teacher explain in Tamil first meant nothing felt out of reach. By class 20 I was arguing my own opinions in English.",
+        "name": "Aravind S.",
+        "role": "Tamil to English student"
+      },
+      {
+        "quote": "Small batch, so the teacher actually knew my name and where I kept getting stuck. That made all the difference.",
+        "name": "Dilshan K.",
+        "role": "Sinhala to English student"
+      }
+    ]
+  },
+  "teachers": {
+    "title": "Learn from teachers who get it",
+    "subtitle": "Experienced Sri Lankan English teachers who know exactly where Sinhala and Tamil speakers get stuck — because they've taught this journey before.",
+    "items": [
+      {
+        "name": "Ms. Ruwanthi Fernando",
+        "role": "Lead Teacher, Sinhala to English",
+        "bio": "12 years teaching spoken English to school leavers and working adults across Colombo and Kandy."
+      },
+      {
+        "name": "Mr. Kavindu Perera",
+        "role": "Teacher, Sinhala to English",
+        "bio": "Specialises in interview and workplace English for students entering their first job."
+      },
+      {
+        "name": "Ms. Priyatharshini Raj",
+        "role": "Lead Teacher, Tamil to English",
+        "bio": "8 years teaching English across Jaffna and Colombo, focused on real conversation over grammar drills."
+      }
+    ],
+    "photoNote": "Teacher photos to be added"
+  },
+  "faq": {
+    "title": "Questions, answered",
+    "subtitle": "Can't find what you're looking for? Message us on WhatsApp — we reply fast.",
+    "items": [
+      {
+        "question": "Do I need to know any English to start?",
+        "answer": "No. Classes are taught with Sinhala or Tamil explanations from day one, so you can start from wherever you are right now."
+      },
+      {
+        "question": "What if I miss a class?",
+        "answer": "Let your teacher know and we'll help you catch up before the next one. Because batches are small, teachers notice when you're behind and help you keep pace."
+      },
+      {
+        "question": "Are the classes live or recorded?",
+        "answer": "Live, always. Every class is taught by a real teacher in real time, because speaking practice only works when someone is actually listening and responding."
+      },
+      {
+        "question": "How does payment work?",
+        "answer": "Pay the full amount, or split it into two interest-free instalments. Your seat is confirmed once payment is made."
+      },
+      {
+        "question": "Is there a certificate at the end?",
+        "answer": "Yes. Finish all 40 classes and you'll get a certificate and a mock interview, so you leave with proof of how far you've come."
+      },
+      {
+        "question": "What if I'm too nervous to speak in class?",
+        "answer": "That's normal, and it's exactly what we're here for. Batches stay small so your teacher can bring you in gently — mistakes are expected, not judged."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Ready for takeoff?",
+    "subtitle": "Seats are limited to keep every class small enough that you actually get heard.",
+    "cta": "Join the waitlist"
+  },
+  "footer": {
+    "tagline": "English That Takes You Places.",
+    "description": "Live online English classes for Sri Lankan students, taught by experienced Sri Lankan teachers in Sinhala, Tamil, and English.",
+    "columns": {
+      "explore": {
+        "title": "Explore",
+        "links": {
+          "howItWorks": "How it works",
+          "routes": "Courses",
+          "pricing": "Fees",
+          "teachers": "Teachers",
+          "faq": "FAQ"
+        }
+      },
+      "contact": {
+        "title": "Contact",
+        "whatsapp": "Chat on WhatsApp",
+        "email": "Email us"
+      }
+    },
+    "legal": {
+      "privacy": "Privacy notice",
+      "rights": "All rights reserved."
+    }
+  },
+  "waitlist": {
+    "title": "Join the waitlist",
+    "subtitle": "Our class platform is still being built. Leave your details and we'll contact you the moment seats open — early-bird price included.",
+    "close": "Close",
+    "nameLabel": "Full name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone number",
+    "phoneHint": "We'll call or WhatsApp you when seats open.",
+    "routeLegend": "Which course do you want?",
+    "submit": "Join the waitlist",
+    "submitting": "Adding you…",
+    "privacy": "We'll only use your details to tell you about English Boarding Pass. Unsubscribe any time.",
+    "successTitle": "You're on the list.",
+    "successBody": "We've sent a confirmation to {email}. The moment seats open, you'll be the first to know.",
+    "done": "Done",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter a valid phone number, e.g. 077 123 4567.",
+      "route": "Please choose a course.",
+      "generic": "Something went wrong on our side. Please try again, or message us on WhatsApp."
+    },
+    "email": {
+      "subject": "You're on the English Boarding Pass waitlist",
+      "preheader": "Your spot on the waitlist is saved. Here's what happens next.",
+      "eyebrow": "Waitlist confirmed",
+      "heading": "You're on the list, {name}.",
+      "body": "Thanks for joining the English Boarding Pass waitlist. Our class platform is still being built — the moment seats open, we'll email you first so you can grab the early-bird price.",
+      "passenger": "Passenger",
+      "route": "Route",
+      "status": "Status",
+      "statusValue": "Waitlisted",
+      "departs": "First cohort",
+      "earlyBird": "Early-bird price for the first cohort: {price}",
+      "replyHint": "Questions? Just reply to this email — a real person will answer.",
+      "signoff": "See you on board,",
+      "footer": "You're receiving this because you joined the English Boarding Pass waitlist."
+    }
+  }
+}
