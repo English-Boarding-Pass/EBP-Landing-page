@@ -1,7 +1,8 @@
-// Contact details shown across the site. Both are placeholders until the
-// real WhatsApp number and domain mailbox are set up.
+// Contact details shown across the site. The WhatsApp number is a
+// placeholder until the real one is set up. The email is the team's Gmail
+// address until a domain mailbox exists.
 export const WHATSAPP_NUMBER = "94770000000";
-export const CONTACT_EMAIL = "hello@englishboardingpass.lk";
+export const CONTACT_EMAIL = "englishboardingpass.lk@gmail.com";
 
 export const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
 
