@@ -6,15 +6,11 @@ export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = "en";
 
-// `compact` is for the phone header, where the three full names don't fit
-// beside the logo. Each stays in its own script so it is recognisable to
-// someone who reads only that language.
-export const localeLabels: Record<Locale, { native: string; compact: string }> =
-  {
-    en: { native: "English", compact: "EN" },
-    si: { native: "සිංහල", compact: "සිං" },
-    ta: { native: "தமிழ்", compact: "தமி" },
-  };
+export const localeLabels: Record<Locale, { native: string; short: string }> = {
+  en: { native: "English", short: "EN" },
+  si: { native: "සිංහල", short: "SI" },
+  ta: { native: "தமிழ்", short: "TA" },
+};
 
 export const routing = defineRouting({
   locales,

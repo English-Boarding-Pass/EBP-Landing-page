@@ -14,7 +14,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="bg-navy pt-30 pb-14 sm:pt-40 sm:pb-20">
+    <section className="bg-navy pt-44 pb-14 sm:pt-40 sm:pb-20">
       <Container>
         <div className="max-w-3xl">
           <p className="font-board text-xs font-semibold tracking-[0.25em] text-sky uppercase">
