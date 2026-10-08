@@ -10,7 +10,7 @@ import {
 } from "react";
 import { Xmark } from "iconoir-react";
 
-const maxWidths = { md: "28rem", "2xl": "42rem" } as const;
+const maxWidths = { md: "28rem", lg: "36rem", "2xl": "42rem" } as const;
 
 /**
  * The one dialog the site uses for popups (teacher profiles, privacy notice).

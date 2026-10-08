@@ -93,7 +93,8 @@ export function TeacherCard({
 }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const testimonials = teacher.testimonials;
+  // Five reviews at most, so the popup stays easy to read.
+  const testimonials = teacher.testimonials.slice(0, 5);
 
   return (
     <>
@@ -122,6 +123,7 @@ export function TeacherCard({
         onClose={() => setOpen(false)}
         title={teacher.name}
         closeLabel={labels.close}
+        size="lg"
         returnFocusRef={triggerRef}
       >
         <div className="flex items-center gap-4">
