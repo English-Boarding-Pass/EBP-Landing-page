@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "English Boarding Pass | English That Takes You Places",
+    "title": "English Boarding Pass",
     "description": "Learn to use English with confidence. Experienced Sri Lankan teachers, taught in the language you already think in. For individual students and companies.",
     "corporates": {
       "title": "English for your team | English Boarding Pass",
@@ -91,62 +91,38 @@
     "subtitle": "Experienced Sri Lankan teachers who understand the local context and know exactly where Sinhala and Tamil speakers get stuck.",
     "items": [
       {
-        "name": "Ms. Ruwanthi Fernando",
-        "experience": "12 years of experience",
-        "specialism": "Spoken English for school leavers and working adults",
-        "line": "Classes built around conversation in Colombo and Kandy.",
-        "longBio": "Ruwanthi has taught spoken English for 12 years, to school leavers and working adults in Colombo and Kandy. Her classes are built on conversation. She keeps the teaching short, gets everyone talking, and explains in Sinhala whenever a point needs it.",
+        "name": "Mizly Nizar",
+        "bio": "Mizly Nizar teaches English at O/L and A/L level, communication skills for adults, and speech and elocution for young learners. She holds a Diploma in English for Teachers of English from the University of Colombo and has taught as a visiting academic at the Open University of Sri Lanka.",
         "testimonials": [
           {
-            "quote": "I got a lot of chances to talk in class.",
-            "name": "Sample student"
+            "quote": "Thank you for explaining so patiently, making the class fun, correcting us when we were wrong and encouraging us to do our best.",
+            "name": "Hazra"
           },
           {
-            "quote": "She gives each of us individual attention, so we can be ourselves.",
-            "name": "Sample student"
-          }
-        ]
-      },
-      {
-        "name": "Mr. Kavindu Perera",
-        "experience": "6 years of experience",
-        "specialism": "Interview and workplace English",
-        "line": "Real emails, meetings and phone calls, practised until they feel natural.",
-        "longBio": "Kavindu prepares students for interviews and their first job. He brings real workplace situations into class, such as emails, meetings and phone calls, and students practise them until they feel natural. He explains in Sinhala whenever it helps.",
-        "testimonials": [
-          {
-            "quote": "We practised real interview questions in class, so I wasn't nervous in my own interview.",
-            "name": "Sample student"
+            "quote": "I am forever grateful for your hard work to help me grow. Your constant understanding and always being there show me I can do it.",
+            "name": "Shafna"
           },
           {
-            "quote": "He went through every email I wrote with me, line by line.",
-            "name": "Sample student"
-          }
-        ]
-      },
-      {
-        "name": "Ms. Priyatharshini Raj",
-        "experience": "8 years of experience",
-        "specialism": "Conversational English",
-        "line": "Real conversation ahead of grammar drills, with Tamil explanations when needed.",
-        "longBio": "Priyatharshini has taught English in Jaffna and Colombo for 8 years. She puts real conversation ahead of grammar drills and explains in Tamil whenever a student needs it. Her students speak in every class, in pairs and in small groups.",
-        "testimonials": [
-          {
-            "quote": "I spoke with a partner in every class. That was easier than speaking in front of everyone.",
-            "name": "Sample student"
+            "quote": "To a teacher who's smart and fair, patient and friendly, gentle and kind, and to the best teacher in the world.",
+            "name": "Salma"
           },
           {
-            "quote": "When I didn't understand, she explained in Tamil and then let me try again in English.",
-            "name": "Sample student"
+            "quote": "My award for the best teacher, who is warm, loving, caring and fun too, goes to you!",
+            "name": "Hazra"
+          },
+          {
+            "quote": "Because of you, I want to be a teacher, touching someone's life as you've touched mine.",
+            "name": "Former student"
           }
         ]
       }
     ],
-    "more": "Read more",
     "testimonialsTitle": "What students say",
+    "moreSoon": "More teachers will be added soon.",
+    "more": "Read reviews",
     "close": "Close",
-    "sampleNote": "Sample profiles. Real teachers, photos and student feedback will be added soon.",
-    "readMoreAbout": "Read more about {name}"
+    "readMoreAbout": "Read reviews for {name}",
+    "comingSoon": "Profile coming soon"
   },
   "faq": {
     "title": "Questions, answered",

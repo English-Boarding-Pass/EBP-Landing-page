@@ -1,12 +1,20 @@
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { TeacherCard, type Teacher } from "@/components/sections/teacher-card";
+import {
+  TeacherCard,
+  TeacherPlaceholder,
+  type Teacher,
+} from "@/components/sections/teacher-card";
 
-// Photo paths under public/ (e.g. "/teachers/shamil.jpg"), in the same order
+// Photo paths under public/ (e.g. "/teachers/mizly.jpg"), in the same order
 // as teachers.items in messages/*.json. A missing entry shows the placeholder
 // avatar.
 const photos: (string | undefined)[] = [];
+
+// The row holds three tiles. Teachers still to come fill the rest with a
+// "profile coming soon" box until their details arrive.
+const TILES = 3;
 
 export function Teachers() {
   const t = useTranslations("teachers");
@@ -35,8 +43,11 @@ export function Teachers() {
               }}
             />
           ))}
+          {Array.from({ length: Math.max(0, TILES - items.length) }, (_, i) => (
+            <TeacherPlaceholder key={i} label={t("comingSoon")} />
+          ))}
         </div>
-        <p className="mt-8 max-w-xl text-xs text-slate/70">{t("sampleNote")}</p>
+        <p className="mt-8 max-w-xl text-xs text-slate/70">{t("moreSoon")}</p>
       </Container>
     </section>
   );

@@ -3,17 +3,14 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { clsx } from "clsx";
-import { Quote } from "iconoir-react";
+import { Quote, User } from "iconoir-react";
 import { Modal } from "@/components/ui/modal";
 
-// Every card shows the same fields in the same order: name, experience,
-// specialism, one supporting line.
+// Every card shows the same fields in the same order: name and a short bio.
+// Student reviews open in a popup.
 export type Teacher = {
   name: string;
-  experience: string;
-  specialism: string;
-  line: string;
-  longBio: string;
+  bio: string;
   testimonials: { quote: string; name: string }[];
 };
 
@@ -96,7 +93,8 @@ export function TeacherCard({
 }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const testimonials = teacher.testimonials.slice(0, 2);
+  // Five reviews at most, so the popup stays easy to read.
+  const testimonials = teacher.testimonials.slice(0, 5);
 
   return (
     <>
@@ -105,15 +103,7 @@ export function TeacherCard({
         <h3 className="mt-4 font-display text-lg font-bold text-navy">
           {teacher.name}
         </h3>
-        <p className="mt-1 text-sm font-semibold text-sky-ink">
-          {teacher.experience}
-        </p>
-        <p className="mt-3 text-sm font-medium text-navy">
-          {teacher.specialism}
-        </p>
-        <p className="mt-2 text-sm leading-relaxed text-slate">
-          {teacher.line}
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-slate">{teacher.bio}</p>
 
         {/* mt-auto pins the button to the bottom; the stretched ::after makes the whole tile the click target. */}
         <button
@@ -133,6 +123,7 @@ export function TeacherCard({
         onClose={() => setOpen(false)}
         title={teacher.name}
         closeLabel={labels.close}
+        size="lg"
         returnFocusRef={triggerRef}
       >
         <div className="flex items-center gap-4">
@@ -142,23 +133,14 @@ export function TeacherCard({
             index={index}
             size="profile"
           />
-          <div className="min-w-0">
-            <p className="text-sm font-semibold text-sky-ink">
-              {teacher.experience}
-            </p>
-            <p className="mt-1 text-sm font-medium text-navy">
-              {teacher.specialism}
-            </p>
-          </div>
+          <p className="min-w-0 text-sm leading-relaxed text-slate">
+            {teacher.bio}
+          </p>
         </div>
-
-        <p className="mt-5 text-sm leading-relaxed text-slate sm:text-base">
-          {teacher.longBio}
-        </p>
 
         {testimonials.length > 0 ? (
           <>
-            <h3 className="mt-7 font-board text-xs font-semibold tracking-[0.2em] text-sky-ink uppercase">
+            <h3 className="mt-6 font-board text-xs font-semibold tracking-[0.2em] text-sky-ink uppercase">
               {labels.testimonialsTitle}
             </h3>
             <div className="mt-3 space-y-3">
@@ -178,5 +160,20 @@ export function TeacherCard({
         ) : null}
       </Modal>
     </>
+  );
+}
+
+/** A box held for a teacher whose profile is still to come, so the row keeps its three tiles. */
+export function TeacherPlaceholder({ label }: { label: string }) {
+  return (
+    <div className="flex h-full flex-col items-start rounded-card border border-dashed border-navy/20 bg-ivory/60 p-7">
+      <div
+        aria-hidden
+        className="flex size-24 shrink-0 items-center justify-center rounded-full bg-paper text-slate/40 ring-1 ring-navy/10"
+      >
+        <User className="size-9" />
+      </div>
+      <p className="mt-4 text-sm font-medium text-slate">{label}</p>
+    </div>
   );
 }
