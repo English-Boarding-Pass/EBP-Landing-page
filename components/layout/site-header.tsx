@@ -116,7 +116,10 @@ export function SiteHeader() {
 
             <nav
               aria-label={t("primary")}
-              className={clsx("hidden items-center gap-5", inlineNav.show)}
+              className={clsx(
+                "hidden items-center gap-8 2xl:gap-10",
+                inlineNav.show,
+              )}
             >
               {renderLinks(desktopLink)}
             </nav>
