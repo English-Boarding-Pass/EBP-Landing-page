@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "English Boarding Pass",
-    "description": "Learn to use English with confidence. Experienced Sri Lankan teachers, taught in the language you already think in. For individual students and companies.",
+    "description": "Spoken English classes in Sri Lanka with experienced Sri Lankan teachers who explain in Sinhala or Tamil. For students, and tailored courses for companies.",
     "corporates": {
       "title": "English for your team | English Boarding Pass",
       "description": "Tailored English courses for companies in Sri Lanka, built around your team's job roles, with evaluations before and after."
@@ -342,7 +342,23 @@
           "name": "Proficiency",
           "description": "You understand almost everything and express yourself precisely."
         }
-      ]
+      ],
+      "table": {
+        "title": "How the tests compare",
+        "columns": [
+          "CEFR level",
+          "Cambridge English exam",
+          "IELTS band (approximate)"
+        ],
+        "rows": [
+          ["A2", "A2 Key", "Under 4.0"],
+          ["B1", "B1 Preliminary", "4.0 to 5.0"],
+          ["B2", "B2 First", "5.5 to 6.5"],
+          ["C1", "C1 Advanced", "7.0 to 8.0"],
+          ["C2", "C2 Proficiency", "8.5 to 9.0"]
+        ],
+        "note": "Scores are approximate. Each test owner publishes its own chart, so check the one your university or employer uses. TOEFL, PTE and the Oxford Test of English are mapped to the CEFR too."
+      }
     },
     "progression": {
       "title": "How we build it",
