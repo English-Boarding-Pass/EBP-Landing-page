@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbData, sciencePageData } from "@/lib/structured-data";
 import { PageHero } from "@/components/sections/page-hero";
 import { ScienceSkills } from "@/components/sections/science-skills";
 import { ScienceCefr } from "@/components/sections/science-cefr";
@@ -33,9 +35,20 @@ export default async function SciencePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("science");
+  const tMeta = await getTranslations("meta.science");
+  const tNav = await getTranslations("nav");
 
   return (
     <main id="main-content">
+      <JsonLd
+        data={sciencePageData(locale, tMeta("title"), tMeta("description"))}
+      />
+      <JsonLd
+        data={breadcrumbData(locale, tNav("home"), {
+          name: tNav("science"),
+          path: "/science",
+        })}
+      />
       <PageHero
         eyebrow={t("eyebrow")}
         title={t("title")}

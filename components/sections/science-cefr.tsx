@@ -18,6 +18,9 @@ const bandClasses = [
 export function ScienceCefr() {
   const t = useTranslations("science.cefr");
   const levels = t.raw("levels") as Level[];
+  const tTable = useTranslations("science.cefr.table");
+  const columns = tTable.raw("columns") as string[];
+  const rows = tTable.raw("rows") as string[][];
 
   return (
     <section className="bg-paper py-14 sm:py-24">
@@ -54,6 +57,50 @@ export function ScienceCefr() {
             </li>
           ))}
         </ol>
+
+        {/* A real table: easy to read, and the form search and answer engines quote most. */}
+        <div className="mt-14 max-w-3xl">
+          <h3 className="font-display text-xl font-bold text-navy">
+            {tTable("title")}
+          </h3>
+          <div className="mt-4 overflow-x-auto rounded-card border border-navy/10 bg-ivory">
+            <table className="w-full min-w-[30rem] text-left text-sm">
+              <thead>
+                <tr className="border-b border-navy/10 text-xs tracking-wide text-slate uppercase">
+                  {columns.map((column) => (
+                    <th
+                      key={column}
+                      scope="col"
+                      className="px-5 py-3 font-medium"
+                    >
+                      {column}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map(([level, exam, ielts]) => (
+                  <tr
+                    key={level}
+                    className="border-b border-navy/10 last:border-0"
+                  >
+                    <th
+                      scope="row"
+                      className="px-5 py-3 font-board font-semibold text-navy"
+                    >
+                      {level}
+                    </th>
+                    <td className="px-5 py-3 text-navy">{exam}</td>
+                    <td className="px-5 py-3 text-slate">{ielts}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-slate/80">
+            {tTable("note")}
+          </p>
+        </div>
       </Container>
     </section>
   );

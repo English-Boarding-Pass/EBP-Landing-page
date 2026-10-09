@@ -6,9 +6,8 @@ import { Teachers } from "@/components/sections/teachers";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/seo/json-ld";
-import { socialLinks } from "@/lib/links";
 import { pageMetadata } from "@/lib/seo";
-import { SITE_URL } from "@/lib/site";
+import { organizationData, websiteData } from "@/lib/structured-data";
 
 type FaqItem = { question: string; answer: string; points?: string[] };
 
@@ -38,16 +37,9 @@ export default async function HomePage({
   const tMeta = await getTranslations("meta");
   const tFaq = await getTranslations("faq");
 
-  // Who we are, for search engines. No phone or email until the real ones exist.
-  const organization = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: "English Boarding Pass",
-    url: `${SITE_URL}/${locale}`,
-    description: tMeta("description"),
-    areaServed: { "@type": "Country", name: "Sri Lanka" },
-    sameAs: socialLinks.map((link) => link.href),
-  };
+  // Who we are, for search engines (lib/structured-data.ts).
+  const organization = organizationData(locale, tMeta("description"));
+  const website = websiteData(locale);
 
   // The same questions and answers the FAQ section shows on the page.
   const faq = {
@@ -66,6 +58,7 @@ export default async function HomePage({
   return (
     <main id="main-content">
       <JsonLd data={organization} />
+      <JsonLd data={website} />
       <JsonLd data={faq} />
       <Hero />
       <HowItWorks />
