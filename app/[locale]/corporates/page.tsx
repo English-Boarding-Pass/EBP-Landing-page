@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbData, corporateServiceData } from "@/lib/structured-data";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -34,9 +36,24 @@ export default async function CorporatesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("corporates");
+  const tMeta = await getTranslations("meta.corporates");
+  const tNav = await getTranslations("nav");
 
   return (
     <main id="main-content">
+      <JsonLd
+        data={corporateServiceData(
+          locale,
+          tMeta("title"),
+          tMeta("description"),
+        )}
+      />
+      <JsonLd
+        data={breadcrumbData(locale, tNav("home"), {
+          name: tNav("corporates"),
+          path: "/corporates",
+        })}
+      />
       <PageHero
         eyebrow={t("eyebrow")}
         title={t("title")}
