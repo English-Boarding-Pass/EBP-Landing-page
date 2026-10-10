@@ -49,10 +49,10 @@ function Avatar({
     return (
       <Image
         src={photo}
-        alt=""
+        alt={name}
         width={224}
         height={224}
-        className={clsx(box, "shrink-0 rounded-full object-cover")}
+        className={clsx(box, "shrink-0 rounded-full object-cover object-top")}
       />
     );
   }

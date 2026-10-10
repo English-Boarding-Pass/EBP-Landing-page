@@ -91,6 +91,32 @@
     "subtitle": "Experienced Sri Lankan teachers who understand the local context and know exactly where Sinhala and Tamil speakers get stuck.",
     "items": [
       {
+        "name": "Chandima Nanayakkara",
+        "bio": "Chandima Nanayakkara has nearly 20 years of experience teaching, including graduate students at three universities. She works as a teacher, teacher trainer and corporate trainer. She holds a BA, a Master's in Linguistics and CELTA, and loves storytelling with young learners and helping people speak English with confidence.",
+        "testimonials": [
+          {
+            "quote": "Chandima has been a wonderful support in our storytelling sessions and the Reading Challenge program. Her storytelling is engaging and lively, bringing stories to life and making each session enjoyable for the students. She gently encourages students to take part and helps nurture their love for books.",
+            "name": "A colleague"
+          },
+          {
+            "quote": "Chandima is patient, understanding and able to create a comfortable environment for candidates, which helps them perform to the best of their ability.",
+            "name": "A colleague"
+          },
+          {
+            "quote": "Chandima has shown a clear understanding of the mark scheme and applies it consistently across scripts. She works reliably, meets deadlines and keeps a professional approach throughout the marking period. Her conducting of the exam is very professional.",
+            "name": "A colleague"
+          },
+          {
+            "quote": "Chandima is like sunshine, always lighting the way for everyone around her. I have seen how she interacts with students and how great she is with them, so 10/10 from my end.",
+            "name": "A colleague"
+          },
+          {
+            "quote": "You are really good at giving personal examples. This makes things clear and builds rapport. You were brilliant and a natural.",
+            "name": "A training observer"
+          }
+        ]
+      },
+      {
         "name": "Mizly Nizar",
         "bio": "Mizly Nizar teaches English at O/L and A/L level, communication skills for adults, and speech and elocution for young learners. She holds a Diploma in English for Teachers of English from the University of Colombo and has taught as a visiting academic at the Open University of Sri Lanka.",
         "testimonials": [
@@ -117,8 +143,7 @@
         ]
       }
     ],
-    "testimonialsTitle": "What students say",
-    "moreSoon": "More teachers will be added soon.",
+    "testimonialsTitle": "What people say",
     "more": "Read reviews",
     "close": "Close",
     "readMoreAbout": "Read reviews for {name}",
