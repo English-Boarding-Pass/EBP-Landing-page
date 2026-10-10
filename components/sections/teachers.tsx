@@ -11,8 +11,8 @@ import {
 // as teachers.items in messages/*.json. A missing entry shows the placeholder
 // avatar.
 const photos: (string | undefined)[] = [
-  undefined,
   "/teachers/chandima-nanayakkara.jpg",
+  undefined,
 ];
 
 // The row holds three tiles. Teachers still to come fill the rest with a
