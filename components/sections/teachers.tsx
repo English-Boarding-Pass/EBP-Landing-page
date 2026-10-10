@@ -50,7 +50,6 @@ export function Teachers() {
             <TeacherPlaceholder key={i} label={t("comingSoon")} />
           ))}
         </div>
-        <p className="mt-8 max-w-xl text-xs text-slate/70">{t("moreSoon")}</p>
       </Container>
     </section>
   );
