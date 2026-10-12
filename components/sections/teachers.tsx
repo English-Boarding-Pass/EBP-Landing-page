@@ -12,6 +12,7 @@ import {
 // avatar.
 const photos: (string | undefined)[] = [
   "/teachers/chandima-nanayakkara.jpg",
+  "/teachers/shamil-akbar.jpg",
   undefined,
 ];
 

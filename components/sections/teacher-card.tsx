@@ -7,7 +7,7 @@ import { Quote, User } from "iconoir-react";
 import { Modal } from "@/components/ui/modal";
 
 // Every card shows the same fields in the same order: name and a short bio.
-// Student reviews open in a popup.
+// "See more" opens the full bio and any reviews in a popup.
 export type Teacher = {
   name: string;
   bio: string;
@@ -103,7 +103,9 @@ export function TeacherCard({
         <h3 className="mt-4 font-display text-lg font-bold text-navy">
           {teacher.name}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-slate">{teacher.bio}</p>
+        <p className="mt-3 line-clamp-5 text-sm leading-relaxed text-slate">
+          {teacher.bio}
+        </p>
 
         {/* mt-auto pins the button to the bottom; the stretched ::after makes the whole tile the click target. */}
         <button
