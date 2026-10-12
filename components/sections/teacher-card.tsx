@@ -7,7 +7,7 @@ import { Quote, User } from "iconoir-react";
 import { Modal } from "@/components/ui/modal";
 
 // Every card shows the same fields in the same order: name and a short bio.
-// Student reviews open in a popup.
+// "See more" opens the full bio and any reviews in a popup.
 export type Teacher = {
   name: string;
   bio: string;
@@ -103,70 +103,64 @@ export function TeacherCard({
         <h3 className="mt-4 font-display text-lg font-bold text-navy">
           {teacher.name}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-slate">{teacher.bio}</p>
+        <p className="mt-3 line-clamp-5 text-sm leading-relaxed text-slate">
+          {teacher.bio}
+        </p>
 
-        {/* mt-auto pins the button to the bottom; the stretched ::after makes the whole tile the click target.
-            A teacher with no reviews yet has nothing to open, so the button is left out. */}
-        {testimonials.length > 0 ? (
-          <button
-            ref={triggerRef}
-            type="button"
-            aria-haspopup="dialog"
-            aria-label={labels.moreAbout}
-            onClick={() => setOpen(true)}
-            className="mt-auto inline-flex min-h-11 items-center rounded-full pt-4 text-sm font-medium text-sky-ink underline-offset-4 after:absolute after:inset-0 after:rounded-card hover:underline focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-navy"
-          >
-            {labels.more}
-          </button>
-        ) : null}
+        {/* mt-auto pins the button to the bottom; the stretched ::after makes the whole tile the click target. */}
+        <button
+          ref={triggerRef}
+          type="button"
+          aria-haspopup="dialog"
+          aria-label={labels.moreAbout}
+          onClick={() => setOpen(true)}
+          className="mt-auto inline-flex min-h-11 items-center rounded-full pt-4 text-sm font-medium text-sky-ink underline-offset-4 after:absolute after:inset-0 after:rounded-card hover:underline focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-navy"
+        >
+          {labels.more}
+        </button>
       </article>
 
-      {testimonials.length > 0 ? (
-        <Modal
-          open={open}
-          onClose={() => setOpen(false)}
-          title={teacher.name}
-          closeLabel={labels.close}
-          size="lg"
-          returnFocusRef={triggerRef}
-        >
-          <div className="flex items-center gap-4">
-            <Avatar
-              photo={photo}
-              name={teacher.name}
-              index={index}
-              size="profile"
-            />
-            <p className="min-w-0 text-sm leading-relaxed text-slate">
-              {teacher.bio}
-            </p>
-          </div>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        title={teacher.name}
+        closeLabel={labels.close}
+        size="lg"
+        returnFocusRef={triggerRef}
+      >
+        <div className="flex items-center gap-4">
+          <Avatar
+            photo={photo}
+            name={teacher.name}
+            index={index}
+            size="profile"
+          />
+          <p className="min-w-0 text-sm leading-relaxed text-slate">
+            {teacher.bio}
+          </p>
+        </div>
 
-          {testimonials.length > 0 ? (
-            <>
-              <h3 className="mt-6 font-board text-xs font-semibold tracking-[0.2em] text-sky-ink uppercase">
-                {labels.testimonialsTitle}
-              </h3>
-              <div className="mt-3 space-y-3">
-                {testimonials.map((item) => (
-                  <figure
-                    key={item.quote}
-                    className="rounded-stub bg-ivory p-5"
-                  >
-                    <Quote className="size-5 text-red" aria-hidden />
-                    <blockquote className="mt-2 text-sm leading-relaxed text-navy">
-                      {item.quote}
-                    </blockquote>
-                    <figcaption className="mt-2 text-xs text-slate">
-                      {item.name}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </>
-          ) : null}
-        </Modal>
-      ) : null}
+        {testimonials.length > 0 ? (
+          <>
+            <h3 className="mt-6 font-board text-xs font-semibold tracking-[0.2em] text-sky-ink uppercase">
+              {labels.testimonialsTitle}
+            </h3>
+            <div className="mt-3 space-y-3">
+              {testimonials.map((item) => (
+                <figure key={item.quote} className="rounded-stub bg-ivory p-5">
+                  <Quote className="size-5 text-red" aria-hidden />
+                  <blockquote className="mt-2 text-sm leading-relaxed text-navy">
+                    {item.quote}
+                  </blockquote>
+                  <figcaption className="mt-2 text-xs text-slate">
+                    {item.name}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </>
+        ) : null}
+      </Modal>
     </>
   );
 }
