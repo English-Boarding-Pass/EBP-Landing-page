@@ -8,6 +8,9 @@ type Level = { code: string; name: string; description: string };
 
 // The scale's three bands (A basic, B independent, C proficient) get darker
 // as they climb.
+// Cambridge's own page on how its exams map to the CEFR.
+const CEFR_INFO_URL = "https://www.cambridgeenglish.org/exams-and-tests/cefr/";
+
 const bandClasses = [
   "bg-ice text-sky-ink",
   "bg-sky text-navy",
@@ -21,6 +24,7 @@ export function ScienceCefr() {
   const tTable = useTranslations("science.cefr.table");
   const columns = tTable.raw("columns") as string[];
   const rows = tTable.raw("rows") as string[][];
+  const tNewTab = useTranslations("howItWorks.students");
 
   return (
     <section className="bg-paper py-14 sm:py-24">
@@ -97,7 +101,18 @@ export function ScienceCefr() {
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-xs leading-relaxed text-slate/80">
+          <p className="mt-4 text-sm font-medium">
+            <a
+              href={CEFR_INFO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-ink underline underline-offset-4 hover:text-navy"
+            >
+              {tTable("moreInfo")}
+              <span className="sr-only"> ({tNewTab("opensNewTab")})</span>
+            </a>
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-slate/80">
             {tTable("note")}
           </p>
         </div>

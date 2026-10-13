@@ -95,11 +95,7 @@
         "bio": "Chandima Nanayakkara has nearly 20 years of experience teaching, including graduate students at three universities. She works as a teacher, teacher trainer and corporate trainer. She holds a BA, a Master's in Linguistics and CELTA, and loves storytelling with young learners and helping people speak English with confidence.",
         "testimonials": [
           {
-            "quote": "Chandima has been a wonderful support in our storytelling sessions and the Reading Challenge program. Her storytelling is engaging and lively, bringing stories to life and making each session enjoyable for the students. She gently encourages students to take part and helps nurture their love for books.",
-            "name": "A colleague"
-          },
-          {
-            "quote": "Chandima is patient, understanding and able to create a comfortable environment for candidates, which helps them perform to the best of their ability.",
+            "quote": "Chandima is like sunshine, always lighting the way for everyone around her. I have seen how she interacts with students and how great she is with them, so 10/10 from my end.",
             "name": "A colleague"
           },
           {
@@ -107,12 +103,8 @@
             "name": "A colleague"
           },
           {
-            "quote": "Chandima is like sunshine, always lighting the way for everyone around her. I have seen how she interacts with students and how great she is with them, so 10/10 from my end.",
+            "quote": "Chandima has been a wonderful support in our storytelling sessions and the Reading Challenge program. Her storytelling is engaging and lively, bringing stories to life and making each session enjoyable for the students. She gently encourages students to take part and helps nurture their love for books.",
             "name": "A colleague"
-          },
-          {
-            "quote": "You are really good at giving personal examples. This makes things clear and builds rapport. You were brilliant and a natural.",
-            "name": "A training observer"
           }
         ]
       },
@@ -126,24 +118,16 @@
         "bio": "Mizly has taught English at O/L and A/L level, communication skills for adults, and speech and elocution for young learners. She holds a Diploma in English for Teachers of English from the University of Colombo and has also taught as a visiting academic at the Open University of Sri Lanka.",
         "testimonials": [
           {
+            "quote": "Because of you, I want to be a teacher, touching someone's life as you've touched mine.",
+            "name": "Former student"
+          },
+          {
             "quote": "Thank you for explaining so patiently, making the class fun, correcting us when we were wrong and encouraging us to do our best.",
             "name": "Hazra"
           },
           {
             "quote": "I am forever grateful for your hard work to help me grow. Your constant understanding and always being there show me I can do it.",
             "name": "Shafna"
-          },
-          {
-            "quote": "To a teacher who's smart and fair, patient and friendly, gentle and kind, and to the best teacher in the world.",
-            "name": "Salma"
-          },
-          {
-            "quote": "My award for the best teacher, who is warm, loving, caring and fun too, goes to you!",
-            "name": "Hazra"
-          },
-          {
-            "quote": "Because of you, I want to be a teacher, touching someone's life as you've touched mine.",
-            "name": "Former student"
           }
         ]
       }
@@ -163,6 +147,10 @@
         "answer": "No. Your teacher explains in Sinhala or Tamil whenever you need it, so you can start from where you are right now."
       },
       {
+        "question": "What if I'm too nervous to speak in class?",
+        "answer": "That's normal, and it's what we're here for. Your teacher brings you in gently. Mistakes are expected, not judged."
+      },
+      {
         "question": "Are the classes online or in person?",
         "answer": "Both. We run a hybrid model, so classes can be arranged online or in person, based on what you need."
       },
@@ -177,10 +165,6 @@
       {
         "question": "Is there a certificate at the end?",
         "answer": "Yes. To earn it, you complete your classes and show how your English has grown."
-      },
-      {
-        "question": "What if I'm too nervous to speak in class?",
-        "answer": "That's normal, and it's what we're here for. Your teacher brings you in gently. Mistakes are expected, not judged."
       }
     ]
   },
@@ -387,7 +371,8 @@
           ["C1", "C1 Advanced", "7.0 to 8.0"],
           ["C2", "C2 Proficiency", "8.5 to 9.0"]
         ],
-        "note": "Scores are approximate. Each test owner publishes its own chart, so check the one your university or employer uses. TOEFL, PTE and the Oxford Test of English are mapped to the CEFR too."
+        "note": "Scores are approximate.",
+        "moreInfo": "For more information"
       }
     },
     "progression": {
