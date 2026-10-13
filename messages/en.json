@@ -136,7 +136,12 @@
     "more": "See more",
     "close": "Close",
     "readMoreAbout": "See more about {name}",
-    "comingSoon": "Profile coming soon"
+    "comingSoon": "Profile coming soon",
+    "advisor": {
+      "label": "Academic Advisor",
+      "name": "Prof Neluka Silva",
+      "bio": "Prof Neluka Silva is a Senior Professor in the English Department at the University of Colombo, with close to three decades of academic teaching in Sri Lanka and internationally. She holds an MSc in Applied Linguistics from the University of Oxford, a PhD in English from the University of Leeds and a coaching certificate from the University of Cambridge."
+    }
   },
   "faq": {
     "title": "Questions, answered",

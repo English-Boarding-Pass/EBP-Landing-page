@@ -33,7 +33,7 @@ function initialOf(name: string) {
   return first ? first.segment : "?";
 }
 
-function Avatar({
+export function Avatar({
   photo,
   name,
   index,
@@ -177,5 +177,35 @@ export function TeacherPlaceholder({ label }: { label: string }) {
       </div>
       <p className="mt-4 text-sm font-medium text-slate">{label}</p>
     </div>
+  );
+}
+
+/** A featured profile for someone who advises rather than teaches: no reviews, so no popup. */
+export function AdvisorCard({
+  label,
+  name,
+  bio,
+  photo,
+}: {
+  label: string;
+  name: string;
+  bio: string;
+  photo?: string;
+}) {
+  return (
+    <article className="flex flex-col gap-6 rounded-card border border-navy/10 bg-ivory p-7 sm:flex-row sm:items-center sm:gap-8 sm:p-8">
+      <Avatar photo={photo} name={name} index={0} size="profile" />
+      <div className="min-w-0">
+        <p className="font-board text-xs font-semibold tracking-[0.2em] text-sky-ink uppercase">
+          {label}
+        </p>
+        <h3 className="mt-2 font-display text-xl font-bold text-navy">
+          {name}
+        </h3>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate">
+          {bio}
+        </p>
+      </div>
+    </article>
   );
 }

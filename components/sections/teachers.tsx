@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import {
+  AdvisorCard,
   TeacherCard,
   TeacherPlaceholder,
   type Teacher,
@@ -20,6 +21,8 @@ const photos: (string | undefined)[] = [
 // "profile coming soon" box until their details arrive.
 const TILES = 3;
 
+const advisorPhoto = "/teachers/neluka-silva.jpg";
+
 export function Teachers() {
   const t = useTranslations("teachers");
   const items = t.raw("items") as Teacher[];
@@ -32,7 +35,18 @@ export function Teachers() {
   return (
     <section id="teachers" className="bg-paper pt-14 pb-10 sm:pt-24 sm:pb-12">
       <Container>
-        <SectionHeading title={t("title")} subtitle={t("subtitle")} />
+        <AdvisorCard
+          label={t("advisor.label")}
+          name={t("advisor.name")}
+          bio={t("advisor.bio")}
+          photo={advisorPhoto}
+        />
+
+        <SectionHeading
+          title={t("title")}
+          subtitle={t("subtitle")}
+          className="mt-14 sm:mt-20"
+        />
 
         <div className="mt-12 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((teacher, i) => (
