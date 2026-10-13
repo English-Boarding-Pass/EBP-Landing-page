@@ -7,13 +7,13 @@ import {
   type Teacher,
 } from "@/components/sections/teacher-card";
 
-// Photo paths under public/ (e.g. "/teachers/mizly-nizar.jpg"), in the same order
+// Photo paths under public/ (e.g. "/teachers/mizly-mashoor.jpg"), in the same order
 // as teachers.items in messages/*.json. A missing entry shows the placeholder
 // avatar.
 const photos: (string | undefined)[] = [
   "/teachers/chandima-nanayakkara.jpg",
   "/teachers/shamil-akbar.jpg",
-  undefined,
+  "/teachers/mizly-mashoor.jpg",
 ];
 
 // The row holds three tiles. Teachers still to come fill the rest with a
