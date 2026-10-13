@@ -93,8 +93,8 @@ export function TeacherCard({
 }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
-  // Five reviews at most, so the popup stays easy to read.
-  const testimonials = teacher.testimonials.slice(0, 5);
+  // Three reviews at most, shortest first, so the popup stays easy to read.
+  const testimonials = teacher.testimonials.slice(0, 3);
 
   return (
     <>
