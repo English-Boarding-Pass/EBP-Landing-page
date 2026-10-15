@@ -32,7 +32,7 @@ All copy lives in `messages/*.json`. Sections removed in the October 2026 conten
 
 Teacher profiles live in `teachers.items` in each `messages/*.json`: an optional `advisor` block (a featured "Academic Advisor" card above the tiles, with `label`, `name`, `bio`; photo set in `teachers.tsx`), then teachers: a name, a bio of about 50 words and up to three reviews, shortest first (they open in a popup; "See more" opens the full bio, and an empty `testimonials` list simply shows no reviews). The row shows four tiles; teachers still to come fill the rest with a "profile coming soon" box. To add a teacher, add an item to each file, put the photo in `public/teachers/` and list its path in the `photos` array in [components/sections/teachers.tsx](components/sections/teachers.tsx), in the same order.
 
-The WhatsApp number and contact email in [lib/site.ts](lib/site.ts) are placeholders.
+The WhatsApp number and contact email live in [lib/site.ts](lib/site.ts). The email is the team Gmail address until a domain mailbox exists.
 
 ## Enquiry forms (Resend)
 

@@ -1,7 +1,7 @@
-// Contact details shown across the site. The WhatsApp number is a
-// placeholder until the real one is set up. The email is the team's Gmail
-// address until a domain mailbox exists.
-export const WHATSAPP_NUMBER = "94770000000";
+// Contact details shown across the site. The WhatsApp number is in
+// international format without the plus sign, as wa.me expects (+94 77 669 7494).
+// The email is the team's Gmail address until a domain mailbox exists.
+export const WHATSAPP_NUMBER = "94776697494";
 export const CONTACT_EMAIL = "englishboardingpass.lk@gmail.com";
 
 export const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
