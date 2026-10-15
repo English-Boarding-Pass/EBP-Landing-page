@@ -98,12 +98,12 @@ export function TeacherCard({
 
   return (
     <>
-      <article className="relative flex h-full flex-col items-start rounded-card border border-navy/10 bg-ivory p-7 transition-colors hover:border-navy/25">
+      <article className="relative flex h-full flex-col items-start rounded-card border border-navy/10 bg-ivory p-6 transition-colors hover:border-navy/25 lg:p-5">
         <Avatar photo={photo} name={teacher.name} index={index} size="card" />
         <h3 className="mt-4 font-display text-lg font-bold text-navy">
           {teacher.name}
         </h3>
-        <p className="mt-3 line-clamp-5 text-sm leading-relaxed text-slate">
+        <p className="mt-3 line-clamp-6 text-sm leading-relaxed text-slate">
           {teacher.bio}
         </p>
 

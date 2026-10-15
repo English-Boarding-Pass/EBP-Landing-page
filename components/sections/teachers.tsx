@@ -18,9 +18,9 @@ const photos: (string | undefined)[] = [
   "/teachers/vijayanathan-thusandra.jpg",
 ];
 
-// The row holds three tiles. Teachers still to come fill the rest with a
+// The row holds four tiles. Teachers still to come fill the rest with a
 // "profile coming soon" box until their details arrive.
-const TILES = 3;
+const TILES = 4;
 
 const advisorPhoto = "/teachers/neluka-silva.jpg";
 
@@ -49,7 +49,7 @@ export function Teachers() {
           className="mt-14 sm:mt-20"
         />
 
-        <div className="mt-12 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((teacher, i) => (
             <TeacherCard
               key={teacher.name}
