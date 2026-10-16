@@ -24,6 +24,10 @@ const TILES = 4;
 
 const advisorPhoto = "/teachers/neluka-silva.jpg";
 
+// The Academic Advisor card is hidden for now. Set to true to show it again;
+// her text and photo are still in place.
+const SHOW_ADVISOR = false;
+
 export function Teachers() {
   const t = useTranslations("teachers");
   const items = t.raw("items") as Teacher[];
@@ -36,17 +40,19 @@ export function Teachers() {
   return (
     <section id="teachers" className="bg-paper pt-14 pb-10 sm:pt-24 sm:pb-12">
       <Container>
-        <AdvisorCard
-          label={t("advisor.label")}
-          name={t("advisor.name")}
-          bio={t("advisor.bio")}
-          photo={advisorPhoto}
-        />
+        {SHOW_ADVISOR ? (
+          <AdvisorCard
+            label={t("advisor.label")}
+            name={t("advisor.name")}
+            bio={t("advisor.bio")}
+            photo={advisorPhoto}
+          />
+        ) : null}
 
         <SectionHeading
           title={t("title")}
           subtitle={t("subtitle")}
-          className="mt-14 sm:mt-20"
+          className={SHOW_ADVISOR ? "mt-14 sm:mt-20" : undefined}
         />
 
         <div className="mt-12 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
