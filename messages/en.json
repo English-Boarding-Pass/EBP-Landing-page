@@ -111,7 +111,20 @@
       {
         "name": "Shamil Akbar",
         "bio": "Shamil Akbar is an energetic lecturer, trainer and compere with more than a decade of experience. He has touched the lives of more than 2,500 participants to date. He also lectures at the Royal Institute Centre of Skills (RICS), Royal Institute of Colombo (RIC), ICBT, APIIT and CIRP. As an educator, he has always strived for superior quality of education with a practical approach to teaching.",
-        "testimonials": []
+        "testimonials": [
+          {
+            "quote": "Thank you for making English so inspiring and making grammar fascinating. Your dedication means the world to us.",
+            "name": "A student"
+          },
+          {
+            "quote": "He gives all of us individual attention and makes us all feel heard. We're really fortunate to have someone who's fun and creative to tutor us.",
+            "name": "A student"
+          },
+          {
+            "quote": "You're one of the best English teachers to ever teach me. Thank you for guiding us from the beginning, and I hope you can continue to help us improve our self confidence and knowledge.",
+            "name": "A student"
+          }
+        ]
       },
       {
         "name": "Mizly Mashoor",
