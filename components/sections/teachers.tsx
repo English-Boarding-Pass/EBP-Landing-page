@@ -16,6 +16,7 @@ const photos: (string | undefined)[] = [
   "/teachers/shamil-akbar.jpg",
   "/teachers/mizly-mashoor.jpg",
   "/teachers/vijayanathan-thusandra.jpg",
+  "/teachers/farah.jpg",
 ];
 
 // The row holds four tiles. Teachers still to come fill the rest with a
