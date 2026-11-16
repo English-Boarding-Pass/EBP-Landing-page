@@ -44,7 +44,7 @@ export function Avatar({
   index: number;
   size: "card" | "profile";
 }) {
-  const box = size === "card" ? "size-24" : "size-28";
+  const box = size === "card" ? "size-24 xl:size-20" : "size-28";
   if (photo) {
     return (
       <Image
@@ -100,10 +100,10 @@ export function TeacherCard({
     <>
       <article className="relative flex h-full flex-col items-start rounded-card border border-navy/10 bg-ivory p-6 transition-colors hover:border-navy/25 lg:p-5">
         <Avatar photo={photo} name={teacher.name} index={index} size="card" />
-        <h3 className="mt-4 font-display text-lg font-bold text-navy">
+        <h3 className="mt-4 font-display text-lg font-bold text-navy xl:text-base">
           {teacher.name}
         </h3>
-        <p className="mt-3 line-clamp-6 text-sm leading-relaxed text-slate">
+        <p className="mt-3 line-clamp-6 text-sm leading-relaxed text-slate xl:text-[13px]">
           {teacher.bio}
         </p>
 
